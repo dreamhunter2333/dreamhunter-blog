@@ -2,9 +2,8 @@
 title: SQL 约束
 date: 2019-08-20 20:21:48
 tags:
-  - odoo
-  - SQL
-categories: odoo
+  - database
+categories: database
 ---
 
 ## SQL 约束

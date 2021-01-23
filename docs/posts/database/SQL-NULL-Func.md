@@ -1,9 +1,9 @@
 ---
 title: SQL NULL Func
 date: 2019-10-21 15:05:58
-categories: sql
+categories: database
 tags: 
-    - sql
+    - database
 ---
 
 ## SQL NULL 函数
