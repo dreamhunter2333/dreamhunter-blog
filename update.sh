@@ -10,3 +10,9 @@ date=`date +"%Y-%m-%d %H:%M:%S"`
 git add --all
 git commit -m "update at $date"
 git push
+echo "push vuepress-blog"
+cd ..
+date=`date +"%Y-%m-%d %H:%M:%S"`
+git add --all
+git commit -m "update at $date"
+git push
