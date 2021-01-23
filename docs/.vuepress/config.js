@@ -51,7 +51,10 @@ module.exports = {
         startYear: '2019'
     },
     plugins: [
-        '@vuepress/pwa',
+        ['@vuepress/pwa', {
+            serviceWorker: true,
+            updatePopup: true
+        }],
         ['sitemap', {
             hostname: 'https://jcstaff.club'
         }],
