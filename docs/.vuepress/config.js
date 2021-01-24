@@ -54,7 +54,10 @@ module.exports = {
     plugins: [
         ['@vuepress/pwa', {
             serviceWorker: true,
-            updatePopup: true
+            updatePopup: {
+                message: "发现新内容可用",
+                buttonText: "刷新"
+            }
         }],
         ['sitemap', {
             hostname: 'https://jcstaff.club'
