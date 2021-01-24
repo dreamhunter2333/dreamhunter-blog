@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "new": "./new.sh",
+    "deploy": "./deploy.sh"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.0",
