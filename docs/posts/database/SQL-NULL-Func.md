@@ -1,7 +1,8 @@
 ---
 title: SQL NULL Func
 date: 2019-10-21 15:05:58
-categories: database
+categories:
+    - database
 tags: 
     - database
 ---

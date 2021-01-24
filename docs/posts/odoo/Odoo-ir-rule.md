@@ -6,7 +6,7 @@ tags:
 categories: odoo
 ---
 
-# Odoo ir.rule 记录规则
+## Odoo ir.rule 记录规则
 
 ```xml
 <record id="company_id_rule" model="ir.rule">

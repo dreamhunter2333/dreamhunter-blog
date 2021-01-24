@@ -23,7 +23,7 @@ categories: hackintosh
 * 提取bios的AML文件，反编译为dsl文件，修改完毕后，编译到Aml--〉替换BIOS中的DSDT。
 * 技术的进步让我们可以由clover来加载编译好的DSDT.aml文件在修复ACPI缺陷，使主板更好支持苹果系统。
 
-**提取DSDT**
+**提取DSDT
 
 * 1.clover 界面 F4 提取到 `EFI/CLOVER/ACPI/origin`
 * 2.MACiASL提取
@@ -32,28 +32,28 @@ categories: hackintosh
 
 ### DSDT/SSDT 的反编译
 
-**DSDT提取完你的目录类似如下**
+**DSDT提取完你的目录类似如下
 
 * APIC    DBGP    FACP    FPDT    MCFG    SSDT2   SSDT5   SSDT8   UEFI    dynamic
 BGRT    DMAR    FACS    HPET    MSDM    SSDT3   SSDT6   SSDT9   WSMT
 DBG2    DSDT    FIDT    LPIT    SSDT1   SSDT4   SSDT7   TPM2    data
 
-**只需要dsdt ssdt开头的文件(不包括ssdt-x)**
+**只需要dsdt ssdt开头的文件(不包括ssdt-x)
 
 * linux提取的自行加上后缀`aml`
-* DSDT.aml   
-SSDT3.aml  
-SSDT6.aml 
-SSDT9.aml 
-SSDT2.aml 
-SSDT3.dsl 
-SSDT5.aml 
-SSDT8.aml 
-SSDT1.aml 
-SSDT4.aml  
+* DSDT.aml
+SSDT3.aml
+SSDT6.aml
+SSDT9.aml
+SSDT2.aml
+SSDT3.dsl
+SSDT5.aml
+SSDT8.aml
+SSDT1.aml
+SSDT4.aml
 SSDT7.aml
 
-**将上一步提取的文件反编译**
+**将上一步提取的文件反编译
 
 * iasl自行寻找对应版本
 
@@ -64,8 +64,9 @@ iasl -da -dl *.aml
 # 无法联合反编译 请尝试
 iasl -dl *.aml
 ```
+
 ****
-**此时你的目录应该如下**  
+**此时你的目录应该如下
 
 * DSDT.aml  SSDT1.dsl SSDT3.aml SSDT4.dsl SSDT6.aml SSDT7.dsl SSDT9.aml
 DSDT.dsl  SSDT2.aml SSDT3.dsl SSDT5.aml SSDT6.dsl SSDT8.aml SSDT9.dsl
@@ -75,14 +76,14 @@ SSDT1.aml SSDT2.dsl SSDT4.aml SSDT5.dsl SSDT7.aml SSDT8.dsl
 
 ### DSDT/SSDT 关于电量显示的修改
 
-**使用 MACiASL 打开 DSDT.dsl**
+**使用 MACiASL 打开 DSDT.dsl
 
 * 点击编译，确保没有错误 否则需要先进行除错
 * 错误一般都是 引入错误 和类型错误
 
 ![1](/imgs/dsdt1.png)
 ****
-**找到电池变量位置**
+**找到电池变量位置
 
 * 在DSDT中搜索 `embeddedcontrol`
 * 应该会有如下的一段或几段
@@ -144,7 +145,7 @@ SSDT1.aml SSDT2.dsl SSDT4.aml SSDT5.dsl SSDT7.aml SSDT8.dsl
 ```
 
 ****
-**找到电池变量引用位置**
+**找到电池变量引用位置
 
 * 以 `XIF1` 为例 （`XIF0`没有引用）
 
@@ -204,7 +205,7 @@ SSDT1.aml SSDT2.dsl SSDT4.aml SSDT5.dsl SSDT7.aml SSDT8.dsl
 ```
 
 ****
-**编写电池补丁**
+**编写电池补丁
 
 * 新建一个`txt`
 * 将下面的复制过去
@@ -275,7 +276,9 @@ Method (WECB, 3, Serialized)\n
 end;
 
 ```
+
 ****
+
 * 拆分变量 以上面的 `XIF1` 为例
 * 如下加到`txt`中
 
@@ -284,7 +287,9 @@ end;
 # 大于32位的不需要拆
 into device label EC0 code_regex XIF1,\s+16, replace_matched begin X2IF,8,X3IF,8, end;
 ```
+
 ****
+
 * 重命名 引用变量 以上面的 `XIF1` 为例
 * 如下加到`txt`中
 
@@ -294,12 +299,15 @@ into device label EC0 code_regex XIF1,\s+16, replace_matched begin X2IF,8,X3IF,8
 into method label ECBE code_regex \(\^\^PCI0.LPCB.EC0.XIF1 replaceall_matched begin (^^B1B2(PCI0.LPCB.EC0.X2IF, PCI0.LPCB.EC0.X3IF) end;
 into method label _BST code_regex \(\^\^PCI0.LPCB.EC0.XIF1 replaceall_matched begin (^^B1B2(PCI0.LPCB.EC0.X2IF, PCI0.LPCB.EC0.X3IF) end;
 ```
+
 ****
+
 * 对应大于16位的处理请看
+
 [远景教程1](http://bbs.pcbeta.com/forum.php?mod=viewthread&tid=1751487)
 [远景教程2](http://bbs.pcbeta.com/viewthread-1751497-1-1.html)
 
-**txt 补丁做好之后 MACiASL 选择patch**
+**txt 补丁做好之后 MACiASL 选择 patch
 
 * 加载你的txt文件
 * 点击应用，将`dsl` 输出为`aml`
@@ -310,7 +318,7 @@ into method label _BST code_regex \(\^\^PCI0.LPCB.EC0.XIF1 replaceall_matched be
 
 * [txt文件](https://github.com/jinmu333/Shinalon_YAO_7000_efi/blob/efi/%E8%80%807000%E7%94%B5%E6%B1%A0.txt)
 
-**我的 txt 补丁**
+**我的 txt 补丁
 
 ``` bash
 # created by jinmu333

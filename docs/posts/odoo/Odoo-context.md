@@ -7,9 +7,7 @@ tags:
     - context
 ---
 
-## Odoo context
-
-### 传context
+## 传context
 
 ```python
 return {
@@ -24,7 +22,7 @@ return {
 }
 ```
 
-### 获取context
+## 获取context
 
 ```python
 # demo 在 context 中时 作为 demo_id 的默认值

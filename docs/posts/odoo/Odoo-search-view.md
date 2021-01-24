@@ -1,12 +1,10 @@
 ---
-title: Odoo search视图
+title: Odoo search 视图
 date: 2019-08-18 17:07:02
 tags:
     - odoo
 categories: odoo
 ---
-
-# odoo search视图
 
 ## action中添加 search_view_id
 
@@ -16,6 +14,7 @@ categories: odoo
     <field name="search_view_id" ref="library_partner_search"/>
 </record>
 ```
+
 ## 添加search视图
 
 ```xml

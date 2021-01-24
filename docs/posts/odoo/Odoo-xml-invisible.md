@@ -1,12 +1,10 @@
 ---
-title: Odoo视图xml invisible属性
+title: Odoo 视图 xml invisible 属性
 date: 2019-08-19 22:32:00
 tags:
     - odoo
 categories: odoo
 ---
-
-#  Odoo视图invisible属性
 
 ## xml标签的属性
 
@@ -26,7 +24,6 @@ categories: odoo
 - attrs：使用一个domain条件来控制
 - on_change：指定一个函数来定义当该值改变的时候发生的行为
 
-
 ## 固定值隐藏
 
 ```xml
@@ -36,7 +33,6 @@ invisible="1"
 ## 触发某个条件时隐藏
 
 > attrs字典内部的domain属性可以使用一个简单的python表达式来指定
-
 
 ```xml
 attrs="{'invisible': [('is_who', '=', 2)]}

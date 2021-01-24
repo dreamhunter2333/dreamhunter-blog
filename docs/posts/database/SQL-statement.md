@@ -3,10 +3,9 @@ title: SQL 基本语句
 date: 2019-08-19 00:12:24
 tags: 
     - database
-categories: odoo
+categories:
+    - database
 ---
-
-# SQL 基本语句
 
 ## SQL SELECT 语句
 
@@ -37,7 +36,7 @@ WHERE column_name operator value;
 -------|:-----:
 =      |等于
 <>     |不等于。注释：在 SQL 的一些版本中，该操作符可被写成 !=
->      |大于
+\>      |大于
 <      |小于
 >=     |大于等于
 <=     |小于等于
@@ -78,4 +77,4 @@ WHERE some_column=some_value;
 ```sql
 DELETE FROM table_name
 WHERE some_column=some_value;
-```
+``

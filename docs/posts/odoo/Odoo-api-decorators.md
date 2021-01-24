@@ -7,8 +7,6 @@ tags:
 categories: odoo
 ---
 
-# Odoo @api.* 装饰器
-
 ## @api.one
 
 > one的用法主要用于self为单一记录的情况，self仅代表当前正在操作的记录。
@@ -50,9 +48,8 @@ def onchange_demo(self):
 > 当用户更改表单中的字段值（但尚未保存表单）时，根据该值自动更新其他字段可能很有用，
 > 计算字段会自动检查并重新计算，它们不需要 onchange
 对于非计算字段，onchange()装饰器用于提供新的字段值：
-
-
 > 可以通过on_change="0"在视图中添加来禁止来自特定字段的触发器 ：
+
 ```xml
 <field name ="name" on_change ="0"/>
 ```
@@ -62,6 +59,6 @@ def onchange_demo(self):
 ## @api.returns
 
 > returns的用法主要是用来指定返回值的格式，它接受三个参数:  
-> 第一个为返回值的model  
-> 第二个为向下兼容的method  
+> 第一个为返回值的model
+> 第二个为向下兼容的method
 > 第三个为向上兼容的method

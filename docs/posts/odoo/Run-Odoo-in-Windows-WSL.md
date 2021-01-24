@@ -10,17 +10,15 @@ categories:
     - [linux]
 ---
 
-# 在windows的linux子系统中运行Odoo12
-
 ## 首先肯定是安装linux子系统
 
 > 首先去程序与功能，打开`linux`子系统  
-> ![](/imgs/wsl/wsl1.png)
-
+> ![wsl1](/imgs/wsl/wsl1.png)
+>
 > 可能会要求重启，之后打开微软商店，搜索`linux`  
 > 安装一个linux发行版，这里我选了`Ubuntu18`
-> ![](/imgs/wsl/wsl2.png)
-
+> ![wsl2](/imgs/wsl/wsl2.png)
+>
 > 漫长等待之后，在弹出的终端界面输入用户名密码
 > 安装完成
 
@@ -77,7 +75,8 @@ CREATE ROLE odoo WITH SUPERUSER LOGIN PASSWORD 'odoo';
 ### 创建conf参数文件
 
 > 在`odoo12`目录下创建`odoo.conf`
-```conf
+
+```bash
 [options]
 admin_passwd = admin
 db_host = localhost
@@ -103,10 +102,10 @@ odoo/odoo-bin -c odoo.conf
 
 > 之前的`odoo12`文件夹就是我们的工程目录
 > 使用pycharm专业版打开，添加如下的解释器
-> ![](/imgs/wsl/wsl3.png)
+> ![wsl3](/imgs/wsl/wsl3.png)
 > 会自动把工程路径按照 `F:/ to /mnt/f/` 这种关系映射
 > 然后配置odoo-bin的启动参数
-> ![](/imgs/wsl/wsl4.png)
+> ![wsl4](/imgs/wsl/wsl4.png)
 
 ```bash
 # 若此前跑过odoo-bin命令 需要终止

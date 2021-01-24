@@ -6,8 +6,6 @@ tags:
 categories: odoo
 ---
 
-# Odoo 抽象类
-
 ## 定义 AbstractModel
 
 > 无需外部id

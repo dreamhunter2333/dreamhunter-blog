@@ -13,9 +13,10 @@ tags:
 ``` bash
 git clone https://github.com/jinmu333/shadowsocksr.git
 ```
+
 ### 二、在Linux下使用
 
-**克隆或下载好之后，打开 shadowsocksr 文件夹，找到 config.json 配置文件，在这里填写好你相应的节点信息**
+**克隆或下载好之后，打开 shadowsocksr 文件夹，找到 config.json 配置文件，在这里填写好你相应的节点信息
 
 ``` bash
 

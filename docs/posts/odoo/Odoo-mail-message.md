@@ -7,8 +7,6 @@ tags:
 categories: odoo
 ---
 
-# Odoo mail 消息记录
-
 ## Python 模型继承
 
 ```python

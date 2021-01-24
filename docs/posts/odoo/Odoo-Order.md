@@ -1,12 +1,10 @@
 ---
-title: Odoo Order
+title: Odoo Order 排序
 date: 2019-09-10 18:51:28
 tags:
     - odoo
 categories: odoo
 ---
-
-# Odoo Order 排序
 
 ## 类中的 _order
 

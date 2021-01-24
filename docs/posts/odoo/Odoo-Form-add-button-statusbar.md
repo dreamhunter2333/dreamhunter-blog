@@ -6,8 +6,6 @@ tags:
 categories: odoo
 ---
 
-# Odoo Form视图添加按钮和状态条
-
 ## button 参数
 
 - type：可以被定义为三个值
@@ -20,7 +18,6 @@ categories: odoo
 - string：按钮在界面上的显示名称
 - icon：按钮的显示图标
 
-
 ## xml文件添加`<header>` `<button>`
 
 ```xml
@@ -30,6 +27,7 @@ categories: odoo
     <button name="great_person" type="object" string="创建" class="oe_highlight" />
 </header>
 ```
+
 ## python文件中添加按钮对应方法
 
 ```python
@@ -67,6 +65,7 @@ def re_action(self):
 # 定义状态字段
 state = fields.Selection([('draft', '草稿'), ('rent', '借出'), ('return', '归还')], default='draft', string="状态")
 ```
+
 ```xml
 <!-- 添加状态条 -->
 <header>

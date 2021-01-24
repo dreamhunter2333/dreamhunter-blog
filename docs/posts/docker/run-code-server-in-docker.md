@@ -11,7 +11,7 @@ tags:
 
 ### 从 ubuntu18 构建镜像
 
-<p class="success"> 编写Dockerfile</p>
+> 编写Dockerfile
 
 ```Dockerfile
 FROM ubuntu:latest
@@ -53,7 +53,7 @@ docker build -f Dockerfile -t code_server:1.0 .
 
 编写 `docker-compose.yml`
 
-```docker 
+```yaml
 version: '2'
 services:
     code_server:

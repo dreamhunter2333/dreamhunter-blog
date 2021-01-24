@@ -27,7 +27,6 @@ categories: hackintosh
 Notify (^^^GFX0.DD1F, 0x87)
 Notify (^^^GFX0.DD1F, 0x86)
 
-
 ``` bash
             Method (_Q14, 0, NotSerialized)  // _Qxx: EC Query
             {

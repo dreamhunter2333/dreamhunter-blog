@@ -6,8 +6,6 @@ tags:
 categories: odoo
 ---
 
-# Odoo Many2one三级联动
-
 ## python 文件
 
 ```python

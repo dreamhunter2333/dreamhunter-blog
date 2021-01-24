@@ -6,9 +6,7 @@ tags:
 categories: odoo
 ---
 
-## Odoo ir.sequence
-
-### data xml
+## data xml
 
 ```xml
 <record id="sequence_library_seq" model="ir.sequence">
@@ -23,7 +21,7 @@ categories: odoo
 </record>
 ```
 
-### python 重写create方法
+## python 重写create方法
 
 ```python
 @api.model

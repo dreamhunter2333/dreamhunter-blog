@@ -6,11 +6,9 @@ tags:
 categories: odoo
 ---
 
-# Odoo ir.actions.server
-
-<div align=center><img src="/imgs/odoo/odoo_action_server.png"></div>
-
 ## xml 配置
+
+![odoo_action_server](/imgs/odoo/odoo_action_server.png)
 
 ```xml
 <record model="ir.actions.server" id="library_book_test">

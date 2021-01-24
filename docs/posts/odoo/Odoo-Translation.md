@@ -12,7 +12,7 @@ categories: odoo
 
 ![zh_CN.po](/imgs/odoo/Odoo-Translation.jpg)
 
-```po
+```bash
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * library

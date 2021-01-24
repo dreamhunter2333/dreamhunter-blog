@@ -6,8 +6,6 @@ tags:
 categories: odoo
 ---
 
-# Odoo 后台定时任务
-
 ## XML 文件定义
 
 ```xml
@@ -23,6 +21,7 @@ categories: odoo
     <field name="user_id" ref="base.user_root"/>
 </record>
 ```
+
 ## Python 文件定义
 
 ```python

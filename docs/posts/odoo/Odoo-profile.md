@@ -23,7 +23,7 @@ Another profiler can be used to log statistics on a method:
 The statistics will be displayed into the logs once the method to be analysed is
 completely reviewed.
 
-```log
+```bash
     2018-03-28 06:18:23,196 22878 INFO openerp odoo.tools.profiler:
     calls     queries   ms
     project.task ------------------------ /home/odoo/src/odoo/addons/project/models/project.py, 638
@@ -63,7 +63,7 @@ from odoo.tools.profiler import profile
         ...
 ```
 
-```log
+```bash
 <!-- 输出结果 -->
 2019-10-30 14:41:29,185 6884 INFO 1029 odoo.tools.profiler:
 calls     queries   ms

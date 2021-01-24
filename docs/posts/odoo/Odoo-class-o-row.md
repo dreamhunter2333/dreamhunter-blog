@@ -6,8 +6,6 @@ tags:
 categories: odoo
 ---
 
-# Odoo class o_row
-
 ```xml
 <label for="ISBN" string="图书馆 label test"/>
 <div class="o_row" title="图书馆 test">

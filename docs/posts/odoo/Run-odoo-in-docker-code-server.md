@@ -19,7 +19,7 @@ tags:
 
 `docker-compose -f docker-compose.yml up`
 
-```docker
+```yaml
 version: '2'
 services:
     odoo12_code_test:

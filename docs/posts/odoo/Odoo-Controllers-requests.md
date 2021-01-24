@@ -6,13 +6,11 @@ tags:
     - odoo
 ---
 
-## Odoo Controllers requests
-
-### conf 配置 dbfilter
+## conf 配置 dbfilter
 
 `dbfilter=dbname`
 
-### Controller 编写
+## Controller 编写
 
 ```python
 # -*- coding: utf-8 -*-
@@ -29,7 +27,7 @@ class HttpTest(http.Controller):
         return json.dumps({'test': 'test'})
 ```
 
-### python 请求
+## python 请求
 
 ```python
 headers = {"Content-type": "application/json"}

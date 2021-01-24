@@ -6,8 +6,6 @@ tags:
 categories: odoo
 ---
 
-# Odoo Settings 界面
-
 ## python文件继承
 
 ```python
