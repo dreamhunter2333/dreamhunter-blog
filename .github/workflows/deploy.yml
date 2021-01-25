@@ -17,15 +17,6 @@ jobs:
     - name: Install and Build
       run: yarn && yarn build
 
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: master
-        REPOSITORY_NAME: jinmu333/jinmu333.github.io
-        FOLDER: docs/.vuepress/dist
-        BUILD_SCRIPT: yarn && yarn build
-
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
