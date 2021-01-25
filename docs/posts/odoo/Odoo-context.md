@@ -1,6 +1,6 @@
 ---
 title: Odoo context
-date: 2019-11-12 23:02:39
+date: '2019-11-12 23:02:39'
 categories: odoo
 tags:
     - odoo

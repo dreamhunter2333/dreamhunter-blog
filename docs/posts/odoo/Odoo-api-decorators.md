@@ -1,6 +1,6 @@
 ---
 title: Odoo @api.* 装饰器
-date: 2019-08-19 18:37:22
+date: '2019-08-19 18:37:22'
 tags:
     - odoo
     - api

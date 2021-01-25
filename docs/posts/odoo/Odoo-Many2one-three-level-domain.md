@@ -1,6 +1,6 @@
 ---
 title: Odoo Many2one三级联动
-date: 2019-09-03 16:53:31
+date: '2019-09-03 16:53:31'
 tags:
     - odoo
 categories: odoo

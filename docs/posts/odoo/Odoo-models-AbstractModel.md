@@ -1,6 +1,6 @@
 ---
 title: Odoo models.AbstractModel
-date: 2019-08-29 23:10:10
+date: '2019-08-29 23:10:10'
 tags:
     - odoo
 categories: odoo

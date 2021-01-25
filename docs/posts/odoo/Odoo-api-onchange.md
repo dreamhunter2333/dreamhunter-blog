@@ -1,6 +1,6 @@
 ---
 title: Odoo api onchange
-date: 2019-10-08 09:42:05
+date: '2019-10-08 09:42:05'
 tags:
     - odoo
     - api

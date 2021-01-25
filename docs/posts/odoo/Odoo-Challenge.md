@@ -1,6 +1,6 @@
 ---
 title: Odoo Challenge
-date: 2019-09-26 09:08:37
+date: '2019-09-26 09:08:37'
 categories: odoo
 tags:
     - odoo

@@ -1,6 +1,6 @@
 ---
 title: Odoo class o_row
-date: 2019-09-10 14:37:21
+date: '2019-09-10 14:37:21'
 tags:
     - odoo
 categories: odoo

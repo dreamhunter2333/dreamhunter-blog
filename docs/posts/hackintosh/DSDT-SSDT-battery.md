@@ -1,6 +1,6 @@
 ---
 title: DSDT SSDT 电量显示
-date: 2019-03-31 15:18:17
+date: '2019-03-31 15:18:17'
 tags:
     - hackintosh
 categories: hackintosh

@@ -1,6 +1,6 @@
 ---
 title: Odoo mail 消息记录
-date: 2019-08-25 13:25:56
+date: '2019-08-25 13:25:56'
 tags:
     - odoo
     - mail

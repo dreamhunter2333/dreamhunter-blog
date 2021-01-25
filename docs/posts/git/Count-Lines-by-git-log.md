@@ -1,6 +1,6 @@
 ---
 title: Count code Lines by git log
-date: 2019-12-15 00:34:42
+date: '2019-12-15 00:34:42'
 categories: git 
 tags:
     - git 

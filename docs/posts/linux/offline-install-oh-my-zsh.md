@@ -1,6 +1,6 @@
 ---
 title: offline install oh-my-zsh
-date: 2019-10-23 16:40:54
+date: '2019-10-23 16:40:54'
 categories:
     - linux
 tags:

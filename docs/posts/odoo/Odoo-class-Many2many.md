@@ -1,6 +1,6 @@
 ---
 title: Odoo class Many2many
-date: 2019-09-24 10:49:33
+date: '2019-09-24 10:49:33'
 categories: odoo
 tags:
     - odoo

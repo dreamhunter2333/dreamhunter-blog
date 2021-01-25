@@ -1,6 +1,6 @@
 ---
 title: wsl linux custom install
-date: 2020-01-06 21:42:01
+date: '2020-01-06 21:42:01'
 categories:
     - linux
 tags:

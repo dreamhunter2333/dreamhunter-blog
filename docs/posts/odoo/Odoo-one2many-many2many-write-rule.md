@@ -1,6 +1,6 @@
 ---
 title: Odoo one2many many2many 写值规则
-date: 2019-08-21 14:56:14
+date: '2019-08-21 14:56:14'
 tags:
     - odoo
     - one2many

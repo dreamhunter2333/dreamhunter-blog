@@ -1,6 +1,6 @@
 ---
 title: Git忽略SSL认证
-date: 2020-03-17 22:58:37
+date: '2020-03-17 22:58:37'
 categories: git
 tags:
     - git

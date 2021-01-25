@@ -1,6 +1,6 @@
 ---
 title: Odoo xml group clo colspan
-date: 2019-08-29 23:03:59
+date: '2019-08-29 23:03:59'
 tags:
     - odoo
 categories: odoo

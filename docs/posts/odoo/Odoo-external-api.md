@@ -1,6 +1,6 @@
 ---
 title: Odoo external api
-date: 2019-11-01 14:12:47
+date: '2019-11-01 14:12:47'
 categories: odoo
 tags:
     - odoo

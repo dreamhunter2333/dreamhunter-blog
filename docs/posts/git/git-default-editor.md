@@ -1,6 +1,6 @@
 ---
 title: Git 切换默认编辑器
-date: 2020-06-27 23:03:16
+date: '2020-06-27 23:03:16'
 categories:
 tags:
     - git

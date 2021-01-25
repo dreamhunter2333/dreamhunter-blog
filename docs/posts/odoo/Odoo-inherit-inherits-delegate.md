@@ -1,6 +1,6 @@
 ---
 title: Odoo 继承
-date: 2019-09-16 19:24:00
+date: '2019-09-16 19:24:00'
 tags:
     - odoo
 categories: odoo

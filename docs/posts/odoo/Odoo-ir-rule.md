@@ -1,6 +1,6 @@
 ---
 title: Odoo ir.rule 记录规则
-date: 2019-08-20 00:21:20
+date: '2019-08-20 00:21:20'
 tags:
     - odoo
 categories: odoo

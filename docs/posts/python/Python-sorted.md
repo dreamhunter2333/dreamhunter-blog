@@ -1,6 +1,6 @@
 ---
 title: Python sorted()
-date: 2019-11-03 00:10:34
+date: '2019-11-03 00:10:34'
 categories: 
     - [python]
     - [odoo]

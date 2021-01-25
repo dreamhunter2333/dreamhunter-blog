@@ -1,6 +1,6 @@
 ---
 title: Python3 mro __class__
-date: 2019-11-21 23:20:00
+date: '2019-11-21 23:20:00'
 categories: python
 tags: 
     - python

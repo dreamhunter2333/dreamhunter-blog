@@ -1,6 +1,6 @@
 ---
 title: intall and use yarn
-date: 2020-06-21 16:22:25
+date: '2020-06-21 16:22:25'
 categories: front
 tags:
     - yarn

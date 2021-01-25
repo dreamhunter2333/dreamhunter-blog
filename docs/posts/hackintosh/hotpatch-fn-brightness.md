@@ -1,6 +1,6 @@
 ---
 title: hotpatch 驱动 Fn 亮度快捷键
-date: 2019-04-02 20:55:26
+date: '2019-04-02 20:55:26'
 tags:
     - hackintosh
 categories: hackintosh

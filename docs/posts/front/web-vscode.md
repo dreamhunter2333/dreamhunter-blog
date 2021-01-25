@@ -1,6 +1,6 @@
 ---
 title: web vscode in docker
-date: 2019-11-10 22:57:42
+date: '2019-11-10 22:57:42'
 categories:
     - front
 tags:

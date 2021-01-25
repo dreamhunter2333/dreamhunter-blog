@@ -1,6 +1,6 @@
 ---
 title: Run odoo in docker code-server
-date: 2019-09-29 17:48:19
+date: '2019-09-29 17:48:19'
 categories: docker
 tags:
     - docker

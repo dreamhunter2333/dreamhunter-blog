@@ -1,6 +1,6 @@
 ---
 title: Odoo domain inverse 'in'
-date: 2019-11-16 10:02:42
+date: '2019-11-16 10:02:42'
 categories: odoo
 tags:
     - odoo

@@ -1,6 +1,6 @@
 ---
 title: Odoo Translation
-date: 2019-10-09 11:37:21
+date: '2019-10-09 11:37:21'
 tags:
     - odoo
 categories: odoo

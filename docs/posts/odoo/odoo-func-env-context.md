@@ -1,6 +1,6 @@
 ---
 title: odoo func env.context
-date: 2019-12-01 22:05:26
+date: '2019-12-01 22:05:26'
 categories: odoo
 tags:
     - odoo

@@ -1,6 +1,6 @@
 ---
 title: nginx Access-Control-Allow-Origin
-date: 2020-11-20 21:36:11
+date: '2020-11-20 21:36:11'
 categories: nginx
 tags:
     - nginx

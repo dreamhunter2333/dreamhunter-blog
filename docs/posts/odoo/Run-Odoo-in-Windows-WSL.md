@@ -1,6 +1,6 @@
 ---
 title: 在windows的linux子系统中运行Odoo12
-date: 2019-08-25 21:18:02
+date: '2019-08-25 21:18:02'
 tags:
     - odoo
     - linux

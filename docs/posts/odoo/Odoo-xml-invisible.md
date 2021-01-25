@@ -1,6 +1,6 @@
 ---
 title: Odoo 视图 xml invisible 属性
-date: 2019-08-19 22:32:00
+date: '2019-08-19 22:32:00'
 tags:
     - odoo
 categories: odoo

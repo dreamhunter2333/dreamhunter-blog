@@ -1,6 +1,6 @@
 ---
 title: vue init project
-date: 2020-06-27 22:57:50
+date: '2020-06-27 22:57:50'
 categories: front
 tags:
     - vue

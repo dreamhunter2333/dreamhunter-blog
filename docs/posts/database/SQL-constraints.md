@@ -1,6 +1,6 @@
 ---
 title: SQL 约束
-date: 2019-08-20 20:21:48
+date: '2019-08-20 20:21:48'
 tags:
     - database
     - odoo

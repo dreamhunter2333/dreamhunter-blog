@@ -1,6 +1,6 @@
 ---
 title: Odoo ir.sequence
-date: 2019-10-10 14:59:54
+date: '2019-10-10 14:59:54'
 tags:
     - odoo
 categories: odoo

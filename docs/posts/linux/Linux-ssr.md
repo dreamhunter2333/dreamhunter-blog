@@ -1,6 +1,6 @@
 ---
 title: Linux终端下使用酸酸乳
-date: 2019-03-31 01:00:01
+date: '2019-03-31 01:00:01'
 categories:
     - linux
 tags:

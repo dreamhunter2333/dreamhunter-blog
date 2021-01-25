@@ -1,6 +1,6 @@
 ---
 title: git commit --amend --date
-date: 2020-04-16 15:37:47
+date: '2020-04-16 15:37:47'
 categories: git
 tags:
     - git

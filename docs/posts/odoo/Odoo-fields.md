@@ -1,6 +1,6 @@
 ---
 title: Odoo fields的基本字段
-date: 2019-08-17 10:45:57
+date: '2019-08-17 10:45:57'
 tags:
     - odoo
 categories: odoo

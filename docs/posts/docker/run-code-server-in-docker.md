@@ -1,6 +1,6 @@
 ---
 title: code-server 在线编辑器 in docker
-date: 2019-09-28 13:55:36
+date: '2019-09-28 13:55:36'
 categories: docker
 tags:
     - docker

@@ -1,6 +1,6 @@
 ---
 title: python类中的self参数和cls参数
-date: 2019-09-03 16:41:00
+date: '2019-09-03 16:41:00'
 tags: 
     - python
 categories: python

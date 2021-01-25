@@ -1,6 +1,6 @@
 ---
 title: Odoo Controllers requests
-date: 2019-09-25 09:25:56
+date: '2019-09-25 09:25:56'
 categories: odoo
 tags:
     - odoo

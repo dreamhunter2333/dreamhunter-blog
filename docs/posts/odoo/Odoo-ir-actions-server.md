@@ -1,6 +1,6 @@
 ---
 title: Odoo ir.actions.server
-date: 2019-09-23 15:00:20
+date: '2019-09-23 15:00:20'
 tags:
     - odoo
 categories: odoo

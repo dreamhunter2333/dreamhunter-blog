@@ -1,6 +1,6 @@
 ---
 title: docker安装使用
-date: 2019-10-12 09:44:25
+date: '2019-10-12 09:44:25'
 categories: docker
 tags:
     - docker

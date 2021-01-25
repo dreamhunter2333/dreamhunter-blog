@@ -1,6 +1,6 @@
 ---
 title: Python locals()
-date: 2019-12-15 00:20:16
+date: '2019-12-15 00:20:16'
 categories: python
 tags: 
     - python

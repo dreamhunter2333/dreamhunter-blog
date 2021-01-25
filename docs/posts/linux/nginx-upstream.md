@@ -1,6 +1,6 @@
 ---
 title: nginx upstream
-date: 2020-11-10 21:33:43
+date: '2020-11-10 21:33:43'
 categories: nginx
 tags:
     - nginx

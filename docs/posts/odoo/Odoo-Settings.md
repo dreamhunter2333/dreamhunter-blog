@@ -1,6 +1,6 @@
 ---
 title: Odoo Settings 界面
-date: 2019-09-10 14:06:23
+date: '2019-09-10 14:06:23'
 tags:
     - odoo
 categories: odoo
