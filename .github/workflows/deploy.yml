@@ -25,3 +25,11 @@ jobs:
         REPOSITORY_NAME: jinmu333/jinmu333.github.io
         FOLDER: docs/.vuepress/dist
         BUILD_SCRIPT: yarn && yarn build
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        REPOSITORY_NAME: jinmu333/jinmu333.github.io
+        BRANCH: master # The branch the action should deploy to.
+        FOLDER: docs/.vuepress/dist # The folder the action should deploy.
