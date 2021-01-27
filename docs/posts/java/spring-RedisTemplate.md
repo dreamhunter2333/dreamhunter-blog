@@ -1,6 +1,6 @@
 ---
 title: Spring RedisTemplate
-date: 2021-01-28 00:25:57
+date: '2021-01-28 00:25:57'
 categories:
     - java
 tags:

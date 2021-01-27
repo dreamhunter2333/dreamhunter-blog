@@ -7,7 +7,7 @@ then
     fi
     echo "---
 title: $2
-date: `date +"%Y-%m-%d %H:%M:%S"`
+date: '`date +"%Y-%m-%d %H:%M:%S"`'
 categories:
     - $1
 tags:
