@@ -36,6 +36,7 @@ module.exports = {
             },
             socialLinks: [     // 信息栏展示社交信息
                 { icon: 'reco-github', link: 'https://github.com/jinmu333' },
+                { icon: 'reco-bilibili', link: 'https://space.bilibili.com/18153635' }
             ]
         },
         // 顶部导航
