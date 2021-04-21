@@ -73,6 +73,9 @@ module.exports = {
         [
             '@vuepress/last-updated',
             {
+                transformer: (timestamp, lang, dateOptions) => {
+                    return new Date(timestamp).toLocaleString("en-US", dateOptions)
+                }
             }
         ],
         ['sitemap', {
