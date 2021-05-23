@@ -90,7 +90,7 @@ public static void inOrderTraveral(Node node) {
     while (curNode != null || !stack.isEmpty()) {
         while (curNode != null) {
             stack.push(curNode);
-            curNode = cur.left;
+            curNode = curNode.left;
         }
         Node popNode = queue.pop();
         res.add(popNode.data);
