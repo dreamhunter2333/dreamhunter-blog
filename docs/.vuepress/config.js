@@ -10,7 +10,15 @@ module.exports = {
         ['link', { rel: 'apple-touch-icon', href: '/imgs/avatar.jpg' }],
         ['link', { rel: 'mask-icon', href: '/imgs/avatar.jpg', color: '#3eaf7c' }],
         ['meta', { name: 'msapplication-TileImage', content: '/imgs/avatar.jpg' }],
-        ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+        ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+        [
+            "script",
+            {
+                "data-ad-client": "ca-pub-8486711392183862",
+                async: true,
+                src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+            }
+        ]
     ],
     logo: '/imgs/header_image.jpg',
     theme: 'reco',
@@ -57,8 +65,8 @@ module.exports = {
         // 备案
         record: '鲁ICP备2021007677号',
         recordLink: 'http://beian.miit.gov.cn/',
-//         cyberSecurityRecord: '公安部备案文案',
-//         cyberSecurityLink: '公安部备案指向链接',
+        //         cyberSecurityRecord: '公安部备案文案',
+        //         cyberSecurityLink: '公安部备案指向链接',
         // 项目开始时间，只填写年份
         startYear: '2019'
     },
