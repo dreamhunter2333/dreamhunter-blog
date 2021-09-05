@@ -10,15 +10,7 @@ module.exports = {
         ['link', { rel: 'apple-touch-icon', href: '/imgs/avatar.jpg' }],
         ['link', { rel: 'mask-icon', href: '/imgs/avatar.jpg', color: '#3eaf7c' }],
         ['meta', { name: 'msapplication-TileImage', content: '/imgs/avatar.jpg' }],
-        ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
-        [
-            "script",
-            {
-                "data-ad-client": "ca-pub-8486711392183862",
-                async: true,
-                src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-            }
-        ]
+        ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     ],
     logo: '/imgs/header_image.jpg',
     theme: 'reco',
