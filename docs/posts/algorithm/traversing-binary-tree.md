@@ -22,7 +22,7 @@ Public Class Node {
 ```java
 public static void levelOrder(Node node) {
     if (node == null) return;
-    List<String> res = new ArraryList<>();
+    List<String> res = new ArrayList<>();
     Queue<Node> queue = new LinkedList<>();
     queue.offer(node);
     while (!queue.isEmpty()) {
@@ -53,11 +53,11 @@ public static void preOrderTraveral(Node node) {
 ```java
 public static void preOrderTraveral(Node node) {
     if (node == null) return;
-    List<String> res = new ArraryList<>();
+    List<String> res = new ArrayList<>();
     Stack<Node> stack = new Stack<>();
     stack.push(node);
     while (!stack.isEmpty()) {
-        Node curNode = queue.pop();
+        Node curNode = stack.pop();
         res.add(curNode.data);
         if (curNode.right != null) stack.push(curNode.right);
         if (curNode.left != null) stack.push(curNode.left);
@@ -84,7 +84,7 @@ public static void inOrderTraveral(Node node) {
 ```java
 public static void inOrderTraveral(Node node) {
     if (node == null) return;
-    List<String> res = new ArraryList<>();
+    List<String> res = new ArrayList<>();
     Stack<Node> stack = new Stack<>();
     TreeNode curNode = node;
     while (curNode != null || !stack.isEmpty()) {
@@ -118,7 +118,7 @@ public static void postOrderTraveral(Node node) {
 ```java
 public static void postOrderTraveral(Node node) {
     if (node == null) return;
-    List<String> res = new ArraryList<>();
+    List<String> res = new ArrayList<>();
     Stack<Node> stack = new Stack<>();
     stack.push(node);
     while (!stack.isEmpty()) {
