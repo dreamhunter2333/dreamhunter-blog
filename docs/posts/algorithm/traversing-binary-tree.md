@@ -92,7 +92,7 @@ public static void inOrderTraveral(Node node) {
             stack.push(curNode);
             curNode = curNode.left;
         }
-        Node popNode = queue.pop();
+        Node popNode = stack.pop();
         res.add(popNode.data);
         curNode = popNode.right;
     }
@@ -122,7 +122,7 @@ public static void postOrderTraveral(Node node) {
     Stack<Node> stack = new Stack<>();
     stack.push(node);
     while (!stack.isEmpty()) {
-        Node curNode = queue.pop();
+        Node curNode = stack.pop();
         res.add(curNode.data);
         if (curNode.left != null) stack.push(curNode.left);
         if (curNode.right != null) stack.push(curNode.right);
