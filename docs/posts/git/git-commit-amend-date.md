@@ -8,6 +8,8 @@ tags:
 
 ## git commit --amend --date=
 
+添加 `GIT_COMMITTER_DATE="Tue, 18 Jan 2022 19:07:14 +0800"` 修改 commit 时间
+
 ```bash
 # 修改上一次 commit 时间为当前
 git commit --amend --date="$(date -R)"
