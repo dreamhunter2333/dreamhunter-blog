@@ -79,7 +79,7 @@ module.exports = {
             }
         ],
         ['sitemap', {
-            hostname: 'https://jcstaff.club'
+            hostname: 'https://dreamhunter2333.com'
         }],
         ["vuepress-plugin-auto-sidebar", {}],
         ['vuepress-plugin-helper-live2d', {
