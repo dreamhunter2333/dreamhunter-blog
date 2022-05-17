@@ -6819,9 +6819,9 @@ pretty-time@^1.1.0:
   integrity sha1-/7dCmvq7hTXDRqNOQYc63z103Q4=
 
 prismjs@^1.13.0:
-  version "1.24.1"
-  resolved "https://registry.nlark.com/prismjs/download/prismjs-1.24.1.tgz?cache=0&sync_timestamp=1625313362193&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fprismjs%2Fdownload%2Fprismjs-1.24.1.tgz#c4d7895c4d6500289482fa8936d9cdd192684036"
-  integrity sha1-xNeJXE1lACiUgvqJNtnN0ZJoQDY=
+  version "1.28.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.28.0.tgz#0d8f561fa0f7cf6ebca901747828b149147044b6"
+  integrity sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
