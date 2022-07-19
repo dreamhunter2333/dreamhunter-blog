@@ -25,6 +25,9 @@ ansible virtualmachines -m ping -i inventory.yaml
 
 ```bash
 roles
+├── common
+│   └── tasks
+│       └── main.yaml
 └── nginx
     ├── files
     │   ├── conf.d
@@ -60,6 +63,30 @@ tool_vms:
 ### roles 编写具体步骤
 
 files 放用到的文件，tasks 放具体的任务
+
+common/tasks/main.yaml
+
+```yaml
+---
+- name: apt install python3-pip
+  apt:
+    name: python3-pip
+    state: present
+    update_cache: yes
+  become: true
+
+- name: pip install docker docker-compose
+  ansible.builtin.pip:
+    name:
+      - docker
+      - docker-compose
+
+- name: Create docker network
+  community.docker.docker_network:
+    name: nginx_net
+```
+
+nginx/tasks/main.yaml
 
 ```yaml
 ---
