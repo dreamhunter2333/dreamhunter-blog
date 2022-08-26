@@ -53,7 +53,6 @@ module.exports = {
         // Git 仓库和编辑链接
         repo: 'https://github.com/jinmu333', // 你的仓库
         repoLabel: 'GitHub', // 导航栏上的文本
-        lastUpdated: '上次更新',
         // 项目开始时间，只填写年份
         startYear: '2019'
     },
@@ -65,41 +64,34 @@ module.exports = {
                 buttonText: "刷新"
             }
         }],
-        [
-            '@vuepress/last-updated',
-            {
-                transformer: (timestamp, lang, dateOptions) => {
-                    return new Date(timestamp).toLocaleString("en-US", dateOptions)
-                }
-            }
-        ],
+        ['vuepress-plugin-sakana', {}],
         ['sitemap', {
             hostname: 'https://dreamhunter2333.com'
         }],
         ["vuepress-plugin-auto-sidebar", {}],
-        ['vuepress-plugin-helper-live2d', {
-            // 是否开启控制台日志打印(default: false)
-            log: false,
-            live2d: {
-                // 是否启用(关闭请设置为false)(default: true)
-                enable: true,
-                // 模型名称(default: hibiki)>>>取值请参考：
-                // https://github.com/JoeyBling/hexo-theme-yilia-plus/wiki/live2d%E6%A8%A1%E5%9E%8B%E5%8C%85%E5%B1%95%E7%A4%BA
-                model: 'koharu',
-                display: {
-                    position: "left", // 显示位置：left/right(default: 'right')
-                    width: 135, // 模型的长度(default: 135)
-                    height: 300, // 模型的高度(default: 300)
-                    hOffset: 10, //  水平偏移(default: 65)
-                    vOffset: 0, //  垂直偏移(default: 0)
-                },
-                mobile: {
-                    show: false // 是否在移动设备上显示(default: false)
-                },
-                react: {
-                    opacity: 1 // 模型透明度(default: 0.8)
-                }
-            }
-        }]
+        // ['vuepress-plugin-helper-live2d', {
+        //     // 是否开启控制台日志打印(default: false)
+        //     log: false,
+        //     live2d: {
+        //         // 是否启用(关闭请设置为false)(default: true)
+        //         enable: true,
+        //         // 模型名称(default: hibiki)>>>取值请参考：
+        //         // https://github.com/JoeyBling/hexo-theme-yilia-plus/wiki/live2d%E6%A8%A1%E5%9E%8B%E5%8C%85%E5%B1%95%E7%A4%BA
+        //         model: 'koharu',
+        //         display: {
+        //             position: "left", // 显示位置：left/right(default: 'right')
+        //             width: 135, // 模型的长度(default: 135)
+        //             height: 300, // 模型的高度(default: 300)
+        //             hOffset: 10, //  水平偏移(default: 65)
+        //             vOffset: 0, //  垂直偏移(default: 0)
+        //         },
+        //         mobile: {
+        //             show: false // 是否在移动设备上显示(default: false)
+        //         },
+        //         react: {
+        //             opacity: 1 // 模型透明度(default: 0.8)
+        //         }
+        //     }
+        // }]
     ]
 }
