@@ -8939,7 +8939,7 @@ vuepress-plugin-mailchimp@^1.4.1:
 
 "vuepress-plugin-sakana@git+https://github.com/jinmu333/vuepress-plugin-sakana-widget.git":
   version "1.0.0"
-  resolved "git+https://github.com/jinmu333/vuepress-plugin-sakana-widget.git#83a3b29806e88f445a7d6b5864672f1d0c4175cf"
+  resolved "git+https://github.com/jinmu333/vuepress-plugin-sakana-widget.git#99b1cb974a65f9e3df64f440da261cce45f4dff6"
 
 vuepress-plugin-sitemap@2.3.1, vuepress-plugin-sitemap@^2.3.1:
   version "2.3.1"
