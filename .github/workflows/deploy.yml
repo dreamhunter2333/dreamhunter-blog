@@ -26,7 +26,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           REPOSITORY_NAME: jinmu333/jinmu333.github.io
           BRANCH: master # The branch the action should deploy to.
           FOLDER: docs/.vuepress/dist # The folder the action should deploy.
