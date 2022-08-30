@@ -15,10 +15,10 @@ jobs:
           persist-credentials: false
 
       - name: create token
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
 
       - name: create token
-        run: echo "@OWENER:registry=https://npm.pkg.github.com/" >> .npmrc
+        run: echo "@jinmu333:registry=https://npm.pkg.github.com/" >> .npmrc
 
       - name: Install and Build
         run: yarn && yarn build
