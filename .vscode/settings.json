@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///Users/dreamhunter/Documents/projects/vuepress-blog/.github/workflows/deploy.yml"
+    }
+}

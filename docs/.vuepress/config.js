@@ -64,7 +64,7 @@ module.exports = {
                 buttonText: "刷新"
             }
         }],
-        ['vuepress-plugin-sakana', {}],
+        ['@jinmu333/vuepress-plugin-sakana', {}],
         ['sitemap', {
             hostname: 'https://dreamhunter2333.com'
         }],
