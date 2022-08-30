@@ -966,6 +966,11 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@jinmu333/vuepress-plugin-sakana@^1.0.0":
+  version "1.0.0"
+  resolved "https://npm.pkg.github.com/download/@jinmu333/vuepress-plugin-sakana/1.0.0/0870089f128b0b056319f2f2c3994d2bc1513184#0870089f128b0b056319f2f2c3994d2bc1513184"
+  integrity sha512-GdNZfFt43ki7o/QXT85ZJfqCiFLM9Zk3YHVxgWleN3arH8y0ZEEQp4UJEUGuU+5emu2Lhb2kIEkHR3G7xfBlNw==
+
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
   resolved "https://registry.npmmirror.com/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz#e5d2e450306a9491e3bd77e323e38d7aff315996"
@@ -8936,10 +8941,6 @@ vuepress-plugin-mailchimp@^1.4.1:
   dependencies:
     jsonp "^0.2.1"
     query-string "^6.9.0"
-
-"vuepress-plugin-sakana@git+https://github.com/jinmu333/vuepress-plugin-sakana-widget.git":
-  version "1.0.0"
-  resolved "git+https://github.com/jinmu333/vuepress-plugin-sakana-widget.git#99b1cb974a65f9e3df64f440da261cce45f4dff6"
 
 vuepress-plugin-sitemap@2.3.1, vuepress-plugin-sitemap@^2.3.1:
   version "2.3.1"
