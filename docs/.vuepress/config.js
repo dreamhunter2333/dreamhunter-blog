@@ -7,9 +7,9 @@ module.exports = {
         ['meta', { name: 'theme-color', content: '#3eaf7c' }],
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
         ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-        ['link', { rel: 'apple-touch-icon', href: '/imgs/avatar.jpg' }],
-        ['link', { rel: 'mask-icon', href: '/imgs/avatar.jpg', color: '#3eaf7c' }],
-        ['meta', { name: 'msapplication-TileImage', content: '/imgs/avatar.jpg' }],
+        ['link', { rel: 'apple-touch-icon', href: '/imgs/avatar.png' }],
+        ['link', { rel: 'mask-icon', href: '/imgs/avatar.png', color: '#3eaf7c' }],
+        ['meta', { name: 'msapplication-TileImage', content: '/imgs/avatar.png' }],
         ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     ],
     logo: '/imgs/header_image.jpg',
@@ -23,7 +23,7 @@ module.exports = {
         type: 'blog',
         smoothScroll: true,
         author: 'Dreamhunter',
-        authorAvatar: '/imgs/avatar.jpg',
+        authorAvatar: '/imgs/avatar.png',
         // 博客配置
         blogConfig: {
             category: {

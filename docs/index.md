@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /imgs/avatar.jpg
+heroImage: /imgs/avatar.png
 heroText: Dreamhunter
 tagline: null
 bgImageStyle: {
