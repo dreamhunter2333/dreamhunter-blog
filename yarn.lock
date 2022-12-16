@@ -934,7 +934,7 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@dreamhunter2333/vuepress-plugin-sakana@^1.0.0":
+"@dreamhunter2333/vuepress-plugin-sakana@1.0.0":
   name "@jinmu333/vuepress-plugin-sakana"
   version "1.0.0"
   resolved "https://npm.pkg.github.com/download/@dreamhunter2333/vuepress-plugin-sakana/1.0.0/0870089f128b0b056319f2f2c3994d2bc1513184#0870089f128b0b056319f2f2c3994d2bc1513184"
