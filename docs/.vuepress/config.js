@@ -35,7 +35,7 @@ module.exports = {
                 // text: 'Tag'      // 默认文案 “标签”
             },
             socialLinks: [     // 信息栏展示社交信息
-                { icon: 'reco-github', link: 'https://github.com/jinmu333' },
+                { icon: 'reco-github', link: 'https://github.com/dreamhunter2333' },
                 { icon: 'reco-bilibili', link: 'https://space.bilibili.com/18153635' }
             ]
         },
@@ -51,7 +51,7 @@ module.exports = {
         subSidebar: 'auto',
         sidebar: 'auto',
         // Git 仓库和编辑链接
-        repo: 'https://github.com/jinmu333', // 你的仓库
+        repo: 'https://github.com/dreamhunter2333', // 你的仓库
         repoLabel: 'GitHub', // 导航栏上的文本
         // 项目开始时间，只填写年份
         startYear: '2019'
@@ -64,7 +64,7 @@ module.exports = {
                 buttonText: "刷新"
             }
         }],
-        ['@jinmu333/vuepress-plugin-sakana', {}],
+        ['@dreamhunter2333/vuepress-plugin-sakana', {}],
         ['sitemap', {
             hostname: 'https://dreamhunter2333.com'
         }],

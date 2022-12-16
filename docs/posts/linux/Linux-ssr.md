@@ -11,7 +11,7 @@ tags:
 ### 一、克隆或者直接下载ssr
 
 ``` bash
-git clone https://github.com/jinmu333/shadowsocksr.git
+git clone https://github.com/dreamhunter2333/shadowsocksr.git
 ```
 
 ### 二、在Linux下使用

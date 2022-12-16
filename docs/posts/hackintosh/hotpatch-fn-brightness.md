@@ -14,7 +14,7 @@ categories: hackintosh
 ### hotpatch Fn 样例
 
 * 我的 `hotpatch` Fn 样例
-* [SSDT-Fn.dsl](https://github.com/jinmu333/Shinalon_YAO_7000_efi/blob/efi/EFI/CLOVER/ACPI/patched/SSDT-Fn.dsl)
+* [SSDT-Fn.dsl](https://github.com/dreamhunter2333/Shinalon_YAO_7000_efi/blob/efi/EFI/CLOVER/ACPI/patched/SSDT-Fn.dsl)
 
 ### DSDT/SSDT 如何提取 反编译 请看这篇
 

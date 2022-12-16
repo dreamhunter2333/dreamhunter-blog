@@ -93,53 +93,53 @@ SSDT1.aml SSDT2.dsl SSDT4.aml SSDT5.dsl SSDT7.aml SSDT8.dsl
             OperationRegion (ECMP, EmbeddedControl, Zero, 0xFF)
             Field (ECMP, ByteAcc, Lock, Preserve)
             {
-                Offset (0x7B), 
+                Offset (0x7B),
                 DEVS,   8
             }
 
             OperationRegion (ECXP, EmbeddedControl, Zero, 0xFF)
             Field (ECXP, ByteAcc, Lock, Preserve)
             {
-                XIF0,   16, 
-                XIF1,   16, 
-                XIF2,   16, 
-                XIF3,   16, 
-                XIF4,   16, 
-                XIF5,   16, 
-                XIF6,   16, 
-                XIF7,   16, 
-                XIF8,   16, 
-                XIF9,   64, 
-                XIFA,   64, 
-                XIFB,   64, 
-                XIFC,   64, 
-                XST0,   16, 
-                XST1,   16, 
-                XST2,   16, 
-                XST3,   16, 
-                XTP0,   16, 
+                XIF0,   16,
+                XIF1,   16,
+                XIF2,   16,
+                XIF3,   16,
+                XIF4,   16,
+                XIF5,   16,
+                XIF6,   16,
+                XIF7,   16,
+                XIF8,   16,
+                XIF9,   64,
+                XIFA,   64,
+                XIFB,   64,
+                XIFC,   64,
+                XST0,   16,
+                XST1,   16,
+                XST2,   16,
+                XST3,   16,
+                XTP0,   16,
                 # ...此处省略
-                Offset (0xA6), 
-                CYCN,   16, 
-                Offset (0xC0), 
-                BIF0,   16, 
-                BIF1,   16, 
-                BIF2,   16, 
-                BIF3,   16, 
-                BIF4,   16, 
-                BIF5,   16, 
-                BIF6,   16, 
-                BIF7,   16, 
-                BIF8,   16, 
-                BIF9,   64, 
-                BIFA,   64, 
-                BIFB,   64, 
-                BIFC,   64, 
-                BST0,   16, 
-                BST1,   16, 
-                BST2,   16, 
-                BST3,   16, 
-                BTP0,   16, 
+                Offset (0xA6),
+                CYCN,   16,
+                Offset (0xC0),
+                BIF0,   16,
+                BIF1,   16,
+                BIF2,   16,
+                BIF3,   16,
+                BIF4,   16,
+                BIF5,   16,
+                BIF6,   16,
+                BIF7,   16,
+                BIF8,   16,
+                BIF9,   64,
+                BIFA,   64,
+                BIFB,   64,
+                BIFC,   64,
+                BST0,   16,
+                BST1,   16,
+                BST2,   16,
+                BST3,   16,
+                BTP0,   16,
                 # ...此处省略
             }
 ```
@@ -316,15 +316,15 @@ into method label _BST code_regex \(\^\^PCI0.LPCB.EC0.XIF1 replaceall_matched be
 
 ### DSDT/SSDT 附件
 
-* [txt文件](https://github.com/jinmu333/Shinalon_YAO_7000_efi/blob/efi/%E8%80%807000%E7%94%B5%E6%B1%A0.txt)
+* [txt文件](https://github.com/dreamhunter2333/Shinalon_YAO_7000_efi/blob/efi/%E8%80%807000%E7%94%B5%E6%B1%A0.txt)
 
 **我的 txt 补丁
 
 ``` bash
-# created by jinmu333
+# created by dreamhunter2333
 #炫龙耀7000
 
-# add method B1B2 
+# add method B1B2
 into method label B1B2 remove_entry;
 into definitionblock code_regex . insert
 begin

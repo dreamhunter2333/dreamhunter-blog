@@ -20,7 +20,7 @@ tags:
 ## docker-compose.yml
 
 ```bash
-git clone https://github.com/jinmu333/docker-trojan-go
+git clone https://github.com/dreamhunter2333/docker-trojan-go
 cd docker-trojan-go
 # 1. 输入 网站  trojan服务的密码 cloudflare邮箱 cloudflare-key 进行文件的初始化
 bash init.sh

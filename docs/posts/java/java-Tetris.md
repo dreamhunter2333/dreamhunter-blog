@@ -13,7 +13,7 @@ tags:
 春节临近，闲来无事，偶得一文 [适合 Java 新手的开源项目集合](https://zhuanlan.zhihu.com/p/312484956)，其中提到 [FlappyBird](https://github.com/kingyuluk/FlappyBird) 这个项目
 赶紧 `git clone` 下来学习一番，学习过后：能不能搞一个俄罗斯方块？
 
-俄罗斯方块项目地址: [tetris](https://github.com/jinmu333/java-tetris)
+俄罗斯方块项目地址: [tetris](https://github.com/dreamhunter2333/java-tetris)
 
 ## 准备
 

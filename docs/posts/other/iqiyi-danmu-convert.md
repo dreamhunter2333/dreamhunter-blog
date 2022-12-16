@@ -7,7 +7,7 @@ tags:
     - other
 ---
 
-开源地址 [iqiyi_danmu](https://github.com/jinmu333/iqiyi_danmu)
+开源地址 [iqiyi_danmu](https://github.com/dreamhunter2333/iqiyi_danmu)
 
 ## 前言
 

@@ -934,6 +934,12 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
+"@dreamhunter2333/vuepress-plugin-sakana@^1.0.0":
+  name "@jinmu333/vuepress-plugin-sakana"
+  version "1.0.0"
+  resolved "https://npm.pkg.github.com/download/@dreamhunter2333/vuepress-plugin-sakana/1.0.0/0870089f128b0b056319f2f2c3994d2bc1513184#0870089f128b0b056319f2f2c3994d2bc1513184"
+  integrity sha512-GdNZfFt43ki7o/QXT85ZJfqCiFLM9Zk3YHVxgWleN3arH8y0ZEEQp4UJEUGuU+5emu2Lhb2kIEkHR3G7xfBlNw==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.npmmirror.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -965,11 +971,6 @@
   integrity sha512-tAag0jEcjwH+P2quUfipd7liWCNX2F8NvYjQp2wtInsZxnMlypdw0FtAOLxtvvkO+GSRRbmNi8m/5y42PQJYCQ==
   dependencies:
     "@hapi/hoek" "^8.3.0"
-
-"@jinmu333/vuepress-plugin-sakana@^1.0.0":
-  version "1.0.0"
-  resolved "https://npm.pkg.github.com/download/@jinmu333/vuepress-plugin-sakana/1.0.0/0870089f128b0b056319f2f2c3994d2bc1513184#0870089f128b0b056319f2f2c3994d2bc1513184"
-  integrity sha512-GdNZfFt43ki7o/QXT85ZJfqCiFLM9Zk3YHVxgWleN3arH8y0ZEEQp4UJEUGuU+5emu2Lhb2kIEkHR3G7xfBlNw==
 
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
