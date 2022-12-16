@@ -16,7 +16,8 @@ jobs:
 
       - name: create token
         run: |
-          yarn info "@dreamhunter2333/vuepress-plugin-sakana" --registry="https://dreamhunter2333:${{ secrets.GITHUB_TOKEN }}@npm.pkg.github.com/"
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACCESS_TOKEN }}" > .npmrc
+          echo "@dreamhunter2333:registry=https://npm.pkg.github.com/" >> .npmrc
 
       - name: Install and Build
         run: yarn && yarn build
