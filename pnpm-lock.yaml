@@ -42,6 +42,9 @@ importers:
       vue:
         specifier: ^3.4.30
         version: 3.4.30
+      workbox-window:
+        specifier: ^7.1.0
+        version: 7.1.0
 
 packages:
 
