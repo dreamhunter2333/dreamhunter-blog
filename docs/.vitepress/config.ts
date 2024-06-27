@@ -24,7 +24,7 @@ export default withPwa(defineConfigWithTheme<CustomThemeConfig>({
         }
     },
     sitemap: {
-        hostname: 'https://notes.dreamhunter2333.com'
+        hostname: 'https://dreamhunter2333.com'
     },
     ignoreDeadLinks: true,
     title: 'Dreamhunter Blog',
