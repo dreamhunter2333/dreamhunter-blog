@@ -7,6 +7,8 @@ tags:
     - code-server
 ---
 
+# Run odoo in docker code-server
+
 ## Run odoo in docker code-server
 
 ![odoo-code_server-1](/imgs/code-server/odoo-code_server-1.jpg)

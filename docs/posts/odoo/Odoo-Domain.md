@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo Domain 波兰表示法
+
 ## domain表达式
 
 ### 常见表达式

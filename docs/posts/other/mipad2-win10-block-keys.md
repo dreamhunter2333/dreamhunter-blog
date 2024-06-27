@@ -4,6 +4,8 @@ date: '2019-04-10 12:39:50'
 tags:
 categories:
 ---
+
+# mipad2 小米平板2 win10 屏蔽三个按键
 ### 为什么要屏蔽
 
 * win10下那三颗按键纯粹是多余,还总是引起误触
@@ -55,3 +57,4 @@ categories:
 #### 至此，触摸屏恢复正常，三个按键完全被禁用
 
 ![mipad2-1](/imgs/mipad2/mipad2-7.jpg)
+7.jpg)

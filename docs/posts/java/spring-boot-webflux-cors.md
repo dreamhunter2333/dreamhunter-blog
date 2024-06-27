@@ -6,6 +6,8 @@ tags:
     - spring
 ---
 
+# spring boot webflux cors
+
 ## spring boot webflux 允许跨域
 
 ```java

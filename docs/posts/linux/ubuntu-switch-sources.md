@@ -7,6 +7,8 @@ tags:
     - linux
 ---
 
+# Ubuntu 使用阿里云软件源
+
 [Ubuntu 使用阿里云软件源](https://www.bbsmax.com/A/Ae5RpLLzQ9/)
 
 ```bash

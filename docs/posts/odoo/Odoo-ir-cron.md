@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo 后台定时任务
+
 ## XML 文件定义
 
 ```xml

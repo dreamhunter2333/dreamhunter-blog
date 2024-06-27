@@ -10,6 +10,8 @@ categories:
     - [linux]
 ---
 
+# 在windows的linux子系统中运行Odoo12
+
 ## 首先肯定是安装linux子系统
 
 > 首先去程序与功能，打开`linux`子系统  

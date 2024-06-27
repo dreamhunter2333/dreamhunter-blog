@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo 视图 xml invisible 属性
+
 ## xml标签的属性
 
 - string：字段显示名称

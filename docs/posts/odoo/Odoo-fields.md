@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo fields的基本字段
+
 ## 基本字段
 
 - 文本

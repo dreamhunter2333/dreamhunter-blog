@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo 模型和视图的继承、修改
+
 ## Python 模型中的继承、修改
 
 ```python

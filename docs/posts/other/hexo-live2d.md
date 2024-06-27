@@ -6,6 +6,8 @@ tags:
 categories:
     - linux
 ---
+
+# hexo live2d
 ****
 
 ### 安装 hexo live2d
@@ -44,4 +46,6 @@ live2d:
 ### 效果
 
 ![hexo_live](/imgs/hexo_live.gif)
+****
+ve](/imgs/hexo_live.gif)
 ****

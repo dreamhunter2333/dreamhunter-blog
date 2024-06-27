@@ -8,6 +8,8 @@ tags:
     - ssr
 ---
 
+# Linux终端下使用酸酸乳
+
 ### 一、克隆或者直接下载ssr
 
 ``` bash
@@ -73,6 +75,10 @@ export https_proxy=http://127.0.0.1:8118
 export no_proxy=localhost
 
 # 启动服务
+systemctl start privoxy.service
+
+```
+务
 systemctl start privoxy.service
 
 ```

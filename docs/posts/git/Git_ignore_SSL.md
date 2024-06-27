@@ -6,6 +6,8 @@ tags:
     - git
 ---
 
+# Git忽略SSL认证
+
 ## 使用http代理时，git克隆仓库报错
 
 ```bash

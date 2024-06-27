@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo ir.sequence
+
 ## data xml
 
 ```xml

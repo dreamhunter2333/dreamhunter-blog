@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo search 视图
+
 ## action中添加 search_view_id
 
 ```xml

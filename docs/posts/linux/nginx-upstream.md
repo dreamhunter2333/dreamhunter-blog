@@ -6,6 +6,8 @@ tags:
     - nginx
 ---
 
+# nginx upstream
+
 ## nginx upstream
 
 ```nginx

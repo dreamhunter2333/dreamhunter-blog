@@ -6,6 +6,8 @@ tags:
     - odoo
 ---
 
+# Odoo domain inverse 'in'
+
 ## Odoo domain inverse 'in'
 
 `[('demo_ids', 'in', demo_id.id)]`

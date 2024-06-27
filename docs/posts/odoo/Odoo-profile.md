@@ -6,6 +6,8 @@ tags:
     - odoo
 ---
 
+# Odoo @profile 性能测试
+
 ## Odoo @profile 性能测试
 
 ### odoo rst 文档

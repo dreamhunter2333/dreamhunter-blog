@@ -5,6 +5,8 @@ tags:
     - hackintosh
 categories: hackintosh
 ---
+
+# hotpatch 驱动 Fn 亮度快捷键
 ## 针对 intel 核显
 
 ### 为什么要驱动 Fn 亮度快捷键
@@ -75,3 +77,4 @@ DefinitionBlock ("", "SSDT", 2, "hack", "fnkey", 0x00000000)
 
 * 放入 `EFI/CLOVER/ACPI/patched/` 下
 * 重启 不出意外 你的快捷键就能用了
+出意外 你的快捷键就能用了

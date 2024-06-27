@@ -7,6 +7,8 @@ tags:
     - python
 ---
 
+# Python metaclass
+
 ## 熟悉又陌生的 type
 
 在日常使用中，我们经常使用 object 来派生一个类，事实上，在这种情况下，Python 解释器会调用 type 来创建类。

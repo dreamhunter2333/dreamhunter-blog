@@ -10,6 +10,8 @@ categories:
     - linux
 ---
 
+# Windows10使用vscode利用linux子系统运行odoo12
+
 ## linux子系统环境配置并运行odoo12
 
 [linux子系统环境配置并运行odoo12](http://jcstaff.club/2019/08/25/Run-Odoo-in-Windows-WSL/)

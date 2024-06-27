@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo ir.actions.server
+
 ## xml 配置
 
 ![odoo_action_server](/imgs/odoo/odoo_action_server.png)

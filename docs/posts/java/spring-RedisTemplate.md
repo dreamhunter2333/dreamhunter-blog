@@ -9,6 +9,8 @@ tags:
     - redis
 ---
 
+# Spring RedisTemplate
+
 ## RedisConfig 配置
 
 ```java

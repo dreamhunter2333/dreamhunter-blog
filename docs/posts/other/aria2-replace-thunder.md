@@ -8,6 +8,8 @@ tags:
     - other
 ---
 
+# aria2 替代迅雷
+
 ## 安装
 
 ```bash

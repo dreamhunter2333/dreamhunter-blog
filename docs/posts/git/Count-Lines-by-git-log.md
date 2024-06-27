@@ -6,6 +6,8 @@ tags:
     - git 
 ---
 
+# Count code Lines by git log
+
 ## git log 代码统计
 
 ### git统计代码量脚本

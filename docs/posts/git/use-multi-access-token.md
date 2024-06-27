@@ -7,6 +7,8 @@ tags:
     - git
 ---
 
+# Use multi access token
+
 ```bash
 git clone https://<access token>@github.com/<username>/<username>.git
 ```

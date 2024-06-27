@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# odoo13 searchpanel
+
 ## odoo13 searchpanel
 
 ```xml

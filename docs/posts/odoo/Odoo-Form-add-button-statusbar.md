@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo Form视图添加按钮和状态条
+
 ## button 参数
 
 - type：可以被定义为三个值

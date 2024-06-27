@@ -7,6 +7,8 @@ categories:
     - database
 ---
 
+# SQL 基本语句
+
 ## SQL SELECT 语句
 
 ```sql

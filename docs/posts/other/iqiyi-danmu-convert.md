@@ -7,6 +7,8 @@ tags:
     - other
 ---
 
+# 爱奇艺弹幕 下载 解析 转换
+
 开源地址 [iqiyi_danmu](https://github.com/dreamhunter2333/iqiyi_danmu)
 
 ## 前言

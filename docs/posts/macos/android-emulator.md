@@ -9,6 +9,8 @@ tags:
     - emulator
 ---
 
+# android emulator
+
 [download Command line tools](https://developer.android.com/studio#downloads)
 
 ```bash

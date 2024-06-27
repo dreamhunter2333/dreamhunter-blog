@@ -1,0 +1,21 @@
+@media (min-width: 960px) {
+    .VPDoc {
+        padding-top: 10px !important;
+    }
+
+    .vp-doc .VPTeamMembers {
+        margin-top: 0px !important;
+    }
+
+    .VPDoc:not(.has-sidebar) .content {
+        max-width: inherit !important;
+    }
+
+    .VPDocAsideOutline .content {
+        padding-left: 14px !important;
+    }
+}
+
+.hover-pointer {
+    cursor: pointer !important;
+}

@@ -8,6 +8,8 @@ tags:
     - wsl
 ---
 
+# wsl2 使用 Windows ip
+
 ## 查询 win 的 ip
 
 ```bash

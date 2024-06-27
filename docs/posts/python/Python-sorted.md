@@ -9,6 +9,8 @@ tags:
     - odoo
 ---
 
+# Python sorted()
+
 ## Python3 sorted() 函数
 
 ### sorted() 函数对所有可迭代的对象进行排序操作

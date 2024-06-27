@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo Controllers Website
+
 ## Odoo Controllers Website
 
 > Controllers/*.python

@@ -7,6 +7,8 @@ tags:
     - mq
 ---
 
+# 为什么使用消息队列
+
 ## 参考原文
 
 [原文](https://doocs.github.io/advanced-java/#/./docs/high-concurrency)

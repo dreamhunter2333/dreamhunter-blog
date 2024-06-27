@@ -6,6 +6,8 @@ tags:
     - odoo
 ---
 
+# odoo func env.context
+
 context 中内容会在下次前端触发后重置
 
 ## 获取 context 内容

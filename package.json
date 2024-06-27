@@ -1,23 +1,27 @@
 {
-  "name": "vuepress-blog",
+  "name": "dreamhunter-blog",
   "version": "1.0.0",
-  "description": "Blog",
-  "main": "index.js",
+  "description": "Dreamhunter Blog",
+  "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
     "new": "./new"
   },
   "devDependencies": {
-    "@dreamhunter2333/vuepress-plugin-sakana": "^1.0.1",
-    "@vuepress/plugin-back-to-top": "^1.9.10",
-    "@vuepress/plugin-pwa": "^1.9.10",
-    "medium-zoom": "^1.1.0",
-    "vuepress": "^1.9.10",
-    "vuepress-plugin-auto-sidebar": "^2.3.2",
-    "vuepress-plugin-helper-live2d": "^1.0.2",
-    "vuepress-plugin-sitemap": "^2.3.1",
-    "vuepress-theme-reco": "^1.6.17"
+    "fs-extra": "^11.2.0",
+    "globby": "^14.0.1",
+    "gray-matter": "^4.0.3",
+    "http-server": "^14.1.1",
+    "vitepress": "^1.2.3",
+    "vue": "^3.4.30"
+  },
+  "dependencies": {
+    "@giscus/vue": "^3.0.0",
+    "naive-ui": "^2.38.2",
+    "vite": "^5.3.1",
+    "vooks": "^0.2.12"
   }
 }

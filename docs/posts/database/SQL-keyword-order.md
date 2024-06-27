@@ -7,6 +7,8 @@ tags:
     - database
 ---
 
+# Mysql 关键字执行顺序
+
 1. FROM：对FROM子句中前两个表执行笛卡尔积生成虚拟表vt1
 2. ON: 对vt1表应用ON筛选器只有满足 join_condition 为真的行才被插入vt2
 3. OUTER(JOIN)：如果指定了 OUTER JOIN保留表(preserved table)中未找到的行将行作为外部行添加到vt2，生成t3，如果 from 包含两个以上表，则对上一个联结生成的结果表和下一个表重复执行步骤。

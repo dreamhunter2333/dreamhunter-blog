@@ -6,6 +6,8 @@ tags:
     - odoo
 ---
 
+# Odoo Challenge
+
 ## Odoo Challenge
 
 ### Odoo Challenge level 1

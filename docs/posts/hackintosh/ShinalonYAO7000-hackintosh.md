@@ -7,6 +7,8 @@ categories:
     - hackintosh
 ---
 
+# 炫龙耀7000 hackintosh 全过程
+
 ## 炫龙 耀7000 EFI 黑苹果
 
 * [EFI文件](https://github.com/dreamhunter2333/Shinalon_YAO_7000_efi)
@@ -92,6 +94,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/xzhih/one-key-hidpi/master
 ![1](/pic/4.png)
 ![1](/pic/5.png)
 ![1](/pic/6.png)
+![1](/pic/7.png)
+![1](/pic/8.png)
+![1](/pic/9.png)
+ng)
 ![1](/pic/7.png)
 ![1](/pic/8.png)
 ![1](/pic/9.png)

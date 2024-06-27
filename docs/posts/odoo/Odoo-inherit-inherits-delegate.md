@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo 继承
+
 ## _inherit
 
 - _name和_inherit不同

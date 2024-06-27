@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo Order 排序
+
 ## 类中的 _order
 
 > `_order`字符串的语法类似于SQL中的`ORDER BY`

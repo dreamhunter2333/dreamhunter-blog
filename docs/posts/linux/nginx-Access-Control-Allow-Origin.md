@@ -6,6 +6,8 @@ tags:
     - nginx
 ---
 
+# nginx Access-Control-Allow-Origin
+
 ## nginx Access-Control-Allow-Origin
 
 ```nginx

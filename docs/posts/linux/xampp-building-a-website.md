@@ -6,6 +6,8 @@ tags:
 categories:
     - linux
 ---
+
+# xampp建站
 ### 一、工具/原料
 
 * xampp
@@ -55,3 +57,4 @@ wget http://sourceforge.net/projects/xampp/files/XAMPP%20Linux/5.6.14/xampp-linu
 * 若不能访问请 chmod -R 777 你的网站目录
 
 * /opt/lampp/htdocs/index.php 这个文件可以修改ip或域名指向的目录
+��可以修改ip或域名指向的目录

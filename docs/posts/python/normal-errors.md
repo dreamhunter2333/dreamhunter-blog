@@ -7,6 +7,8 @@ tags:
     - python
 ---
 
+# Normal Errors
+
 1. ModuleNotFoundError: No module named 'Tkinter'
 
     ```bash

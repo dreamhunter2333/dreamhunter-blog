@@ -6,6 +6,8 @@ tags:
     - odoo
 ---
 
+# Odoo external api
+
 ## Odoo 外部 api
 
 ```python

@@ -7,6 +7,8 @@ tags:
     - database
 ---
 
+# SQL NULL Func
+
 ## SQL NULL 函数
 
 将 `null` 替换为某个值

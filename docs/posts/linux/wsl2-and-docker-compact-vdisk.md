@@ -8,6 +8,8 @@ tags:
     - wsl
 ---
 
+# wsl2 docker compact vdisk
+
 ```ps
 wsl --shutdown
 diskpart

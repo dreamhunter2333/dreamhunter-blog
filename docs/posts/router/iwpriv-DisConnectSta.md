@@ -7,6 +7,8 @@ tags:
     - router
 ---
 
+# iwpriv-DisConnectSta
+
 踢设备使其重连
 
 ```bash

@@ -9,6 +9,8 @@ tags:
     - android
 ---
 
+# Install ubuntu with xrdp in termux
+
 
 ## Install termux
 

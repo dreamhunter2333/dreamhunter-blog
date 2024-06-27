@@ -6,6 +6,8 @@ tags:
     - odoo
 ---
 
+# Odoo Controllers requests
+
 ## conf 配置 dbfilter
 
 `dbfilter=dbname`

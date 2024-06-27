@@ -7,6 +7,8 @@ tags:
     - java
 ---
 
+# 基于时间的一次性密码算法
+
 ## java GoogleAuth
 
 [GoogleAuth](https://github.com/wstrange/GoogleAuth)

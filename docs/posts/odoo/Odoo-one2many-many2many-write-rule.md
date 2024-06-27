@@ -8,6 +8,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo one2many many2many 写值规则
+
 ## Odoo one2many many2many 写值规则
 
 odoo12以后one2many many2many 写值规则基本相同

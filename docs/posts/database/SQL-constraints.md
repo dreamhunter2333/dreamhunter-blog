@@ -8,6 +8,8 @@ categories:
     - database
 ---
 
+# SQL 约束
+
 ## SQL 语句 约束
 
 > 约束用于限制加入表的数据的类型。

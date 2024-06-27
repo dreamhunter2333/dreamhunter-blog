@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo Translation
+
 ## Odoo Translation
 
 ### zh_CN.po

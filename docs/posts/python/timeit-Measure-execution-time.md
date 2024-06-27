@@ -6,6 +6,8 @@ tags:
     - python
 ---
 
+# timeit 测量小代码片段的执行时间
+
 ## [原文](https://docs.python.org/zh-cn/3/library/timeit.html?highlight=timeit#module-timeit)
 
 ## 源码： Lib/timeit.py

@@ -7,6 +7,8 @@ tags:
     - python
 ---
 
+# locust 压测
+
 ## 官网
 
 [locust](https://github.com/locustio/locust)
@@ -29,4 +31,4 @@ class Demo(HttpUser):
 locust -f locustfile.py
 ```
 
-打开 [http://localhost:8089/](http://localhost:8089/) 即可开始使用
+打开 [http://localhost:8089/](http://localhost:8089) 即可开始使用

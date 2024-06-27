@@ -8,6 +8,8 @@ tags:
     - wsl
 ---
 
+# wsl2 安装 和 ssh xrdp 端口转发
+
 
 ## 1. 启用 wsl2
 

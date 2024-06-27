@@ -7,6 +7,8 @@ tags:
     - linux
 ---
 
+# offline install oh-my-zsh
+
 ## 离线安装 oh-my-zsh
 
 ### 下载 deb oh-my-zsh

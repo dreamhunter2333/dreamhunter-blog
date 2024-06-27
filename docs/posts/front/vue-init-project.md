@@ -6,6 +6,8 @@ tags:
     - vue
 ---
 
+# vue init project
+
 ## 安装 vue
 
 ```bash

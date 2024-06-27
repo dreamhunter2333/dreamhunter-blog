@@ -6,6 +6,8 @@ tags:
     - python
 ---
 
+# Python3 mro __class__
+
 ## Python3 的 mro super
 
 通过 super 可以调用父类的方法

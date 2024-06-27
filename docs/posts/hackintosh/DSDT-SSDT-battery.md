@@ -5,6 +5,8 @@ tags:
     - hackintosh
 categories: hackintosh
 ---
+
+# DSDT SSDT 电量显示
 ### 为什么要制作电量补丁？制作电量补丁的好处是什么
 
 * 笔记本当然要显示剩余电量辣
@@ -391,6 +393,11 @@ into method label _BST code_regex \(\^\^PCI0.LPCB.EC0.XST0 replaceall_matched be
 into method label _BST code_regex \(\^\^PCI0.LPCB.EC0.XST1 replaceall_matched begin (^^B1B2(PCI0.LPCB.EC0.X2ST, PCI0.LPCB.EC0.X3ST) end;
 into method label _BST code_regex \(\^\^PCI0.LPCB.EC0.XST2 replaceall_matched begin (^^B1B2(PCI0.LPCB.EC0.X4ST, PCI0.LPCB.EC0.X5ST) end;
 into method label _BST code_regex \(\^\^PCI0.LPCB.EC0.XST3 replaceall_matched begin (^^B1B2(PCI0.LPCB.EC0.X6ST, PCI0.LPCB.EC0.X7ST) end;
+into method label ECBE code_regex \(\^\^PCI0.LPCB.EC0.CYCN replaceall_matched begin (^^B1B2(PCI0.LPCB.EC0.C0YC, PCI0.LPCB.EC0.C1YC) end;
+into method label _BST code_regex \(\^\^PCI0.LPCB.EC0.CYCN replaceall_matched begin (^^B1B2(PCI0.LPCB.EC0.C0YC, PCI0.LPCB.EC0.C1YC) end;
+
+```
+EC0.XST3 replaceall_matched begin (^^B1B2(PCI0.LPCB.EC0.X6ST, PCI0.LPCB.EC0.X7ST) end;
 into method label ECBE code_regex \(\^\^PCI0.LPCB.EC0.CYCN replaceall_matched begin (^^B1B2(PCI0.LPCB.EC0.C0YC, PCI0.LPCB.EC0.C1YC) end;
 into method label _BST code_regex \(\^\^PCI0.LPCB.EC0.CYCN replaceall_matched begin (^^B1B2(PCI0.LPCB.EC0.C0YC, PCI0.LPCB.EC0.C1YC) end;
 

@@ -7,6 +7,8 @@ tags:
     - wsl
 ---
 
+# wsl linux custom install
+
 ## wsl linux custom install
 
 ### LxRunOffline WSL 自定义安装、备份

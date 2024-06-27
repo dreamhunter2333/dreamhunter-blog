@@ -10,6 +10,8 @@ tags:
     - 酸酸乳
 ---
 
+# docker 部署 trojan-go acme nginx 自动申请证书
+
 ## 准备
 
 - 注册好的网站域名

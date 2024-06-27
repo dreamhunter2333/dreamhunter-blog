@@ -6,6 +6,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo xml group clo colspan
+
 ## Odoo xml 利用 group clo colspan排版
 
 ```xml

@@ -6,6 +6,8 @@ tags:
     - python
 ---
 
+# Python locals()
+
 ## Python locals()
 
 ### 命名空间

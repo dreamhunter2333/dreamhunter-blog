@@ -8,6 +8,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo api onchange
+
 ## @api.onchange：动态更新UI
 
 ```python

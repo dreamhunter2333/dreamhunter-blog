@@ -7,6 +7,8 @@ tags:
     - java
 ---
 
+# springboot 禁用自动配置
+
 ## 禁用自动配置
 
 ```java

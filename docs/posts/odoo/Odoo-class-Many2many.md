@@ -7,6 +7,8 @@ tags:
     - many2many
 ---
 
+# Odoo class Many2many
+
 ## python Many2many 源码解释
 
 - :param relation: optional name of the table that stores the relation in the database (string)

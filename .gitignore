@@ -1,4 +1,7 @@
 .DS_Store
+docs/.vitepress/cache
+docs/.vitepress/.temp
 node_modules/
-docs/.vuepress/dist/
+docs/.vitepress/dist/
 yarn-error.log
+.vscode/

@@ -6,6 +6,8 @@ tags:
     - redis
 ---
 
+# fast redis zset
+
 ## fast redis zset
 
 redis支持一个数据结构，叫做 zset，也就是有序的列表。

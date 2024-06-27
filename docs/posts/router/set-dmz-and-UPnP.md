@@ -7,6 +7,8 @@ tags:
     - router
 ---
 
+# 设置端口转发(dmz)和端口映射(UPnP)
+
 获得公网 IP 后，光猫设置 端口转发 dmz 转发路由器。
 
 ![dmz](/imgs/router/dmz.png)

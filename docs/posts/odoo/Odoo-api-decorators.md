@@ -7,6 +7,8 @@ tags:
 categories: odoo
 ---
 
+# Odoo @api.* 装饰器
+
 ## @api.one
 
 > one的用法主要用于self为单一记录的情况，self仅代表当前正在操作的记录。

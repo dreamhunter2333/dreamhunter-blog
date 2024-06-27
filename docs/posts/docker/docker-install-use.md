@@ -6,6 +6,8 @@ tags:
     - docker
 ---
 
+# docker安装使用
+
 ## docker安装使用
 
 ### 安装,构建开发镜像
@@ -61,6 +63,11 @@ docker exec -it "ONTAINER ID" /bin/bash
 
 # 停止的容器
 docker ps -a
+
+# volume
+docker volume ls
+```
+er ps -a
 
 # volume
 docker volume ls

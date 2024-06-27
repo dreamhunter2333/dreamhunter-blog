@@ -7,13 +7,15 @@ tags:
     - crawler
 ---
 
+# 一种基于浏览器，绕过各种限制的调用网站后台 api 的方法
+
 ## 通过 Chrome DevTools Protocol 在控制台执行 js
 
 利用其实现 openai 的网页 api 反向代理
 
 [chatgpt_reverse_proxy](https://github.com/dreamhunter2333/chatgpt_reverse_proxy)
 
-![overview](https://github.com/dreamhunter2333/chatgpt_reverse_proxy/blob/main/overview.png)
+![overview](/imgs/chatgpt_reverse_proxy/overview.png)
 
 ```python
 await page.evaluate('''

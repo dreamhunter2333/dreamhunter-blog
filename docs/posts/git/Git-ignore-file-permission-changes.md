@@ -6,6 +6,8 @@ tags:
     - git
 ---
 
+# Git-ignore-file-permission-changes
+
 ## Git ignore file permission changes
 
 ```bash

@@ -6,6 +6,8 @@ tags:
     - yarn
 ---
 
+# intall and use yarn
+
 ## 安装 使用 yarn
 
 ### macos
