@@ -7,9 +7,6 @@ import Tags from './components/Tags.vue'
 import Page from './components/Page.vue'
 import About from './components/About.vue'
 import "./custom.css"
-import { registerSW } from 'virtual:pwa-register'
-
-registerSW({ immediate: true })
 
 export default {
     ...DefaultTheme,

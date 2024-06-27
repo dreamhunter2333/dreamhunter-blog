@@ -25,19 +25,23 @@
     </Layout>
 </template>
 <script setup>
+
 import DefaultTheme from 'vitepress/theme'
 import { useData, withBase } from "vitepress";
 import Giscus from '@giscus/vue';
 import {
-    NCard, NConfigProvider, darkTheme, NTag,
-    NSpace, NH4, NPagination,
-    NFlex, NGrid, NGi
+    NConfigProvider, darkTheme, NTag, NSpace
 } from "naive-ui";
-import { computed } from 'vue';
+import { computed, onBeforeMount } from 'vue';
 const { isDark } = useData()
 
 const { Layout } = DefaultTheme
 const naiveTheme = computed(() => {
     return isDark.value ? darkTheme : null;
 })
+
+onBeforeMount(async () => {
+    const { registerSW } = await import('virtual:pwa-register');
+    registerSW({ immediate: true });
+});
 </script>

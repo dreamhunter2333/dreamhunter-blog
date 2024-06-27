@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, onBeforeMount, ref } from 'vue'
 import {
     NCard, NConfigProvider, darkTheme, NTag,
     NSpace, NH4, NPagination, NStatistic,
@@ -68,6 +68,10 @@ const naiveTheme = computed(() => {
     return isDark.value ? darkTheme : null;
 })
 
+onBeforeMount(async () => {
+    const { registerSW } = await import('virtual:pwa-register');
+    registerSW({ immediate: true });
+});
 </script>
 
 <style scoped>
