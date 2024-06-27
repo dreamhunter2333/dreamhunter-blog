@@ -1,6 +1,5 @@
 ---
-page: true
-title: About
+title: 留言板
 aside: false
 ---
 

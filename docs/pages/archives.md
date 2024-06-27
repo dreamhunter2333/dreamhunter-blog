@@ -1,5 +1,5 @@
 ---
-page: true
+layout: home
 title: Archive
 description: Archive
 aside: false

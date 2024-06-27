@@ -1,5 +1,5 @@
 ---
-page: true
+layout: home
 title: Category
 description: Category
 aside: false

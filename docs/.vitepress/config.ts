@@ -47,7 +47,7 @@ export default defineConfig({
             { text: '分类', link: '/pages/category' },
             { text: '标签', link: '/pages/tags' },
             { text: '归档', link: '/pages/archives' },
-            { text: '关于', link: '/pages/about' }
+            { text: '留言', link: '/pages/about' }
         ],
         search: {
             provider: 'local',
