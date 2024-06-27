@@ -1,13 +1,4 @@
-type Post = {
-    frontMatter: {
-        date: string
-        title: string
-        categories: string[]
-        tags: string[]
-        description: string
-    }
-    regularPath: string
-}
+import { Post } from "./type"
 
 export function initTags(post: Post[]) {
     const data: any = {}
@@ -46,27 +37,6 @@ export function initCategory(post: Post[]) {
                     data[categories] = []
                 }
                 data[categories].push(element)
-            }
-        }
-    }
-    return data
-}
-
-export function useYearSort(post: Post[]) {
-    const data = []
-    let year = '0'
-    let num = -1
-    for (let index = 0; index < post.length; index++) {
-        const element = post[index]
-        if (element.frontMatter.date) {
-            const y = element.frontMatter.date.split('-')[0]
-            if (y === year) {
-                data[num].push(element)
-            } else {
-                num++
-                data[num] = [] as any
-                data[num].push(element)
-                year = y
             }
         }
     }

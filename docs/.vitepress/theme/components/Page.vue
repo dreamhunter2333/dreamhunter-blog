@@ -41,37 +41,39 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onBeforeMount, ref } from 'vue'
+import { computed, ref } from 'vue'
 import {
-    NCard, NConfigProvider, darkTheme, NTag,
-    NSpace, NH4, NPagination, NStatistic,
-    NFlex, NGrid, NGi
+    NCard, NConfigProvider, darkTheme, NTag, NSpace,
+    NH4, NPagination, NStatistic, NFlex, NGrid, NGi
 } from "naive-ui";
 import { useData, withBase } from 'vitepress'
 import { useIsMobile } from '../utils/composables'
+import { CustomThemeConfig, Post } from '../type';
+// @ts-ignore
 import About from './About.vue'
+// @ts-ignore
 import SakanaWidgetPlugin from './SakanaWidgetPlugin.vue';
 
 const isMobile = useIsMobile()
-const { isDark, theme } = useData()
-const showSide = computed(() => !isMobile.value && theme.value.teamMembers)
-const posts = theme.value.posts as {}[];
-const tags = theme.value.posts.map((item: any) => item.frontMatter.tags).flat().filter((item, index, arr) => arr.indexOf(item) === index)
-const pageSize = (theme.value.pageSize || 10) as number;
+const { isDark, theme } = useData<CustomThemeConfig>()
+
+const showSide = computed(() => !isMobile.value && theme.value.about)
+
+const posts = theme.value.posts;
+const tags = theme.value.posts.map(
+    (item: Post) => item.frontMatter.tags
+).flat().filter(
+    (item, index, arr) => arr.indexOf(item) === index
+);
+
+const pageSize = 10;
 const pageNum = ref(1);
 const pageCount = computed(() => Math.ceil(posts.length / pageSize))
 const curPosts = computed(() =>
     posts.slice(pageSize * (pageNum.value - 1), pageSize * pageNum.value)
 )
 
-const naiveTheme = computed(() => {
-    return isDark.value ? darkTheme : null;
-})
-
-onBeforeMount(async () => {
-    const { registerSW } = await import('virtual:pwa-register');
-    registerSW({ immediate: true });
-});
+const naiveTheme = computed(() => isDark.value ? darkTheme : null)
 </script>
 
 <style scoped>

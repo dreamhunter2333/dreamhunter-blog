@@ -1,17 +1,21 @@
 import { globby } from 'globby'
 import matter from 'gray-matter'
 import fs from 'fs-extra'
+import { Post } from './type'
 
 function _convertDate(date = new Date().toString()) {
     const json_date = new Date(date).toJSON()
     return json_date.split('T')[0]
 }
 
-function _compareDate(obj1, obj2) {
+function _compareDate(obj1: Post, obj2: Post) {
     return obj1.frontMatter.date < obj2.frontMatter.date ? 1 : -1
 }
 
-export const getThemeConfig = async () => {
+export const getCustomConfig = async (): Promise<{
+    sidebar: Record<string, any>,
+    posts: Post[]
+}> => {
     const paths = await globby(['**/posts/**/*.md'], {
         ignore: ["node_modules", "README.md"],
     })
@@ -26,10 +30,11 @@ export const getThemeConfig = async () => {
                 groupKey: groupKey,
                 group: item.replace("docs/", "").split('/')[1],
                 regularPath: `/${item.replace("docs/", "").replace('.md', '.html')}`
-            }
+            } as Post
         })
     )
     posts.sort(_compareDate);
+
     const sidebar = posts.reduce((acc, cur) => {
         if (!acc[cur.groupKey]) {
             acc[cur.groupKey] = {
@@ -46,5 +51,5 @@ export const getThemeConfig = async () => {
         })
         return acc
     }, {})
-    return { posts, sidebar };
+    return { sidebar, posts };
 }

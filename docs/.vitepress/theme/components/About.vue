@@ -1,9 +1,10 @@
-<script setup>
+<script lang="ts" setup>
 import { VPTeamMembers } from 'vitepress/theme'
 import { useData } from 'vitepress'
 import { computed } from 'vue'
-const { theme } = useData()
-const members = computed(() => theme.value.teamMembers)
+import { CustomThemeConfig } from '../type';
+const { theme } = useData<CustomThemeConfig>();
+const members = computed(() => [theme.value.about])
 </script>
 
 <template>

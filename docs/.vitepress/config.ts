@@ -1,8 +1,9 @@
-import { defineConfig } from 'vitepress'
-import { getThemeConfig } from './theme/serverUtils'
+import { defineConfigWithTheme } from 'vitepress'
+import { getCustomConfig } from './theme/serverUtils'
 import { withPwa } from '@vite-pwa/vitepress'
+import { CustomThemeConfig } from './theme/type'
 
-export default withPwa(defineConfig({
+export default withPwa(defineConfigWithTheme<CustomThemeConfig>({
     pwa: {
         registerType: 'autoUpdate',
         devOptions: {
@@ -36,24 +37,15 @@ export default withPwa(defineConfig({
         ['link', { rel: 'apple-touch-icon', href: '/imgs/avatar.png' }],
     ],
     themeConfig: {
-        docFooter: {
-            prev: false,
-            next: false
+        ...await getCustomConfig(),
+        about: {
+            avatar: 'https://www.github.com/dreamhunter2333.png',
+            name: 'dreamhunter2333',
+            links: [
+                { icon: 'github', link: 'https://github.com/dreamhunter2333' },
+                { icon: 'twitter', link: 'https://twitter.com/dreamhunter2333' }
+            ]
         },
-        footer: {
-            copyright: 'Copyright © 2019-至今 DreamHunter'
-        },
-        ...await getThemeConfig(),
-        teamMembers: [
-            {
-                avatar: 'https://www.github.com/dreamhunter2333.png',
-                name: 'dreamhunter2333',
-                links: [
-                    { icon: 'github', link: 'https://github.com/dreamhunter2333' },
-                    { icon: 'twitter', link: 'https://twitter.com/dreamhunter2333' }
-                ]
-            }
-        ],
         nav: [
             { text: '首页', link: '/' },
             { text: '分类', link: '/pages/category' },
@@ -85,5 +77,12 @@ export default withPwa(defineConfig({
             { icon: 'twitter', link: 'https://twitter.com/dreamhunter2333' },
             { icon: 'github', link: 'https://github.com/dreamhunter2333' }
         ],
+        docFooter: {
+            prev: false,
+            next: false
+        },
+        footer: {
+            copyright: 'Copyright © 2019-至今 DreamHunter'
+        },
     }
 }))
