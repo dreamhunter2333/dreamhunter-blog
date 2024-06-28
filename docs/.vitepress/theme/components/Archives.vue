@@ -1,8 +1,7 @@
 <template>
     <ClientOnly>
         <n-config-provider :theme="naiveTheme">
-            <n-global-style />
-            <n-card embedded :bordered="false">
+            <n-card :bordered="!isDark">
                 <n-timeline size="large">
                     <n-timeline-item type="info" v-for="(year, index) in yearList" v-bind:key="index" :title="year">
                         <n-list>
@@ -33,7 +32,7 @@ import { useData, withBase } from 'vitepress'
 import { computed } from 'vue'
 import {
     NCard, NTag, NConfigProvider, darkTheme, NIcon,
-    NList, NListItem, NTimeline, NTimelineItem, NGlobalStyle
+    NList, NListItem, NTimeline, NTimelineItem
 } from "naive-ui";
 import { Clock } from '@vicons/fa';
 import { Post } from '../type';

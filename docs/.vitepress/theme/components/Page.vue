@@ -1,11 +1,10 @@
 <template>
     <ClientOnly>
         <n-config-provider :theme="naiveTheme">
-            <n-global-style />
             <n-grid style="width: 100%;" :cols="showSide ? 4 : 3">
                 <n-gi :span="3">
-                    <n-card tag="a" :href="withBase(article.regularPath)" hoverable embedded :bordered="false"
-                        v-for="(article, index) in curPosts" :key="index" style="margin-bottom: 10px;">
+                    <n-card tag="a" :href="withBase(article.regularPath)" hoverable v-for="(article, index) in curPosts"
+                        :bordered="!isDark" :key="index" style="margin-bottom: 10px;">
                         <n-h4>
                             <a :href="withBase(article.regularPath)" strong>
                                 {{ article.frontMatter.title }}
@@ -35,7 +34,7 @@
                 </n-gi>
                 <n-gi v-if="showSide" style="width: 100%; margin: 20px; margin-top: 0;">
                     <About />
-                    <n-card hoverable embedded :bordered="false" style=" width: 100%; margin-top: 20px;">
+                    <n-card hoverable :bordered="!isDark" style=" width: 100%; margin-top: 20px;">
                         <n-flex justify="space-around" size="large">
                             <n-statistic label="Posts" :value="posts.length" />
                             <n-statistic label="Tags" :value="tags.length" />
@@ -52,7 +51,7 @@
 import { computed, onBeforeMount, ref } from 'vue'
 import {
     NCard, NConfigProvider, darkTheme, NTag, NSpace, NH4,
-    NPagination, NStatistic, NFlex, NGrid, NGi, NIcon, NGlobalStyle
+    NPagination, NStatistic, NFlex, NGrid, NGi, NIcon
 } from "naive-ui";
 import { Tag, Clock } from '@vicons/fa'
 import { useData, withBase } from 'vitepress'

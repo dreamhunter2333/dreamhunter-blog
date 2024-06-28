@@ -1,8 +1,7 @@
 <template>
     <ClientOnly>
         <n-config-provider :theme="naiveTheme">
-            <n-global-style />
-            <n-card embedded :bordered="false" style="margin-bottom: 10px;" :title="$frontmatter.title || 'Categories'">
+            <n-card :bordered="!isDark" style="margin-bottom: 10px;" :title="$frontmatter.title || 'Categories'">
                 <n-space>
                     <n-tag @click="toggleCategory(key)" v-for="(item, key, index) in data" v-bind:key="index" strong
                         class="hover-pointer" :checkable="selectCategory == key" :checked="selectCategory == key"
@@ -12,7 +11,7 @@
                     </n-tag>
                 </n-space>
             </n-card>
-            <n-card embedded :bordered="false" v-if="selectCategory" :title="selectCategory">
+            <n-card :bordered="!isDark" v-if="selectCategory" :title="selectCategory">
                 <n-list>
                     <n-list-item v-for="(article, index) in data[selectCategory]" :key="index">
                         <template #prefix>
@@ -37,7 +36,7 @@ import { useData, withBase } from 'vitepress'
 import { computed, ref } from 'vue'
 import {
     NCard, NConfigProvider, darkTheme, NTag,
-    NSpace, NBadge, NList, NListItem, NGlobalStyle
+    NSpace, NBadge, NList, NListItem
 } from "naive-ui";
 import { CustomThemeConfig } from '../type';
 const { isDark, theme } = useData<CustomThemeConfig>()

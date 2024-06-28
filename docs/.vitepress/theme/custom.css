@@ -19,3 +19,11 @@
 .hover-pointer {
     cursor: pointer !important;
 }
+
+.n-card {
+    background-color: var(--vp-c-bg-soft);
+}
+
+.n-list {
+    background-color: var(--vp-c-bg-soft);
+}

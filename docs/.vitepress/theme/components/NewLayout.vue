@@ -3,7 +3,6 @@
         <template #doc-before>
             <ClientOnly>
                 <n-config-provider :theme="naiveTheme">
-                    <n-global-style />
                     <n-space v-if="!$frontmatter.page" style="margin: 10px;">
                         <n-tag :bordered="false">
                             <template #icon>
@@ -37,7 +36,7 @@ import DefaultTheme from 'vitepress/theme'
 import { useData, withBase } from "vitepress";
 import Giscus from '@giscus/vue';
 import { computed } from 'vue';
-import { NConfigProvider, darkTheme, NTag, NSpace, NIcon, NGlobalStyle } from "naive-ui";
+import { NConfigProvider, darkTheme, NTag, NSpace, NIcon } from "naive-ui";
 import { Clock, Tag } from '@vicons/fa';
 
 const { isDark } = useData()
