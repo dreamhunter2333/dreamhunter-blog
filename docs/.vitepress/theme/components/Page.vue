@@ -3,7 +3,8 @@
         <n-config-provider :theme="naiveTheme">
             <n-grid style="width: 100%;" :cols="showSide ? 4 : 3">
                 <n-gi :span="3">
-                    <n-card v-for="(article, index) in curPosts" :key="index" style="margin-bottom: 10px;">
+                    <n-card tag="a" :href="withBase(article.regularPath)" hoverable embedded :bordered="false"
+                        v-for="(article, index) in curPosts" :key="index" style="margin-bottom: 10px;">
                         <n-h4>
                             <a :href="withBase(article.regularPath)" strong>
                                 {{ article.frontMatter.title }}
@@ -27,7 +28,7 @@
                 </n-gi>
                 <n-gi v-if="showSide" style="width: 100%; margin: 20px; margin-top: 0;">
                     <About />
-                    <n-card style=" width: 100%; margin-top: 20px;">
+                    <n-card hoverable embedded :bordered="false" style=" width: 100%; margin-top: 20px;">
                         <n-flex justify="space-around" size="large">
                             <n-statistic label="文章" :value="posts.length" />
                             <n-statistic label="标签" :value="tags.length" />

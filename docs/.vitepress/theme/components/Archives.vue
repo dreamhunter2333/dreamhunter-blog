@@ -1,16 +1,13 @@
 <template>
     <ClientOnly>
         <n-config-provider :theme="naiveTheme">
-            <n-card>
+            <n-card embedded :bordered="false">
                 <n-timeline>
                     <n-timeline-item v-for="(year, index) in yearList" v-bind:key="index" :title="year">
                         <n-list>
                             <n-list-item v-for="(article, index) in yearData[year]" :key="index">
-                                <a :href="withBase(article.regularPath)" class="posts">
-                                    <div class="post-container">
-                                        <div class="post-dot"></div>
-                                        {{ article.frontMatter.title }}
-                                    </div>
+                                <a :href="withBase(article.regularPath)">
+                                    {{ article.frontMatter.title }}
                                 </a>
                                 <template #prefix>
                                     <n-tag :bordered="false" type="info">
@@ -39,19 +36,20 @@ import { Post } from '../type';
 const { theme, isDark } = useData()
 const naiveTheme = computed(() => isDark.value ? darkTheme : null)
 const yearData = computed(() => {
-    const data = {} as Record<string, Post[]>
+    const data: Record<string, Post[]> = {};
     for (const element of theme.value.posts) {
-        if (element.frontMatter.date) {
-            const y = element.frontMatter.date.split('-')[0]
-            if (!data[y]) {
-                data[y] = []
-            }
-            data[y].push(element);
+        if (!element.frontMatter) continue
+        const y = element.frontMatter.date.split('-')[0]
+        if (!data[y]) {
+            data[y] = []
         }
+        data[y].push(element);
     }
     return data;
 });
-const yearList = computed(() => Object.keys(yearData.value).sort((a, b) => b > a ? 1 : -1));
+const yearList = computed(() =>
+    Object.keys(yearData.value).sort((a, b) => b > a ? 1 : -1)
+);
 </script>
 
 <style scoped>
