@@ -31,7 +31,6 @@ export default withPwa(defineConfigWithTheme<CustomThemeConfig>({
     description: '你指尖跃动的电光，是我此生不变的信仰',
     head: [
         ['link', { rel: 'icon', href: '/imgs/favicon.ico' }],
-        ['link', { rel: 'manifest', href: '/manifest.json' }],
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
         ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }],
         ['link', { rel: 'apple-touch-icon', href: '/imgs/avatar.png' }],
