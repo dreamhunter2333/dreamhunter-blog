@@ -9,6 +9,10 @@ export default withPwa(defineConfigWithTheme<CustomThemeConfig>({
         devOptions: {
             enabled: true
         },
+        workbox: {
+            disableDevLogs: true,
+            globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        },
         manifest: {
             name: 'Dreamhunter Blog',
             short_name: 'Dreamhunter Blog',
