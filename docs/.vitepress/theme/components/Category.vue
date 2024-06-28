@@ -1,7 +1,7 @@
 <template>
     <ClientOnly>
         <n-config-provider :theme="naiveTheme">
-            <n-card embedded :bordered="false" style="margin-bottom: 10px;">
+            <n-card embedded :bordered="false" style="margin-bottom: 10px;" :title="$frontmatter.title || 'Categories'">
                 <n-space>
                     <n-tag @click="toggleCategory(key)" v-for="(item, key, index) in data" v-bind:key="index" strong
                         class="hover-pointer" :checkable="selectCategory == key" :checked="selectCategory == key"

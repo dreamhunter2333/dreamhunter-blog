@@ -12,12 +12,18 @@
                         </n-h4>
                         <n-space>
                             <n-tag :bordered="false">
+                                <template #icon>
+                                    <n-icon size="15" :component="Clock" />
+                                </template>
                                 {{ article.frontMatter.date }}
                             </n-tag>
                             <a v-for="(item, index2) in article.frontMatter.tags" v-bind:key="index2"
                                 :href="withBase(`/pages/tags.html?tag=${item}`)">
                                 <n-tag :bordered="false" strong class="hover-pointer" type="info">
                                     <span>{{ item }}</span>
+                                    <template #icon>
+                                        <n-icon size="15" :component="Tag" />
+                                    </template>
                                 </n-tag>
                             </a>
                         </n-space>
@@ -30,8 +36,8 @@
                     <About />
                     <n-card hoverable embedded :bordered="false" style=" width: 100%; margin-top: 20px;">
                         <n-flex justify="space-around" size="large">
-                            <n-statistic label="文章" :value="posts.length" />
-                            <n-statistic label="标签" :value="tags.length" />
+                            <n-statistic label="Posts" :value="posts.length" />
+                            <n-statistic label="Tags" :value="tags.length" />
                         </n-flex>
                     </n-card>
                 </n-gi>
@@ -44,9 +50,10 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import {
-    NCard, NConfigProvider, darkTheme, NTag, NSpace,
-    NH4, NPagination, NStatistic, NFlex, NGrid, NGi
+    NCard, NConfigProvider, darkTheme, NTag, NSpace, NH4,
+    NPagination, NStatistic, NFlex, NGrid, NGi, NIcon
 } from "naive-ui";
+import { Tag, Clock } from '@vicons/fa'
 import { useData, withBase } from 'vitepress'
 import { useIsMobile } from '../utils/composables'
 import { CustomThemeConfig, Post } from '../type';

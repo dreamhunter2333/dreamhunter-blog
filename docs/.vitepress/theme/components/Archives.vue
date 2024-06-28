@@ -2,8 +2,8 @@
     <ClientOnly>
         <n-config-provider :theme="naiveTheme">
             <n-card embedded :bordered="false">
-                <n-timeline>
-                    <n-timeline-item v-for="(year, index) in yearList" v-bind:key="index" :title="year">
+                <n-timeline size="large">
+                    <n-timeline-item type="info" v-for="(year, index) in yearList" v-bind:key="index" :title="year">
                         <n-list>
                             <n-list-item v-for="(article, index) in yearData[year]" :key="index">
                                 <a :href="withBase(article.regularPath)">
@@ -11,6 +11,9 @@
                                 </a>
                                 <template #prefix>
                                     <n-tag :bordered="false" type="info">
+                                        <template #icon>
+                                            <n-icon size="15" :component="Clock" />
+                                        </template>
                                         {{ article.frontMatter.date.slice(5) }}
                                     </n-tag>
                                 </template>
@@ -28,9 +31,10 @@
 import { useData, withBase } from 'vitepress'
 import { computed } from 'vue'
 import {
-    NCard, NTag, NConfigProvider, darkTheme,
+    NCard, NTag, NConfigProvider, darkTheme, NIcon,
     NList, NListItem, NTimeline, NTimelineItem
 } from "naive-ui";
+import { Clock } from '@vicons/fa';
 import { Post } from '../type';
 
 const { theme, isDark } = useData()
