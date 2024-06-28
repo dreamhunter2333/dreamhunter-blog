@@ -1,6 +1,7 @@
 <template>
     <ClientOnly>
         <n-config-provider :theme="naiveTheme">
+            <n-global-style />
             <n-grid style="width: 100%;" :cols="showSide ? 4 : 3">
                 <n-gi :span="3">
                     <n-card tag="a" :href="withBase(article.regularPath)" hoverable embedded :bordered="false"
@@ -51,7 +52,7 @@
 import { computed, onBeforeMount, ref } from 'vue'
 import {
     NCard, NConfigProvider, darkTheme, NTag, NSpace, NH4,
-    NPagination, NStatistic, NFlex, NGrid, NGi, NIcon
+    NPagination, NStatistic, NFlex, NGrid, NGi, NIcon, NGlobalStyle
 } from "naive-ui";
 import { Tag, Clock } from '@vicons/fa'
 import { useData, withBase } from 'vitepress'

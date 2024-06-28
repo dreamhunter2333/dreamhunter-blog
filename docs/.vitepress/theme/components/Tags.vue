@@ -1,6 +1,7 @@
 <template>
     <ClientOnly>
         <n-config-provider :theme="naiveTheme">
+            <n-global-style />
             <n-card embedded :bordered="false" style="margin-bottom: 10px;" :title="$frontmatter.title || 'Categories'">
                 <n-space>
                     <n-tag @click="toggleTag(key)" v-for="(item, key, index) in data" v-bind:key="index" strong
@@ -36,7 +37,7 @@ import { computed, ref } from 'vue'
 import { useData, withBase } from 'vitepress'
 import {
     NCard, NConfigProvider, darkTheme, NTag,
-    NSpace, NBadge, NList, NListItem
+    NSpace, NBadge, NList, NListItem, NGlobalStyle
 } from "naive-ui";
 import { CustomThemeConfig, Post } from '../type';
 
