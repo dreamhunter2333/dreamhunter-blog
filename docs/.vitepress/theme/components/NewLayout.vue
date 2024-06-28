@@ -45,6 +45,6 @@ const { isDark, frontmatter } = useData();
 const { Layout } = DefaultTheme;
 const naiveTheme = computed(() => isDark.value ? darkTheme : null);
 const giscusKey = computed(() => {
-    return `${frontmatter.value?.title}-${frontmatter.value?.date}-${frontmatter.value?.tags.join('-')}`
+    return `${frontmatter.value.title}-${frontmatter.value.date}-${frontmatter.value?.tags?.join('')}`;
 })
 </script>
