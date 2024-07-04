@@ -2,7 +2,7 @@
 title: web vscode in docker
 date: '2019-11-10 22:57:42'
 categories:
-    - front
+    - frontend
 tags:
     - linux
     - docker
@@ -10,9 +10,7 @@ tags:
 
 # web vscode in docker
 
-## web vscode in docker
-
-### dockerfile
+## dockerfile
 
 ```docker
 RUN apt install make gcc g++ pkg-config -y
@@ -25,7 +23,7 @@ RUN apt-get update && apt-get install yarn -y
 RUN apt-get update -y && apt-get upgrade -y
 ```
 
-### build and run
+## build and run
 
 ```bash
 git clone https://github.com/microsoft/vscode.git -b master

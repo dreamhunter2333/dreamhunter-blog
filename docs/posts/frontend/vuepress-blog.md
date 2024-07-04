@@ -2,7 +2,7 @@
 title: Vuepress Blog
 date: '2021-01-24 20:07:41'
 categories:
-    - front
+    - frontend
 tags:
     - vuepress
 ---
