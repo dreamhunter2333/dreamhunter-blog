@@ -9,6 +9,8 @@ tags:
 
 # 为 ESP32-CAM 编译支持 camera 的 MicroPython 固件
 
+![esp32-cam](/imgs/micropython/esp32-cam.png)
+
 最近买了几个 `ESP32` 开发板，刷了 `MicroPython` 固件，体验下来非常好，但是 `ESP32-CAM` 的 `MicroPython` 固件不支持 `camera` 模块，所以就自己编译了一个支持 `camera` 的 `MicroPython` 固件。
 
 于是一番搜索，找到了一个支持 `camera` 的 `MicroPython` 的仓库: [lemariva/micropython-camera-driver](https://github.com/lemariva/micropython-camera-driver)
@@ -52,13 +54,15 @@ make submodules
 make USER_C_MODULES=../../../../micropython-camera-driver/src/micropython.cmake BOARD=ESP32_CAM all
 ```
 
-## 错误处理
+## 进阶修改
 
 此时应该会遇到一个错误: `STATIC` 关键词不存在，到 micropython-camera-driver 目录，搜索 `STATIC` 替换为 `static`，然后重新编译。
 
 ```bash
 make USER_C_MODULES=../../../../micropython-camera-driver/src/micropython.cmake BOARD=ESP32_CAM all
 ```
+
+如果是为 `OV5640` 或者其他摄像头编译，可以修改 `micropython-camera-driver/boards/ESP32_CAM/sdkconfig.esp32cam` 文件，修改 `CONFIG_OV2640_SUPPORT=y` 为 `CONFIG_OV5640_SUPPORT=y`，然后重新编译。
 
 编译完成后，会在 `build-ESP32-CAM` 目录生成 `firmware.bin` 文件，这个文件就是编译好的 `MicroPython` 固件。
 
@@ -67,6 +71,8 @@ make USER_C_MODULES=../../../../micropython-camera-driver/src/micropython.cmake 
 使用 `esptool.py` 或者 `Thonny` 烧录固件。
 
 ## 编写测试代码
+
+写到 `main.py` 文件中, 重启执行测试即可。
 
 ```python
 import camera
