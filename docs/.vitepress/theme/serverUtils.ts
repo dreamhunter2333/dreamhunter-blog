@@ -37,10 +37,12 @@ export const getCustomConfig = async (): Promise<{
 
     const sidebar = posts.reduce((acc, cur) => {
         if (!acc[cur.groupKey]) {
+            // upcase the first letter
+            const groupName = cur.group ? cur.group.charAt(0).toUpperCase() + cur.group.slice(1) : cur.group
             acc[cur.groupKey] = {
-                text: cur.group,
+                text: groupName,
                 items: [{
-                    text: cur.group,
+                    text: groupName,
                     items: []
                 }]
             }
