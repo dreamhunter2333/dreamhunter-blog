@@ -6,9 +6,11 @@
                     <n-timeline-item type="info" v-for="(year, index) in yearList" v-bind:key="index" :title="year">
                         <n-list>
                             <n-list-item v-for="(article, index) in yearData[year]" :key="index">
-                                <a :href="withBase(article.regularPath)">
-                                    {{ article.frontMatter.title }}
-                                </a>
+                                <div class="hover-title">
+                                    <a :href="withBase(article.regularPath)">
+                                        {{ article.frontMatter.title }}
+                                    </a>
+                                </div>
                                 <template #prefix>
                                     <n-tag round :bordered="false" type="info">
                                         <template #icon>
@@ -60,5 +62,9 @@ const yearList = computed(() =>
 a {
     color: var(--vp-c-text-1);
     text-decoration: none;
+}
+
+a:hover {
+    color: var(--vp-c-text-1);
 }
 </style>

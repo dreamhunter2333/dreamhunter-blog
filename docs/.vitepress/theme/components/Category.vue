@@ -1,7 +1,8 @@
 <template>
     <ClientOnly>
         <n-config-provider :theme="naiveTheme">
-            <n-card :bordered="!isDark" style="margin-bottom: 10px;" :title="$frontmatter.title || 'Categories'">
+            <n-card size="small" :bordered="!isDark" style="margin-bottom: 10px;"
+                :title="$frontmatter.title || 'Categories'">
                 <n-space>
                     <n-tag round @click="toggleCategory(key)" v-for="(item, key, index) in data" v-bind:key="index"
                         strong class="hover-pointer" :checkable="selectCategory == key" :checked="selectCategory == key"
@@ -11,15 +12,17 @@
                     </n-tag>
                 </n-space>
             </n-card>
-            <n-card :bordered="!isDark" v-if="selectCategory" :title="selectCategory">
+            <n-card size="small" :bordered="!isDark" v-if="selectCategory" :title="selectCategory">
                 <n-list>
                     <n-list-item v-for="(article, index) in data[selectCategory]" :key="index">
                         <template #prefix>
                             <n-badge type="success" dot />
                         </template>
-                        <a :href="withBase(article.regularPath)">
-                            {{ article.frontMatter.title }}
-                        </a>
+                        <div class="hover-title">
+                            <a :href="withBase(article.regularPath)">
+                                {{ article.frontMatter.title }}
+                            </a>
+                        </div>
                         <template #suffix>
                             <n-tag round :bordered="false" type="info">
                                 <template #icon>
@@ -78,5 +81,9 @@ const toggleCategory = (category: string) => {
 a {
     color: var(--vp-c-text-1);
     text-decoration: none;
+}
+
+a:hover {
+    color: var(--vp-c-text-1);
 }
 </style>

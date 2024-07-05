@@ -3,23 +3,25 @@
         <template #doc-before>
             <ClientOnly>
                 <n-config-provider :theme="naiveTheme">
-                    <n-space v-if="!$frontmatter.page" style="margin: 10px;">
-                        <n-tag round :bordered="false">
-                            <template #icon>
-                                <n-icon size="15" :component="Clock" />
-                            </template>
-                            {{ $frontmatter.date?.substring(0, 10) }}
-                        </n-tag>
-                        <a v-for="(item, index2) in $frontmatter.tags" v-bind:key="index2"
-                            :href="withBase(`/pages/tags.html?tag=${item}`)">
-                            <n-tag round :bordered="false" strong class="hover-pointer" type="info">
-                                <span>{{ item }}</span>
+                    <n-card v-if="!$frontmatter.page" size="small" :bordered="false" style="margin-bottom: 20px;">
+                        <n-flex justify="center">
+                            <n-tag round :bordered="false">
                                 <template #icon>
-                                    <n-icon size="15" :component="Tag" />
+                                    <n-icon size="15" :component="Clock" />
                                 </template>
+                                {{ $frontmatter.date?.substring(0, 10) }}
                             </n-tag>
-                        </a>
-                    </n-space>
+                            <a v-for="(item, index2) in $frontmatter.tags" v-bind:key="index2"
+                                :href="withBase(`/pages/tags.html?tag=${item}`)">
+                                <n-tag round :bordered="false" strong class="hover-pointer" type="info">
+                                    <span>{{ item }}</span>
+                                    <template #icon>
+                                        <n-icon size="15" :component="Tag" />
+                                    </template>
+                                </n-tag>
+                            </a>
+                        </n-flex>
+                    </n-card>
                 </n-config-provider>
             </ClientOnly>
         </template>
@@ -38,7 +40,7 @@ import DefaultTheme from 'vitepress/theme'
 import { useData, withBase } from "vitepress";
 import Giscus from '@giscus/vue';
 import { computed } from 'vue';
-import { NConfigProvider, darkTheme, NTag, NSpace, NIcon } from "naive-ui";
+import { NConfigProvider, darkTheme, NTag, NFlex, NIcon, NCard } from "naive-ui";
 import { Clock, Tag } from '@vicons/fa';
 
 const { isDark, frontmatter } = useData();
