@@ -12,8 +12,8 @@ function _compareDate(obj1: Post, obj2: Post) {
     return obj1.frontMatter.date < obj2.frontMatter.date ? 1 : -1
 }
 
-export const getCustomConfig = async (): Promise<{
-    sidebar: Record<string, any>,
+export const getCustomConfig = async (autoSidebar: boolean | undefined = false): Promise<{
+    sidebar?: Record<string, any>,
     posts: Post[]
 }> => {
     const paths = await globby(['**/posts/**/*.md'], {
@@ -34,6 +34,10 @@ export const getCustomConfig = async (): Promise<{
         })
     )
     posts.sort(_compareDate);
+
+    if (!autoSidebar) {
+        return { posts }
+    }
 
     const sidebar = posts.reduce((acc, cur) => {
         if (!acc[cur.groupKey]) {

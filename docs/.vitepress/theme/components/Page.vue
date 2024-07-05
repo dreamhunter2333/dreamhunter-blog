@@ -99,4 +99,8 @@ a {
 a:hover {
     color: var(--vp-c-text-1);
 }
+
+.n-card {
+    transition: box-shadow 0.5s;
+}
 </style>
