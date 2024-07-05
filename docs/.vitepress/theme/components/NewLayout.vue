@@ -4,7 +4,7 @@
             <ClientOnly>
                 <n-config-provider :theme="naiveTheme">
                     <n-space v-if="!$frontmatter.page" style="margin: 10px;">
-                        <n-tag :bordered="false">
+                        <n-tag round :bordered="false">
                             <template #icon>
                                 <n-icon size="15" :component="Clock" />
                             </template>
@@ -12,7 +12,7 @@
                         </n-tag>
                         <a v-for="(item, index2) in $frontmatter.tags" v-bind:key="index2"
                             :href="withBase(`/pages/tags.html?tag=${item}`)">
-                            <n-tag :bordered="false" strong class="hover-pointer" type="info">
+                            <n-tag round :bordered="false" strong class="hover-pointer" type="info">
                                 <span>{{ item }}</span>
                                 <template #icon>
                                     <n-icon size="15" :component="Tag" />

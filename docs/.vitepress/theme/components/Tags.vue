@@ -3,9 +3,9 @@
         <n-config-provider :theme="naiveTheme">
             <n-card :bordered="!isDark" style="margin-bottom: 10px;" :title="$frontmatter.title || 'Categories'">
                 <n-space>
-                    <n-tag @click="toggleTag(key)" v-for="(item, key, index) in data" v-bind:key="index" strong
+                    <n-tag round @click="toggleTag(key)" v-for="(item, key, index) in data" v-bind:key="index" strong
                         class="hover-pointer" :checkable="selectTag == key" :checked="selectTag == key"
-                        :bordered="false" :type="getRandomTagColor(index)">
+                        :type="getRandomTagColor(index)">
                         {{ key }}
                         <n-badge :value="data[key].length" :type="getRandomTagColor(index)" />
                     </n-tag>
@@ -21,7 +21,10 @@
                             {{ article.frontMatter.title }}
                         </a>
                         <template #suffix>
-                            <n-tag :bordered="false" type="info">
+                            <n-tag round :bordered="false" type="info">
+                                <template #icon>
+                                    <n-icon size="15" :component="Clock" />
+                                </template>
                                 {{ article.frontMatter.date }}
                             </n-tag>
                         </template>
@@ -36,8 +39,9 @@ import { computed, ref } from 'vue'
 import { useData, withBase } from 'vitepress'
 import {
     NCard, NConfigProvider, darkTheme, NTag,
-    NSpace, NBadge, NList, NListItem
+    NSpace, NBadge, NList, NListItem, NIcon
 } from "naive-ui";
+import { Clock } from '@vicons/fa'
 import { CustomThemeConfig, Post } from '../type';
 
 const { isDark, theme } = useData<CustomThemeConfig>()

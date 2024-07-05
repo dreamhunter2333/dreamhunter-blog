@@ -10,7 +10,7 @@
                                     {{ article.frontMatter.title }}
                                 </a>
                                 <template #prefix>
-                                    <n-tag :bordered="false" type="info">
+                                    <n-tag round :bordered="false" type="info">
                                         <template #icon>
                                             <n-icon size="15" :component="Clock" />
                                         </template>

@@ -22,6 +22,7 @@
 
 .n-card {
     background-color: var(--vp-c-bg-soft);
+    border-radius: 12px;
 }
 
 .n-list {
