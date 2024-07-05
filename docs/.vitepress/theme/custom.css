@@ -7,6 +7,10 @@
         margin-top: 0px !important;
     }
 
+    .vp-doc .VPTeamMembersItem {
+        border-radius: 8px !important;
+    }
+
     .VPDoc:not(.has-sidebar) .content {
         max-width: inherit !important;
     }
@@ -22,7 +26,7 @@
 
 .n-card {
     background-color: var(--vp-c-bg-soft);
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 .n-list {
