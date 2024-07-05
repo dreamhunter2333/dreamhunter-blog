@@ -13,13 +13,6 @@ export default {
     ...DefaultTheme,
     Layout: NewLayout,
     enhanceApp({ app }: { app: App }) {
-        app.mixin({
-            async beforeMount() {
-                // @ts-ignore
-                const { registerSW } = await import('virtual:pwa-register');
-                registerSW({ immediate: true });
-            }
-        });
         // register global compoment
         app.component('Tags', Tags);
         app.component('Category', Category);

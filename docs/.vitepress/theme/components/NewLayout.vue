@@ -31,6 +31,9 @@
                     loading="lazy" />
             </div>
         </template>
+        <template #layout-bottom>
+            <RegisterSW />
+        </template>
     </Layout>
 </template>
 <script setup>
@@ -40,16 +43,12 @@ import Giscus from '@giscus/vue';
 import { computed, onBeforeMount } from 'vue';
 import { NConfigProvider, darkTheme, NTag, NFlex, NIcon } from "naive-ui";
 import { Clock, Tag } from '@vicons/fa';
+import RegisterSW from './RegisterSW.vue';
 
 const { isDark, frontmatter } = useData();
 const { Layout } = DefaultTheme;
 const naiveTheme = computed(() => isDark.value ? darkTheme : null);
 const giscusKey = computed(() => {
     return `${frontmatter.value.title}-${frontmatter.value.date}-${frontmatter.value?.tags?.join('')}`;
-})
-
-onBeforeMount(async () => {
-    const { registerSW } = await import('virtual:pwa-register')
-    registerSW({ immediate: true })
 })
 </script>
