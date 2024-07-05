@@ -3,7 +3,7 @@
         <template #doc-before>
             <ClientOnly>
                 <n-config-provider :theme="naiveTheme">
-                    <n-flex v-if="!$frontmatter.page" size="small" :bordered="false" style="margin: 12px 0 12px 0;">
+                    <n-flex v-if="!$frontmatter.page" style="margin: 12px 0 12px 0;">
                         <n-tag round :bordered="false">
                             <template #icon>
                                 <n-icon size="15" :component="Clock" />
@@ -37,7 +37,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { useData, withBase } from "vitepress";
 import Giscus from '@giscus/vue';
-import { computed } from 'vue';
+import { computed, onBeforeMount } from 'vue';
 import { NConfigProvider, darkTheme, NTag, NFlex, NIcon } from "naive-ui";
 import { Clock, Tag } from '@vicons/fa';
 
@@ -46,5 +46,10 @@ const { Layout } = DefaultTheme;
 const naiveTheme = computed(() => isDark.value ? darkTheme : null);
 const giscusKey = computed(() => {
     return `${frontmatter.value.title}-${frontmatter.value.date}-${frontmatter.value?.tags?.join('')}`;
+})
+
+onBeforeMount(async () => {
+    const { registerSW } = await import('virtual:pwa-register')
+    registerSW({ immediate: true })
 })
 </script>
