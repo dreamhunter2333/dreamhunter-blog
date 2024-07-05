@@ -1,7 +1,9 @@
 <template>
-    <div>
-        <div id="sakana-box" class="sakana-box" v-bind:style="styleObject"></div>
-    </div>
+    <ClientOnly>
+        <div>
+            <div id="sakana-box" class="sakana-box" v-bind:style="styleObject"></div>
+        </div>
+    </ClientOnly>
 </template>
 
 <script setup>

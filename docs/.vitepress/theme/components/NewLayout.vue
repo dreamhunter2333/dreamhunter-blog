@@ -24,15 +24,19 @@
             </ClientOnly>
         </template>
         <template #doc-after>
-            <div :key="giscusKey">
-                <Giscus id="comments" repo="dreamhunter2333/dreamhunter-blog" repoId="MDEwOlJlcG9zaXRvcnkzMzIyNTA3MTc="
-                    category="General" categoryId="DIC_kwDOE82-Xc4CgbBf" mapping="pathname" reactionsEnabled="1"
-                    emitMetadata="0" inputPosition="top" :theme="isDark ? 'dark' : 'light'" lang="zh-CN"
-                    loading="lazy" />
-            </div>
+            <ClientOnly>
+                <div :key="giscusKey">
+                    <Giscus id="comments" repo="dreamhunter2333/dreamhunter-blog"
+                        repoId="MDEwOlJlcG9zaXRvcnkzMzIyNTA3MTc=" category="General" categoryId="DIC_kwDOE82-Xc4CgbBf"
+                        mapping="pathname" reactionsEnabled="1" emitMetadata="0" inputPosition="top"
+                        :theme="isDark ? 'dark' : 'light'" lang="zh-CN" loading="lazy" />
+                </div>
+            </ClientOnly>
         </template>
         <template #layout-bottom>
-            <RegisterSW />
+            <ClientOnly>
+                <RegisterSW />
+            </ClientOnly>
         </template>
     </Layout>
 </template>

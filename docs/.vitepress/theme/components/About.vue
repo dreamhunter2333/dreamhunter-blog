@@ -8,7 +8,9 @@ const members = computed(() => [theme.value.about])
 </script>
 
 <template>
-    <div v-if="members" style="display: flex; justify-content: center; width: 100%; ">
-        <VPTeamMembers :members="members" />
-    </div>
+    <ClientOnly>
+        <div v-if="members" style="display: flex; justify-content: center; width: 100%; ">
+            <VPTeamMembers :members="members" />
+        </div>
+    </ClientOnly>
 </template>
