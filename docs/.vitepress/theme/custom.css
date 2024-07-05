@@ -32,12 +32,3 @@
 .n-list {
     background-color: var(--vp-c-bg-soft);
 }
-
-.hover-title {
-    transform-origin: left center;
-    transition: transform 0.3s;
-}
-
-.hover-title:hover {
-    transform: scale(1.05) !important;
-}

@@ -18,7 +18,7 @@
                         <template #prefix>
                             <n-badge type="success" dot />
                         </template>
-                        <div class="hover-title">
+                        <div>
                             <a :href="withBase(article.regularPath)">
                                 {{ article.frontMatter.title }}
                             </a>
@@ -87,9 +87,5 @@ const toggleTag = (tag: string) => {
 a {
     color: var(--vp-c-text-1);
     text-decoration: none;
-}
-
-a:hover {
-    color: var(--vp-c-text-1);
 }
 </style>

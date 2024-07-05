@@ -5,7 +5,7 @@
                 <n-gi :span="3">
                     <n-card tag="a" :href="withBase(article.regularPath)" hoverable v-for="(article, index) in curPosts"
                         :bordered="!isDark" :key="index" style="margin-bottom: 12px;">
-                        <n-h4 class="hover-title">
+                        <n-h4>
                             <a :href="withBase(article.regularPath)" strong>
                                 {{ article.frontMatter.title }}
                             </a>
@@ -94,10 +94,6 @@ onBeforeMount(async () => {
 a {
     color: var(--vp-c-text-1);
     text-decoration: none;
-}
-
-a:hover {
-    color: var(--vp-c-text-1);
 }
 
 .n-card {
