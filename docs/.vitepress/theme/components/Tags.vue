@@ -38,7 +38,7 @@
     </ClientOnly>
 </template>
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useData, withBase } from 'vitepress'
 import {
     NCard, NConfigProvider, darkTheme, NTag,
@@ -55,9 +55,6 @@ const getRandomTagColor = (index: number) => {
     return tagColors[index % tagColors.length]
 }
 
-let url = location.href.split('?')[1]
-let params = new URLSearchParams(url)
-
 const data = computed(() => {
     const tmpData: Record<string, Post[]> = {}
     for (const element of theme.value.posts) {
@@ -72,7 +69,7 @@ const data = computed(() => {
     }
     return tmpData;
 })
-const selectTag = ref(params.get('tag') ? params.get('tag') : '')
+const selectTag = ref('')
 
 const toggleTag = (tag: string) => {
     if (selectTag.value == tag) {
@@ -81,6 +78,14 @@ const toggleTag = (tag: string) => {
     }
     selectTag.value = tag;
 }
+
+onMounted(() => {
+    const url = location ? location?.href?.split('?')[1] : '';
+    const params = new URLSearchParams(url);
+    if (params.get('tag')) {
+        selectTag.value = params.get('tag') as string;
+    }
+})
 </script>
 
 <style scoped>
