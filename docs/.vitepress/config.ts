@@ -92,7 +92,9 @@ export default withPwa(defineConfigWithTheme<CustomThemeConfig>({
         workbox: {
             navigateFallbackDenylist: [/\.xml$/],
             disableDevLogs: true,
-            globPatterns: ['**/!(*posts*).{js,css,html,ico,png,svg}'],
+            globPatterns: [
+                'assets/chunks/**/*.{js,css,html,ico,png,svg}'
+            ],
         },
         manifest: {
             name: 'Dreamhunter Blog',
