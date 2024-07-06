@@ -89,7 +89,8 @@ export default withPwa(defineConfigWithTheme<CustomThemeConfig>({
         },
         workbox: {
             navigateFallbackDenylist: [/\.xml$/],
-            disableDevLogs: true
+            disableDevLogs: true,
+            globPatterns: []
         },
         manifest: {
             name: 'Dreamhunter Blog',
