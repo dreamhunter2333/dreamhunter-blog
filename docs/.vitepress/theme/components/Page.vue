@@ -33,13 +33,15 @@
                     </n-flex>
                 </n-gi>
                 <n-gi v-if="showSide" style="width: 100%; margin: 20px; margin-top: 0;">
-                    <About />
-                    <n-card :bordered="!isDark" style=" width: 100%; margin-top: 20px;">
-                        <n-flex justify="space-around" size="large">
-                            <n-statistic label="Posts" :value="posts.length" />
-                            <n-statistic label="Tags" :value="tags.length" />
-                        </n-flex>
-                    </n-card>
+                    <div style="position: sticky; top: var(--vp-nav-height) !important; ">
+                        <About />
+                        <n-card :bordered="!isDark" style="width: 100%; margin-top: 20px;">
+                            <n-flex justify="space-around" size="large">
+                                <n-statistic label="Posts" :value="posts.length" />
+                                <n-statistic label="Tags" :value="tags.length" />
+                            </n-flex>
+                        </n-card>
+                    </div>
                 </n-gi>
             </n-grid>
         </n-config-provider>
