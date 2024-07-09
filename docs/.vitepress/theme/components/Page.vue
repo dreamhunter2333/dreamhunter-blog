@@ -1,7 +1,7 @@
 <template>
     <ClientOnly>
         <n-config-provider :theme="naiveTheme">
-            <n-grid style="width: 100%;" :cols="showSide ? 4 : 3">
+            <n-grid style="width: 100%; margin-top: 12px;" :cols="showSide ? 4 : 3" x-gap="12px">
                 <n-gi :span="3">
                     <n-card tag="a" :href="withBase(article.regularPath)" hoverable v-for="(article, index) in curPosts"
                         :bordered="!isDark" :key="index" style="margin-bottom: 12px;">
@@ -32,10 +32,10 @@
                         <n-pagination v-model:page="pageNum" :page-count="pageCount" simple />
                     </n-flex>
                 </n-gi>
-                <n-gi v-if="showSide" style="width: 100%; margin: 20px; margin-top: 0;">
-                    <div style="position: sticky; top: var(--vp-nav-height) !important; ">
+                <n-gi v-if="showSide" style="width: 100%;">
+                    <div style="position: sticky; top: calc(var(--vp-nav-height) + 12px); ">
                         <About />
-                        <n-card :bordered="!isDark" style="width: 100%; margin-top: 20px;">
+                        <n-card :bordered="!isDark" style="width: 100%; margin-top: 12px;">
                             <n-flex justify="space-around" size="large">
                                 <n-statistic label="Posts" :value="posts.length" />
                                 <n-statistic label="Tags" :value="tags.length" />
