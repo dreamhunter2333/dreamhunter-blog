@@ -5,7 +5,7 @@
                 <n-gi :span="3">
                     <n-card tag="a" :href="withBase(article.regularPath)" hoverable v-for="(article, index) in curPosts"
                         :bordered="!isDark" :key="index" style="margin-bottom: 12px;">
-                        <n-h4>
+                        <n-h4 style="margin-bottom: 12px;">
                             <a :href="withBase(article.regularPath)" strong>
                                 {{ article.frontMatter.title }}
                             </a>
