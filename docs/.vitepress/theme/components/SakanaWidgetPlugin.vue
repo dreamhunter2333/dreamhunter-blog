@@ -1,9 +1,9 @@
 <template>
-    <ClientOnly>
-        <div>
-            <div id="sakana-box" class="sakana-box" v-bind:style="styleObject"></div>
-        </div>
-    </ClientOnly>
+  <ClientOnly>
+    <div>
+      <div id="sakana-box" class="sakana-box" :style="styleObject"></div>
+    </div>
+  </ClientOnly>
 </template>
 
 <script setup>

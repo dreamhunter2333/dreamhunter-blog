@@ -1,14 +1,27 @@
-import { globby } from 'globby'
 import path from 'node:path'
+import fs from 'node:fs/promises'
 import matter from 'gray-matter'
-import fs from 'fs-extra'
-import { Feed } from 'feed'
+import { Feed, FeedOptions } from 'feed'
 import { Post } from './type'
-import { FeedOptions } from 'feed'
+
+interface SidebarLink {
+    text: string
+    link: string
+}
+
+interface SidebarCategory {
+    text: string
+    items: SidebarLink[]
+}
+
+interface SidebarGroup {
+    text: string
+    items: SidebarCategory[]
+}
 
 function _convertDate(date = new Date().toString()) {
     const json_date = new Date(date).toJSON()
-    return json_date.split('T')[0]
+    return json_date?.split('T')[0] ?? new Date().toISOString().split('T')[0]
 }
 
 function _compareDate(obj1: Post, obj2: Post) {
@@ -18,12 +31,15 @@ function _compareDate(obj1: Post, obj2: Post) {
 export const getCustomConfig = async (
     autoSidebar?: boolean | undefined
 ): Promise<{
-    sidebar?: Record<string, any>,
+    sidebar?: Record<string, SidebarGroup>,
     posts: Post[]
 }> => {
-    const paths = await globby(['**/posts/**/*.md'], {
-        ignore: ["node_modules", "README.md"],
-    })
+    const paths: string[] = []
+    for await (const file of fs.glob('**/posts/**/*.md', { exclude: (p) => p.includes('node_modules') })) {
+        if (!file.includes('README.md')) {
+            paths.push(file)
+        }
+    }
     const posts = await Promise.all(
         paths.map(async (item) => {
             const content = await fs.readFile(item, 'utf-8')
@@ -45,7 +61,7 @@ export const getCustomConfig = async (
         return { posts }
     }
 
-    const sidebar = posts.reduce((acc, cur) => {
+    const sidebar = posts.reduce<Record<string, SidebarGroup>>((acc, cur) => {
         if (!acc[cur.groupKey]) {
             // upcase the first letter
             const groupName = cur.group ? cur.group.charAt(0).toUpperCase() + cur.group.slice(1) : cur.group

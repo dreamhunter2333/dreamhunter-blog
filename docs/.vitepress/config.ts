@@ -1,13 +1,15 @@
-import { SiteConfig, defineConfigWithTheme } from 'vitepress'
+import { SiteConfig, defineConfig } from 'vitepress'
 import { getCustomConfig, generateRSS } from './theme/serverUtils'
-import { withPwa } from '@vite-pwa/vitepress'
 import { CustomThemeConfig } from './theme/type'
 
-export default withPwa(defineConfigWithTheme<CustomThemeConfig>({
+export default defineConfig<CustomThemeConfig>({
     lang: 'zh-CN',
     ignoreDeadLinks: true,
     title: 'Dreamhunter Blog',
     description: '你指尖跃动的电光，是我此生不变的信仰',
+    vite: {
+        ssr: { noExternal: ['naive-ui'] }
+    },
     head: [
         ['link', { rel: 'icon', href: '/imgs/favicon.ico' }],
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
@@ -23,7 +25,7 @@ export default withPwa(defineConfigWithTheme<CustomThemeConfig>({
                 title: 'Dreamhunter Blog',
                 description: 'Dreamhunter Blog',
                 link: 'https://dreamhunter2333.com',
-                copyright: 'Copyright © 2019-至今 DreamHunter',
+                copyright: `Copyright © 2019-${new Date().getFullYear()} DreamHunter`,
             },
             siteConfig.outDir
         )
@@ -81,36 +83,10 @@ export default withPwa(defineConfigWithTheme<CustomThemeConfig>({
             next: false
         },
         footer: {
-            copyright: 'Copyright © 2019-至今 DreamHunter'
+            copyright: `Copyright © 2019-${new Date().getFullYear()} DreamHunter`
         },
-    },
-    pwa: {
-        registerType: 'autoUpdate',
-        devOptions: {
-            enabled: true
-        },
-        workbox: {
-            navigateFallbackDenylist: [/\.xml$/],
-            disableDevLogs: true,
-            globPatterns: [
-                'assets/chunks/**/*.{js,css,html,ico,png,svg}'
-            ],
-        },
-        manifest: {
-            name: 'Dreamhunter Blog',
-            short_name: 'Dreamhunter Blog',
-            description: 'Dreamhunter Blog',
-            theme_color: '#ffffff',
-            icons: [
-                {
-                    src: '/imgs/avatar.png',
-                    sizes: '192x192',
-                    type: 'image/png'
-                }
-            ]
-        }
     },
     sitemap: {
         hostname: 'https://dreamhunter2333.com'
     },
-}))
+})

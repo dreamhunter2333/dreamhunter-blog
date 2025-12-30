@@ -1,55 +1,59 @@
 <template>
-    <ClientOnly>
-        <n-config-provider :theme="naiveTheme">
-            <n-card size="small" :bordered="!isDark" style="margin-bottom: 10px;"
-                :title="$frontmatter.title || 'Categories'">
-                <n-space>
-                    <n-tag round @click="toggleTag(key)" v-for="(item, key, index) in data" v-bind:key="index" strong
-                        class="hover-pointer" :checkable="selectTag == key" :checked="selectTag == key"
-                        :type="getRandomTagColor(index)">
-                        {{ key }}
-                        <n-badge :value="data[key].length" :type="getRandomTagColor(index)" />
-                    </n-tag>
-                </n-space>
-            </n-card>
-            <n-card size="small" :bordered="!isDark" v-if="selectTag" :title="selectTag">
-                <n-list>
-                    <n-list-item v-for="(article, index) in data[selectTag]" :key="index">
-                        <template #prefix>
-                            <n-badge type="success" dot />
-                        </template>
-                        <div>
-                            <a :href="withBase(article.regularPath)">
-                                {{ article.frontMatter.title }}
-                            </a>
-                        </div>
-                        <template #suffix>
-                            <n-tag round :bordered="false" type="info">
-                                <template #icon>
-                                    <n-icon size="15" :component="Clock" />
-                                </template>
-                                {{ article.frontMatter.date }}
-                            </n-tag>
-                        </template>
-                    </n-list-item>
-                </n-list>
-            </n-card>
-        </n-config-provider>
-    </ClientOnly>
+  <ClientOnly>
+    <n-config-provider :theme="naiveTheme">
+      <n-card
+        size="small" :bordered="!isDark" style="margin-bottom: 10px;"
+        :title="$frontmatter.title || 'Categories'"
+      >
+        <n-space>
+          <n-tag
+            v-for="(item, key, index) in data" :key="index" round strong class="hover-pointer"
+            :checkable="selectTag == key" :checked="selectTag == key" :type="getRandomTagColor(index)"
+            @click="toggleTag(key)"
+          >
+            {{ key }}
+            <n-badge :value="data[key].length" :type="getRandomTagColor(index)" />
+          </n-tag>
+        </n-space>
+      </n-card>
+      <n-card v-if="selectTag" size="small" :bordered="!isDark" :title="selectTag">
+        <n-list>
+          <n-list-item v-for="(article, index) in data[selectTag]" :key="index">
+            <template #prefix>
+              <n-badge type="success" dot />
+            </template>
+            <div>
+              <a :href="withBase(article.regularPath)">
+                {{ article.frontMatter.title }}
+              </a>
+            </div>
+            <template #suffix>
+              <n-tag round :bordered="false" type="info">
+                <template #icon>
+                  <n-icon size="15" :component="Clock" />
+                </template>
+                {{ article.frontMatter.date }}
+              </n-tag>
+            </template>
+          </n-list-item>
+        </n-list>
+      </n-card>
+    </n-config-provider>
+  </ClientOnly>
 </template>
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue'
 import { useData, withBase } from 'vitepress'
 import {
-    NCard, NConfigProvider, darkTheme, NTag,
+    NCard, NConfigProvider, NTag,
     NSpace, NBadge, NList, NListItem, NIcon
 } from "naive-ui";
 import { Clock } from '@vicons/fa'
+import { useNaiveTheme } from '../utils/composables';
 import { CustomThemeConfig, Post } from '../type';
 
 const { isDark, theme } = useData<CustomThemeConfig>()
-
-const naiveTheme = computed(() => isDark.value ? darkTheme : null)
+const naiveTheme = useNaiveTheme()
 const tagColors = ['info', 'success', 'warning', 'error']
 const getRandomTagColor = (index: number) => {
     return tagColors[index % tagColors.length]
