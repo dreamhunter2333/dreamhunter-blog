@@ -19,13 +19,23 @@ interface SidebarGroup {
     items: SidebarCategory[]
 }
 
-function _convertDate(date = new Date().toString()) {
-    const json_date = new Date(date).toJSON()
-    return json_date?.split('T')[0] ?? new Date().toISOString().split('T')[0]
+function _normalizeDateForCompare(date?: string) {
+    if (!date) return '0000-00-00 00:00:00'
+    const trimmed = String(date).trim()
+    if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) {
+        return `${trimmed} 00:00:00`
+    }
+    if (/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/.test(trimmed)) {
+        return trimmed
+    }
+    return '0000-00-00 00:00:00'
 }
 
 function _compareDate(obj1: Post, obj2: Post) {
-    return obj1.frontMatter.date < obj2.frontMatter.date ? 1 : -1
+    const d1 = _normalizeDateForCompare(obj1.frontMatter.date)
+    const d2 = _normalizeDateForCompare(obj2.frontMatter.date)
+    if (d1 === d2) return 0
+    return d1 < d2 ? 1 : -1
 }
 
 export const getCustomConfig = async (
@@ -44,7 +54,6 @@ export const getCustomConfig = async (
         paths.map(async (item) => {
             const content = await fs.readFile(item, 'utf-8')
             const { data } = matter(content)
-            data.date = _convertDate(data.date)
             const groupKey = `/posts/${item.replace("docs/", "").split('/')[1]}/`
             return {
                 frontMatter: data,

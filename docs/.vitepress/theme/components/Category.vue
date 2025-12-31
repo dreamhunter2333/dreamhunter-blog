@@ -32,7 +32,7 @@
                 <template #icon>
                   <n-icon size="15" :component="Clock" />
                 </template>
-                {{ article.frontMatter.date }}
+                {{ article.frontMatter.date?.slice(0, 10) }}
               </n-tag>
             </template>
           </n-list-item>

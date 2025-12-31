@@ -7,6 +7,8 @@ tags:
     - router
 ---
 
+# WireGuard 安装与组网实战（VPS <-> 家庭网络）
+
 ## 为什么选择 WireGuard
 
 FRP / Ngrok 虽然上手快，但我用起来不够稳定省心。Tailscale 体验很好，不过它的 IP 规划与组网概念对我来说有点“黑盒”。

@@ -17,7 +17,7 @@
                 <template #icon>
                   <n-icon size="15" :component="Clock" />
                 </template>
-                {{ article.frontMatter.date }}
+                {{ article.frontMatter.date?.slice(0, 10) }}
               </n-tag>
               <a
                 v-for="(item, index2) in article.frontMatter.tags" :key="index2"

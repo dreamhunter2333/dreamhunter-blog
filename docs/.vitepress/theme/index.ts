@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import { App } from 'vue'
+import { NConfigProvider, NImage } from 'naive-ui'
 
 import NewLayout from './components/NewLayout.vue'
 import Archives from './components/Archives.vue'
@@ -19,5 +20,7 @@ export default {
         app.component('Archives', Archives);
         app.component('Page', Page);
         app.component('About', About);
+        app.component('NConfigProvider', NConfigProvider);
+        app.component('NImage', NImage);
     }
 }
