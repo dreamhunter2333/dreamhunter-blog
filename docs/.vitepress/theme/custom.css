@@ -5,9 +5,11 @@
 }
 
 :root {
-    --vp-font-family-base: "Hiragino Sans", "Yu Gothic", "Noto Sans CJK SC",
-        "Noto Sans JP", "PingFang SC", "Microsoft YaHei", sans-serif;
-    --vp-font-family-mono: "JetBrains Mono", "SFMono-Regular", "Menlo", "Consolas", monospace;
+    --vp-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+        "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+    --vp-font-family-mono: ui-monospace, "SFMono-Regular", "Menlo", "Consolas",
+        "Liberation Mono", "Courier New", monospace;
 }
 
 :root:not(.dark) {
