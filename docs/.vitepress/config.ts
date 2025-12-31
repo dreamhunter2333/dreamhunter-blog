@@ -34,7 +34,7 @@ export default defineConfig<CustomThemeConfig>({
         ...await getCustomConfig(),
         about: {
             avatar: 'https://www.github.com/dreamhunter2333.png',
-            name: 'dreamhunter2333',
+            name: 'Dream Hunter',
             links: [
                 { icon: 'github', link: 'https://github.com/dreamhunter2333' },
                 { icon: 'twitter', link: 'https://twitter.com/dreamhunter2333' }
