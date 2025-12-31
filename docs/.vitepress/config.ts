@@ -1,14 +1,16 @@
 import { SiteConfig, defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 import { getCustomConfig, generateRSS } from './theme/serverUtils'
 import { CustomThemeConfig } from './theme/type'
 
-export default defineConfig<CustomThemeConfig>({
+export default withMermaid(defineConfig<CustomThemeConfig>({
     lang: 'zh-CN',
     ignoreDeadLinks: true,
     title: 'Dreamhunter Blog',
     description: '你指尖跃动的电光，是我此生不变的信仰',
     vite: {
-        ssr: { noExternal: ['naive-ui'] }
+        ssr: { noExternal: ['naive-ui', 'mermaid', 'vitepress-plugin-mermaid'] },
+        optimizeDeps: { include: ['mermaid', 'dayjs'] }
     },
     head: [
         ['link', { rel: 'icon', href: '/imgs/favicon.ico' }],
@@ -89,4 +91,4 @@ export default defineConfig<CustomThemeConfig>({
     sitemap: {
         hostname: 'https://dreamhunter2333.com'
     },
-})
+}))
