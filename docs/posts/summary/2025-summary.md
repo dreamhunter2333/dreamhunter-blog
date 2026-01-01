@@ -11,7 +11,7 @@ tags:
 
 `Codex`、`Claude Code`、`Gemini`、`GLM` 等 AI coding 模型和工具越来越成熟，日常开发里已经能接管很大一部分编码工作。
 
-<n-image src="/imgs/summary/2025/deepseek.png" alt="deepseek" width="200" />
+<img src="/imgs/summary/2025/deepseek.png" alt="deepseek" width="200" />
 
 ## 个人开发
 
@@ -21,8 +21,8 @@ tags:
 
 希望 2026 能做出一些更有意思的 AI 项目。
 
-<n-image src="/imgs/summary/2025/github.png" alt="github" width="320" />
-<n-image src="/imgs/summary/2025/github-star.png" alt="github-star" width="320" />
+<img src="/imgs/summary/2025/github.png" alt="github" width="320" />
+<img src="/imgs/summary/2025/github-star.png" alt="github-star" width="320" />
 
 ## HomeLab
 
@@ -32,7 +32,7 @@ tags:
 
 硬件也升级了一次：从 `Intel I3-N305` 换成了 `AMD Ryzen 7 8745H`，目前性能绰绰有余。
 
-<n-image src="/imgs/summary/2025/pve.png" alt="pve" width="640" />
+<img src="/imgs/summary/2025/pve.png" alt="pve" width="640" />
 
 ## 掌机/平板
 
@@ -40,8 +40,8 @@ tags:
 
 之前都是便携设备 `iPad Mini 6` + 拉伸手柄玩游戏。
 
-<n-image src="/imgs/summary/2025/y700.png" alt="y700" width="320" />
-<n-image src="/imgs/summary/2025/rog.png" alt="rog" width="320" />
+<img src="/imgs/summary/2025/y700.png" alt="y700" width="320" />
+<img src="/imgs/summary/2025/rog.png" alt="rog" width="320" />
 
 ## 工作
 
@@ -49,9 +49,9 @@ tags:
 
 ## 其他
 
-<n-image src="/imgs/summary/2025/bilibili.png" alt="bilibili" width="320" />
-<n-image src="/imgs/summary/2025/qqmusic.png" alt="qqmusic" width="320" />
+<img src="/imgs/summary/2025/bilibili.png" alt="bilibili" width="320" />
+<img src="/imgs/summary/2025/qqmusic.png" alt="qqmusic" width="320" />
 
 ## 最后祝大家新年快乐
 
-<n-image src="/imgs/summary/2025/end.png" alt="end" width="320" />
+<img src="/imgs/summary/2025/end.png" alt="end" width="320" />

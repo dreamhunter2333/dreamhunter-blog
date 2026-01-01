@@ -1,0 +1,54 @@
+/* ========================================
+   标签与分类页面共享样式
+   Tag and Category Page Shared Styles
+   ======================================== */
+
+/* 标签容器布局 */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+/* 增强的标签样式 */
+.tag-enhanced {
+    font-size: var(--theme-tag-font-size);
+    padding: var(--theme-tag-padding);
+    /* 使用弹性缓动函数，创建回弹效果 */
+    transition: var(--theme-transition-spring);
+}
+
+/* 标签悬停效果 */
+.tag-enhanced:hover {
+    /* 向上移动 2px，放大 5% */
+    transform: translateY(-2px) scale(1.05);
+    /* 性能优化：提示浏览器该元素会发生 transform 变化 */
+    will-change: transform;
+}
+
+/* 选中状态的标签 */
+.tag-enhanced--checked {
+    /* 放大 8% */
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* 选中状态的标签悬停效果 */
+.tag-enhanced--checked:hover {
+    /* 保持放大的同时向上移动 */
+    transform: translateY(-2px) scale(1.08);
+}
+
+/* 文章列表容器 */
+.article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 卡片链接样式 */
+.card-link {
+    color: var(--vp-c-text-1);
+    text-decoration: none;
+}

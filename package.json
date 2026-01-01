@@ -14,7 +14,6 @@
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@inquirer/prompts": "^8.1.0",
-    "@vicons/fa": "^0.13.0",
     "eslint": "^9.39.2",
     "eslint-plugin-vue": "^10.6.2",
     "feed": "^5.1.0",
@@ -27,6 +26,6 @@
   },
   "dependencies": {
     "@giscus/vue": "^3.1.1",
-    "naive-ui": "^2.43.2"
+    "medium-zoom": "^1.1.0"
   }
 }

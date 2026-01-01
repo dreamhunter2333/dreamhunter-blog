@@ -1,6 +1,4 @@
 import { computed, ref, onMounted, onUnmounted, type ComputedRef } from 'vue'
-import { useData } from 'vitepress'
-import { darkTheme } from 'naive-ui'
 
 export function useIsMobile(): ComputedRef<boolean> {
     const isMobile = ref(false)
@@ -18,9 +16,4 @@ export function useIsMobile(): ComputedRef<boolean> {
     })
 
     return computed(() => isMobile.value)
-}
-
-export function useNaiveTheme() {
-    const { isDark } = useData()
-    return computed(() => isDark.value ? darkTheme : null)
 }

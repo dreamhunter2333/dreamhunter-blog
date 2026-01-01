@@ -1,64 +1,28 @@
 <template>
-  <ClientOnly>
-    <n-config-provider :theme="naiveTheme">
-      <n-card
-        size="small" :bordered="!isDark" style="margin-bottom: 10px;"
-        :title="$frontmatter.title || 'Categories'"
-      >
-        <n-space>
-          <n-tag
-            v-for="(item, key, index) in data" :key="index" round strong
-            class="hover-pointer" :checkable="selectCategory == key" :checked="selectCategory == key" :type="getRandomTagColor(index)"
-            @click="toggleCategory(key)"
-          >
-            {{ key }}
-            <n-badge :value="data[key].length" :type="getRandomTagColor(index)" />
-          </n-tag>
-        </n-space>
-      </n-card>
-      <n-card v-if="selectCategory" size="small" :bordered="!isDark" :title="selectCategory">
-        <n-list>
-          <n-list-item v-for="(article, index) in data[selectCategory]" :key="index">
-            <template #prefix>
-              <n-badge type="success" dot />
-            </template>
-            <div>
-              <a :href="withBase(article.regularPath)">
-                {{ article.frontMatter.title }}
-              </a>
-            </div>
-            <template #suffix>
-              <n-tag round :bordered="false" type="info">
-                <template #icon>
-                  <n-icon size="15" :component="Clock" />
-                </template>
-                {{ article.frontMatter.date?.slice(0, 10) }}
-              </n-tag>
-            </template>
-          </n-list-item>
-        </n-list>
-      </n-card>
-    </n-config-provider>
-  </ClientOnly>
+  <j-tag-list
+    :data="data"
+    v-model:selected-item="selectCategory"
+    card-class="category-card"
+    :title="title"
+    date-format="short"
+  />
 </template>
-<script lang="ts" setup>
-import { useData, withBase } from 'vitepress'
-import { computed, ref } from 'vue'
-import {
-    NCard, NConfigProvider, NTag,
-    NSpace, NBadge, NList, NListItem, NIcon
-} from "naive-ui";
-import { Clock } from '@vicons/fa'
-import { useNaiveTheme } from '../utils/composables';
-import { CustomThemeConfig, Post } from '../type';
 
-const { isDark, theme } = useData<CustomThemeConfig>()
-const naiveTheme = useNaiveTheme()
+<script lang="ts" setup>
+import { useData } from 'vitepress'
+import { computed, ref } from 'vue'
+import { CustomThemeConfig, Post } from '../type'
+import JTagList from './base/JTagList.vue'
+
+const { theme, frontmatter } = useData<CustomThemeConfig>()
+
+const title = computed(() => frontmatter.value.title || 'Categories')
+
 const data = computed(() => {
     const tmpData: Record<string, Post[]> = {}
     for (const element of theme.value.posts) {
-        const categories = element.frontMatter.categories;
-        if (!categories) continue;
+        const categories = element.frontMatter.categories
+        if (!categories) continue
         const tmpCategories = Array.isArray(categories) ? categories : [categories]
         tmpCategories.forEach((item) => {
             if (!tmpData[item]) {
@@ -67,25 +31,34 @@ const data = computed(() => {
             tmpData[item].push(element)
         })
     }
-    return tmpData;
-});
+    return tmpData
+})
+
 const selectCategory = ref('')
-const tagColors = ['info', 'success', 'warning', 'error']
-const getRandomTagColor = (index: number) => {
-    return tagColors[index % tagColors.length]
-}
-const toggleCategory = (category: string) => {
-    if (selectCategory.value == category) {
-        selectCategory.value = ''
-        return;
-    }
-    selectCategory.value = category;
-}
 </script>
 
 <style scoped>
-a {
-    color: var(--vp-c-text-1);
-    text-decoration: none;
+.category-card {
+    margin-bottom: var(--theme-card-spacing);
+}
+
+:deep(.j-tag) {
+    font-size: var(--theme-tag-font-size);
+    padding: var(--theme-tag-padding);
+    transition: var(--theme-transition-spring);
+}
+
+:deep(.j-tag:hover) {
+    transform: translateY(-2px) scale(1.05);
+    will-change: transform;
+}
+
+:deep(.j-tag--checked) {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+:deep(.j-tag--checked:hover) {
+    transform: translateY(-2px) scale(1.08);
 }
 </style>
