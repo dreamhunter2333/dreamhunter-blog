@@ -1,9 +1,10 @@
 import { SiteConfig, defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+import { withPwa } from '@vite-pwa/vitepress'
 import { getCustomConfig, generateRSS } from './theme/serverUtils'
 import { CustomThemeConfig } from './theme/type'
 
-export default withMermaid(defineConfig<CustomThemeConfig>({
+export default withPwa(withMermaid(defineConfig<CustomThemeConfig>({
     lang: 'zh-CN',
     ignoreDeadLinks: true,
     title: 'Dreamhunter Blog',
@@ -36,6 +37,37 @@ export default withMermaid(defineConfig<CustomThemeConfig>({
             html.dark { background-color: #1A1A1A; }
         `]
     ],
+    pwa: {
+        registerType: 'autoUpdate',
+        devOptions: {
+            enabled: true
+        },
+        workbox: {
+            globPatterns: [],
+            navigateFallbackDenylist: [/\.xml$/],
+            disableDevLogs: true
+        },
+        manifest: {
+            name: 'Dreamhunter Blog',
+            short_name: 'DH Blog',
+            description: '你指尖跃动的电光，是我此生不变的信仰',
+            theme_color: '#FB7299',
+            background_color: '#F8F8F8',
+            display: 'standalone',
+            icons: [
+                {
+                    src: '/imgs/avatar.png',
+                    sizes: '192x192',
+                    type: 'image/png'
+                },
+                {
+                    src: '/imgs/avatar.png',
+                    sizes: '512x512',
+                    type: 'image/png'
+                }
+            ]
+        }
+    },
     buildEnd: async (siteConfig: SiteConfig<CustomThemeConfig>) => {
         await generateRSS(
             'https://dreamhunter2333.com',
@@ -53,7 +85,7 @@ export default withMermaid(defineConfig<CustomThemeConfig>({
     themeConfig: {
         ...await getCustomConfig(),
         about: {
-            avatar: 'https://www.github.com/dreamhunter2333.png',
+            avatar: '/imgs/avatar.png',
             name: 'Dream Hunter',
             links: [
                 { icon: 'github', link: 'https://github.com/dreamhunter2333' },
@@ -109,4 +141,4 @@ export default withMermaid(defineConfig<CustomThemeConfig>({
     sitemap: {
         hostname: 'https://dreamhunter2333.com'
     },
-}))
+})))
