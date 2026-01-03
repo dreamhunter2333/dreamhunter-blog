@@ -85,7 +85,7 @@ withDefaults(defineProps<{
 
 /* 右上角二次元三角形切角 */
 .j-card--cut-corner {
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
 
 /* 三角形背景（淡粉色） */
@@ -94,8 +94,8 @@ withDefaults(defineProps<{
   position: absolute;
   top: 0;
   right: 0;
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   background: linear-gradient(135deg, rgba(251, 114, 153, 0.8) 0%, rgba(251, 114, 153, 0.6) 100%);
   clip-path: polygon(100% 0, 100% 100%, 0 0);
   z-index: 2;
@@ -116,8 +116,8 @@ withDefaults(defineProps<{
   position: absolute;
   top: 0;
   right: 0;
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   background: linear-gradient(
     135deg,
     transparent 20%,

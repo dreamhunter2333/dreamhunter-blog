@@ -149,52 +149,57 @@ a {
   position: relative;
 }
 
-/* 时间轴背景线 */
+/* 时间轴主线 */
 .archives-container::before {
   content: '';
   position: absolute;
-  left: 26px; /* 调整为26px，使线的中心(27px)与点的中心对齐 */
+  left: 27px;
   top: 8px;
   bottom: 20px;
   width: 2px;
   background: linear-gradient(to bottom,
     var(--vp-c-brand-1) 0%,
-    var(--vp-c-brand-2) 50%,
-    var(--vp-c-brand-3) 100%
+    var(--vp-c-brand-2) 100%
   );
-  opacity: 0.25;
+  opacity: 0.3;
   z-index: 0;
 }
 
 /* 年份分组 */
 .year-section {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   position: relative;
 }
 
-/* 年份标题 */
+/* 年份标题区域 */
 .year-header {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   position: relative;
   z-index: 1;
   padding-left: 20px;
 }
 
+/* 年份节点 - 简洁圆形 */
 .year-dot {
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background: var(--vp-c-brand-1);
-  box-shadow: 0 0 0 4px var(--vp-c-bg), 0 0 0 6px var(--vp-c-brand-soft);
   flex-shrink: 0;
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
+  z-index: 3;
+  box-shadow: 0 0 0 3px var(--vp-c-bg), 0 0 0 5px var(--vp-c-brand-soft);
+  transition: transform 0.3s ease;
+}
+
+.year-header:hover .year-dot {
+  transform: translateY(-50%) scale(1.15);
 }
 
 .year-title {
@@ -203,7 +208,7 @@ a {
   font-size: 24px;
   font-weight: 700;
   color: var(--vp-c-brand-1);
-  margin-left: 30px !important;
+  margin-left: 32px !important;
   border: none !important;
 }
 
@@ -212,42 +217,48 @@ a {
   margin-bottom: 16px;
 }
 
-/* 月份标题 */
+/* 月份标题区域 */
 .month-header {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   position: relative;
   z-index: 1;
   padding-left: 20px;
 }
 
+/* 月份节点 - 小圆点 */
 .month-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: var(--jp-bilibili-blue);
-  box-shadow: 0 0 0 4px var(--vp-c-bg), 0 0 0 5px var(--jp-bilibili-blue-soft);
   flex-shrink: 0;
   position: absolute;
   left: 2px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
+  box-shadow: 0 0 0 3px var(--vp-c-bg), 0 0 0 4px var(--jp-bilibili-blue-soft);
+  transition: transform 0.3s ease;
+}
+
+.month-header:hover .month-dot {
+  transform: translateY(-50%) scale(1.2);
 }
 
 .month-title {
   margin: 0 !important;
   padding: 0 !important;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--jp-bilibili-blue);
-  margin-left: 30px !important;
+  margin-left: 32px !important;
   border: none !important;
 }
 
-/* 文章网格容器 - 三列布局，左边距适配时间轴 */
+/* 文章网格容器 */
 .article-grid-container {
   margin-left: 54px;
 }
@@ -278,7 +289,7 @@ a {
   }
 
   .archives-container::before {
-    left: 17px; /* 调整为17px，使线的中心(18px)与点的中心对齐 */
+    left: 18px;
   }
 
   .year-header {
@@ -292,25 +303,25 @@ a {
   .year-dot {
     width: 12px;
     height: 12px;
-    box-shadow: 0 0 0 3px var(--vp-c-bg), 0 0 0 4px var(--vp-c-brand-soft);
     left: 4px;
+    box-shadow: 0 0 0 2px var(--vp-c-bg), 0 0 0 4px var(--vp-c-brand-soft);
   }
 
   .month-dot {
     width: 8px;
     height: 8px;
-    box-shadow: 0 0 0 3px var(--vp-c-bg), 0 0 0 4px var(--jp-bilibili-blue-soft);
     left: 6px;
+    box-shadow: 0 0 0 2px var(--vp-c-bg), 0 0 0 3px var(--jp-bilibili-blue-soft);
   }
 
   .year-title {
     font-size: 20px;
-    margin-left: 26px;
+    margin-left: 26px !important;
   }
 
   .month-title {
     font-size: 14px;
-    margin-left: 26px;
+    margin-left: 26px !important;
   }
 }
 </style>
