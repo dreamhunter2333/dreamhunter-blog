@@ -7,6 +7,7 @@
       'j-card',
       { 'j-card--hoverable': hoverable },
       { 'j-card--bordered': bordered },
+      { 'j-card--cut-corner': cutCorner },
       size && `j-card--${size}`
     ]"
   >
@@ -32,6 +33,7 @@ withDefaults(defineProps<{
   size?: 'small' | 'medium' | 'large'
   hoverable?: boolean
   bordered?: boolean
+  cutCorner?: boolean
 }>(), {
   tag: 'div'
 })
@@ -40,79 +42,110 @@ withDefaults(defineProps<{
 <style scoped>
 .j-card {
   background: var(--jp-card);
-  border-radius: 20px;
+  border-radius: 8px;
   box-shadow: var(--jp-shadow-md);
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s ease;
   overflow: hidden;
   position: relative;
   display: block;
   text-decoration: none;
   color: var(--vp-c-text-1);
+  /* 液态玻璃效果 */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+:root.dark .j-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .j-card--bordered {
   border: 1px solid var(--vp-c-divider);
+  box-shadow: var(--jp-shadow-md),
+              inset 0 1px 0 rgba(255, 255, 255, 0.5),
+              inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+:root.dark .j-card--bordered {
+  box-shadow: var(--jp-shadow-md),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1),
+              inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .j-card--small {
-  border-radius: 16px;
+  border-radius: 6px;
 }
 
 .j-card--small .j-card__content {
-  padding: 12px 16px;
+  padding: 10px 14px;
 }
 
-/* 顶部渐变装饰 */
-.j-card::before {
+/* 右上角二次元三角形切角 */
+.j-card--cut-corner {
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+
+/* 三角形背景（淡粉色） */
+.j-card--cut-corner::after {
   content: '';
   position: absolute;
-  left: 0;
   top: 0;
   right: 0;
-  height: 4px;
-  background: var(--jp-gradient-hero);
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, rgba(251, 114, 153, 0.8) 0%, rgba(251, 114, 153, 0.6) 100%);
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+  z-index: 2;
+  pointer-events: none;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transform: scale(0.9);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* 光晕效果 */
-.j-card::after {
+.j-card--cut-corner:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 扫描光线（淡粉色） */
+.j-card--cut-corner::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle at center,
-    rgba(232, 154, 171, 0.08) 0%,
-    transparent 50%
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(
+    135deg,
+    transparent 20%,
+    rgba(251, 114, 153, 0.9) 50%,
+    transparent 80%
   );
-  opacity: 0;
-  transition: opacity 0.5s ease;
+  background-size: 300% 300%;
+  background-position: 100% 100%;
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+  z-index: 3;
   pointer-events: none;
+  opacity: 0;
 }
 
-:root.dark .j-card::after {
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 154, 184, 0.12) 0%,
-    transparent 50%
-  );
+.j-card--cut-corner:hover::before {
+  opacity: 1;
+  animation: cyber-scan 1.2s ease-in-out infinite;
 }
 
-.j-card--hoverable:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: var(--jp-shadow-hover);
+@keyframes cyber-scan {
+  0% { background-position: 100% 100%; }
+  50% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* 移除hover效果 */
+.j-card--hoverable {
   cursor: pointer;
-}
-
-.j-card--hoverable:hover::before {
-  opacity: 1;
-}
-
-.j-card--hoverable:hover::after {
-  opacity: 1;
 }
 
 .j-card__header {
@@ -132,7 +165,7 @@ withDefaults(defineProps<{
 }
 
 .j-card__content {
-  padding: 20px 24px;
+  padding: 18px 20px;
   position: relative;
   z-index: 1;
 }
@@ -148,11 +181,11 @@ withDefaults(defineProps<{
 
 @media (max-width: 960px) {
   .j-card {
-    border-radius: 16px;
+    border-radius: 6px;
   }
 
   .j-card__content {
-    padding: 16px 20px;
+    padding: 14px 16px;
   }
 }
 </style>

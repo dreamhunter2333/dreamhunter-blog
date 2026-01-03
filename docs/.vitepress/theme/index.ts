@@ -10,6 +10,7 @@ import Category from './components/Category.vue'
 import Tags from './components/Tags.vue'
 import Page from './components/Page.vue'
 import About from './components/About.vue'
+import AboutPage from './components/AboutPage.vue'
 import "./custom.css"
 
 export default {
@@ -22,6 +23,7 @@ export default {
         app.component('Archives', Archives)
         app.component('Page', Page)
         app.component('About', About)
+        app.component('AboutPage', AboutPage)
     },
     setup() {
         const route = useRoute()

@@ -54,26 +54,26 @@ const handlePageChange = (newPage: number) => {
   justify-content: center;
   width: 36px;
   height: 36px;
-  border: none;
+  border: 1px solid var(--vp-c-divider);
   border-radius: 10px;
-  background: var(--jp-gradient-button);
-  color: white;
+  background: transparent;
+  color: var(--vp-c-text-1);
   font-size: 20px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: var(--jp-shadow-sm);
 }
 
 .j-pagination__button:hover:not(:disabled) {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
   transform: translateY(-2px);
-  box-shadow: var(--jp-shadow-md);
 }
 
 .j-pagination__button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
-  background: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-divider);
   color: var(--vp-c-text-3);
 }
 

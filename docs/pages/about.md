@@ -6,4 +6,4 @@ lastUpdated: false
 imageZoom: false
 ---
 
-<About />
+<AboutPage />

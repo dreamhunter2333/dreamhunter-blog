@@ -4,6 +4,7 @@
     :class="[
       'j-tag',
       type && `j-tag--${type}`,
+      size && `j-tag--${size}`,
       { 'j-tag--round': round },
       { 'j-tag--checkable': checkable },
       { 'j-tag--checked': checked },
@@ -23,12 +24,13 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  type?: 'info' | 'success' | 'warning' | 'error'
+  type?: 'info' | 'success' | 'warning' | 'error' | 'time'
   round?: boolean
   checkable?: boolean
   checked?: boolean
   bordered?: boolean
   strong?: boolean
+  size?: 'small' | 'medium'
 }>()
 
 const emit = defineEmits<{
@@ -59,6 +61,16 @@ const handleClick = (e: MouseEvent) => {
 
 .j-tag--round {
   border-radius: 16px;
+}
+
+.j-tag--small {
+  padding: 4px 10px;
+  font-size: 12px;
+  gap: 4px;
+}
+
+.j-tag--small .j-tag__icon {
+  font-size: 12px;
 }
 
 .j-tag--checkable {
@@ -102,6 +114,11 @@ const handleClick = (e: MouseEvent) => {
   color: var(--jp-peach-text);
 }
 
+:root:not(.dark) .j-tag--time {
+  border-color: var(--jp-bilibili-blue);
+  color: var(--jp-bilibili-blue);
+}
+
 /* 暗色模式标签颜色 */
 :root.dark .j-tag--info {
   border-color: var(--vp-c-brand-1);
@@ -121,6 +138,11 @@ const handleClick = (e: MouseEvent) => {
 :root.dark .j-tag--error {
   border-color: var(--jp-peach);
   color: var(--jp-peach);
+}
+
+:root.dark .j-tag--time {
+  border-color: var(--jp-bilibili-blue);
+  color: var(--jp-bilibili-blue);
 }
 
 /* 选中状态 - 亮色模式 */

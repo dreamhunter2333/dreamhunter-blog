@@ -17,6 +17,24 @@ export default withMermaid(defineConfig<CustomThemeConfig>({
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
         ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }],
         ['link', { rel: 'apple-touch-icon', href: '/imgs/avatar.png' }],
+        // 防止页面刷新白屏闪烁 - 立即设置背景色和主题
+        ['script', {}, `
+            (function() {
+                const theme = localStorage.getItem('vitepress-theme-appearance') || 'auto';
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const isDark = theme === 'dark' || (theme === 'auto' && prefersDark);
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.style.backgroundColor = '#1A1A1A';
+                } else {
+                    document.documentElement.style.backgroundColor = '#F8F8F8';
+                }
+            })();
+        `],
+        ['style', {}, `
+            html { background-color: #F8F8F8; }
+            html.dark { background-color: #1A1A1A; }
+        `]
     ],
     buildEnd: async (siteConfig: SiteConfig<CustomThemeConfig>) => {
         await generateRSS(
