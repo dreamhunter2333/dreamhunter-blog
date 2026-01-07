@@ -1,0 +1,7 @@
+---
+layout: home
+title: 文章
+description: 所有博客文章
+---
+
+<PostsPage />

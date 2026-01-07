@@ -4,4 +4,4 @@ title: Home
 imageZoom: false
 ---
 
-<Page />
+<HomePage />

@@ -1,15 +1,16 @@
 /* ========================================
-   🌸 日系清新风格主题
-   Japanese Fresh Style Theme
+   🎨 现代简约主题 - Modern Minimalist Theme
+   设计灵感: Vercel + Linear + GitHub
+   哔哩哔哩配色: 蓝色主题 + 粉色点缀
    ======================================== */
 
 /* Medium Zoom 样式 */
 .medium-zoom-overlay {
-    z-index: 100;
+    z-index: var(--z-index-medium-zoom);
 }
 
 .medium-zoom-image {
-    z-index: 101;
+    z-index: calc(var(--z-index-medium-zoom) + 1);
 }
 
 .medium-zoom-image--opened {
@@ -25,803 +26,295 @@
 }
 
 /* ========================================
-   字体系统 - Font System (使用浏览器默认)
+   设计 Token - Design Tokens
    ======================================== */
 
-/* ========================================
-   滚动条样式 - Scrollbar Style
-   ======================================== */
+:root {
+  /* 🎨 色彩系统 - Color System */
 
-/* ========================================
-   🌸 亮色模式 - Light Mode (二次元哔哩哔哩风格)
-   ======================================== */
-:root:not(.dark) {
-    /* 主色系 - 哔哩哔哩粉 */
-    --vp-c-brand-1: #FB7299;
-    --vp-c-brand-2: #FF85A6;
-    --vp-c-brand-3: #FFA0B8;
-    --vp-c-brand-soft: #FFE8EE;
-    --vp-c-brand-accessible: #E5457A; /* 符合 WCAG AA 标准的深粉 */
+  /* 主色 - Primary (Bilibili Blue) */
+  --theme-primary-50: #E6F7FB;
+  --theme-primary-100: #B3E5F5;
+  --theme-primary-500: #00A1D6;
+  --theme-primary-600: #0088B8;
+  --theme-primary-700: #006F9A;
+  --theme-primary-gradient: linear-gradient(135deg, #0088B8 0%, #00A1D6 100%);
 
-    /* 辅助色 - 哔哩哔哩蓝 */
-    --jp-bilibili-blue: #00A1D6;
-    --jp-bilibili-blue-light: #33B3DD;
-    --jp-bilibili-blue-soft: #E6F7FB;
+  /* 强调色 - Accent (Bilibili Pink) */
+  --theme-pink-500: #FB7299;
+  --theme-pink-600: #F85A84;
+  --theme-pink-50: #FFE8EE;
+  --theme-pink-gradient: linear-gradient(135deg, #E5457A 0%, #FB7299 100%);
 
-    /* 强调色 - 青玉绿 */
-    --jp-accent: #7ECFB8;
-    --jp-accent-light: #A8E0CE;
-    --jp-accent-soft: #D4F5EC;
+  /* 中性色 - Neutrals (Light Mode) */
+  --theme-white: #FFFFFF;
+  --theme-gray-50: #FAFAFA;
+  --theme-gray-100: #F5F5F5;
+  --theme-gray-200: #E5E5E5;
+  --theme-gray-300: #D4D4D4;
+  --theme-gray-400: #A3A3A3;
+  --theme-gray-500: #737373;
+  --theme-gray-600: #525252;
+  --theme-gray-700: #404040;
+  --theme-gray-800: #262626;
+  --theme-gray-900: #171717;
 
-    /* 背景色系 - 柔和不刺眼的亮色 */
-    --vp-c-bg: #F8F8F8;
-    --vp-c-bg-soft: #F2F2F2;
-    --vp-c-bg-alt: #ECECEC;
-    --jp-card: #FCFCFC;
+  /* VitePress 变量映射 */
+  --vp-c-brand-1: var(--theme-primary-500);
+  --vp-c-brand-2: var(--theme-primary-600);
+  --vp-c-brand-3: var(--theme-primary-700);
+  --vp-c-brand-soft: var(--theme-primary-50);
 
-    /* 文字色系 - 柔和对比 */
-    --vp-c-text-1: #3D3935;
-    --vp-c-text-2: #76716B;
-    --vp-c-text-3: #A8A19B;
+  --vp-c-bg: var(--theme-white);
+  --vp-c-bg-soft: var(--theme-gray-50);
+  --vp-c-bg-alt: var(--theme-gray-100);
 
-    /* 装饰色 - 高级莫兰迪色系 */
-    --jp-sky: #8FC5D4;
-    --jp-lavender: #B8A8D4;
-    --jp-lemon: #E8D48C;
-    --jp-lemon-text: #8B7A3A;
-    --jp-peach: #E8B89C;
-    --jp-peach-text: #8B5A3A;
+  --vp-c-text-1: var(--theme-gray-900);
+  --vp-c-text-2: var(--theme-gray-600);
+  --vp-c-text-3: var(--theme-gray-500);
 
-    /* 边框与分割线 */
-    --vp-c-divider: rgba(61, 57, 53, 0.12);
-    --vp-c-border: rgba(126, 207, 184, 0.2);
+  --vp-c-divider: var(--theme-gray-200);
+  --vp-c-border: var(--theme-gray-300);
 
-    /* 阴影系统 - 增强层次感（B站粉点缀） */
-    --jp-shadow-sm: 0 2px 8px rgba(45, 42, 39, 0.04),
-                    0 1px 3px rgba(45, 42, 39, 0.08);
-    --jp-shadow-md: 0 4px 16px rgba(45, 42, 39, 0.06),
-                    0 2px 8px rgba(45, 42, 39, 0.08),
-                    0 0 0 1px rgba(45, 42, 39, 0.04);
-    --jp-shadow-lg: 0 12px 40px rgba(45, 42, 39, 0.08),
-                    0 6px 20px rgba(45, 42, 39, 0.08),
-                    0 0 0 1px rgba(45, 42, 39, 0.04);
-    --jp-shadow-hover: 0 20px 60px rgba(45, 42, 39, 0.14),
-                       0 12px 32px rgba(251, 114, 153, 0.08),
-                       0 6px 16px rgba(45, 42, 39, 0.10),
-                       0 0 0 1px rgba(251, 114, 153, 0.2);
+  --vp-c-default-soft: var(--theme-gray-100);
 
-    /* 渐变效果 - 哔哩哔哩粉 + 中性灰 */
-    --jp-gradient-hero: linear-gradient(135deg,
-        #FB7299 0%,
-        #C4BDB5 50%,
-        #8B8680 100%
-    );
+  /* 🔢 Z-Index 层级系统 - Z-Index Layers */
+  --z-index-base: 1;
+  --z-index-nav: 50;
+  --z-index-medium-zoom: 100;
+  --z-index-nav-menu: 100;
+  --z-index-nav-button: 200;
 
-    --jp-gradient-card: linear-gradient(135deg,
-        rgba(250, 250, 248, 1) 0%,
-        rgba(250, 250, 248, 1) 100%
-    );
+  /* 📐 间距系统 - Spacing Scale */
+  --theme-space-1: 4px;
+  --theme-space-2: 8px;
+  --theme-space-3: 12px;
+  --theme-space-4: 16px;
+  --theme-space-5: 20px;
+  --theme-space-6: 24px;
+  --theme-space-8: 32px;
+  --theme-space-10: 40px;
+  --theme-space-12: 48px;
+  --theme-space-16: 64px;
 
-    --jp-gradient-button: linear-gradient(135deg,
-        #FB7299 0%,
-        #FF85A6 100%
-    );
+  /* 🔲 圆角系统 - Border Radius */
+  --theme-radius-sm: 6px;
+  --theme-radius-md: 12px;
+  --theme-radius-lg: 16px;
+  --theme-radius-xl: 24px;
+  --theme-radius-full: 9999px;
 
-    /* 动画变量 - 共享的动画参数 */
-    --theme-transition-spring: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    --theme-tag-font-size: 15px;
-    --theme-tag-padding: 8px 16px;
+  /* 🌊 阴影系统 - Shadow Scale */
+  --theme-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --theme-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --theme-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                     0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --theme-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
-    /* 布局变量 - 共享的间距参数 */
-    --theme-card-spacing: 10px;
-    --theme-container-gap: 12px;
-    --theme-container-padding: 8px 0;
+  /* ⚡ 动画系统 - Animation */
+  --theme-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --theme-transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --theme-transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
 /* ========================================
-   🌙 暗色模式 - Dark Mode (二次元哔哩哔哩风格)
+   暗色模式 - Dark Mode
    ======================================== */
+
 :root.dark {
-    /* 主色系 - 哔哩哔哩粉 */
-    --vp-c-brand-1: #FB7299;
-    --vp-c-brand-2: #FF85A6;
-    --vp-c-brand-3: #FFA0B8;
-    --vp-c-brand-soft: #4A3339;
+  /* 中性色 - Neutrals (Dark Mode) */
+  --theme-gray-50: #0A0A0A;
+  --theme-gray-100: #121212;
+  --theme-gray-200: #1A1A1A;
+  --theme-gray-300: #2A2A2A;
+  --theme-gray-400: #525252;
+  --theme-gray-500: #737373;
+  --theme-gray-600: #A3A3A3;
+  --theme-gray-700: #D4D4D4;
+  --theme-gray-800: #E5E5E5;
+  --theme-gray-900: #F5F5F5;
 
-    /* 辅助色 - 哔哩哔哩蓝 */
-    --jp-bilibili-blue: #00A1D6;
-    --jp-bilibili-blue-light: #33B3DD;
-    --jp-bilibili-blue-soft: #1A3F4F;
+  /* VitePress 变量映射 (暗色模式) */
+  --vp-c-bg: #000000;
+  --vp-c-bg-soft: #0A0A0A;
+  --vp-c-bg-alt: #121212;
 
-    /* 强调色 - 柔和青玉 */
-    --jp-accent: #7ECFB8;
-    --jp-accent-light: #A8E0CE;
-    --jp-accent-soft: #3A5F54;
+  --vp-c-text-1: #F8FAFC;
+  --vp-c-text-2: #CBD5E1;
+  --vp-c-text-3: #64748B;
 
-    /* 背景色系 - 柔和暗色，不要纯黑 */
-    --vp-c-bg: #1A1A1A;
-    --vp-c-bg-soft: #242424;
-    --vp-c-bg-alt: #2E2E2E;
-    --jp-card: #222222;
+  --vp-c-divider: rgba(255, 255, 255, 0.1);
+  --vp-c-border: rgba(255, 255, 255, 0.15);
 
-    /* 文字色系 - 高对比度 */
-    --vp-c-text-1: #EFEFEF;
-    --vp-c-text-2: #BFBFBF;
-    --vp-c-text-3: #8F8F8F;
+  --vp-c-default-soft: rgba(255, 255, 255, 0.1);
 
-    /* 装饰色 - 柔和色系 */
-    --jp-sky: #8FC5D4;
-    --jp-lavender: #B8A8D4;
-    --jp-lemon: #E8D48C;
-    --jp-peach: #E8B89C;
-
-    /* 边框与分割线 */
-    --vp-c-divider: rgba(239, 239, 239, 0.1);
-    --vp-c-border: rgba(126, 207, 184, 0.15);
-
-    /* 阴影系统 - 柔和阴影（B站粉发光） */
-    --jp-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --jp-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-    --jp-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-    --jp-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.6),
-                       0 0 20px rgba(251, 114, 153, 0.15);
-
-    /* 渐变效果 - 哔哩哔哩粉 + 深灰（暗色版） */
-    --jp-gradient-hero: linear-gradient(135deg,
-        #FB7299 0%,
-        #8B7299 40%,
-        #5F5F5F 100%
-    );
-
-    --jp-gradient-card: linear-gradient(135deg,
-        rgba(40, 40, 40, 1) 0%,
-        rgba(40, 40, 40, 0.95) 100%
-    );
-
-    --jp-gradient-button: linear-gradient(135deg,
-        #FB7299 0%,
-        #FF85A6 100%
-    );
-
-    /* 光晕效果 */
-    --jp-glow: radial-gradient(
-        circle at center,
-        rgba(251, 114, 153, 0.08) 0%,
-        transparent 70%
-    );
-
-    /* 动画变量 - 共享的动画参数 */
-    --theme-transition-spring: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    --theme-tag-font-size: 15px;
-    --theme-tag-padding: 8px 16px;
+  /* 阴影系统 (暗色模式) */
+  --theme-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --theme-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6),
+                     0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --theme-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7),
+                     0 4px 6px -2px rgba(0, 0, 0, 0.5);
+  --theme-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.8),
+                     0 10px 10px -5px rgba(0, 0, 0, 0.6);
 }
 
 /* ========================================
-   全局样式 - Global Styles
+   全局样式优化
    ======================================== */
 
-/* 文章卡片统一样式 */
-.article-grid-card {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
 }
 
-/* 三列网格容器 */
-.article-grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-/* 覆盖卡片默认内边距 - 极致紧凑 */
-.article-grid-card .j-card__content {
-  padding: 12px 16px !important;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-/* 确保第一个元素顶部无间距 */
-.article-grid-card .j-card__content > *:first-child {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* 重置所有标题的默认 margin */
-.article-grid-card .j-card__content h1,
-.article-grid-card .j-card__content h2,
-.article-grid-card .j-card__content h3,
-.article-grid-card .j-card__content h4,
-.article-grid-card .j-card__content h5,
-.article-grid-card .j-card__content h6 {
-  margin-top: 0 !important;
-}
-
-/* 隐藏文章卡片的 header */
-.article-grid-card .j-card__header {
-  display: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  height: 0 !important;
-  border: none !important;
-}
-
-/* 隐藏文章卡片的 footer（来自JCard组件的footer插槽，不是article-card-footer） */
-.article-grid-card .j-card__footer {
-  display: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  height: 0 !important;
-  border: none !important;
-}
-
-.article-card-header {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin: 0;
-  margin-bottom: 10px;
-  padding: 0;
-}
-
-/* 确保第一个元素顶部无间距 */
-.article-grid-card .j-card__content > *:first-child {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-.article-title {
-  margin: 0;
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--vp-c-text-1);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.article-description {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--vp-c-text-2);
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.article-card-footer {
-  padding-top: 10px;
-  border-top: 1px solid var(--vp-c-divider);
-}
-
-/* 响应式布局 */
-@media (max-width: 960px) {
-  .article-grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .article-grid-card {
-    box-shadow: 0 1px 4px rgba(45, 42, 39, 0.06) !important;
-  }
-
-  .article-title {
-    font-size: 16px;
-  }
-
-  .article-description {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 640px) {
-  .article-grid-container {
-    grid-template-columns: 1fr;
-  }
-
-  .article-grid-card {
-    box-shadow: 0 0.5px 2px rgba(45, 42, 39, 0.04) !important;
-  }
-
-  .article-title {
-    font-size: 15px;
-  }
-}
-
-/* 页面背景 */
+/* 优化文本渲染 */
 body {
-    background-color: var(--vp-c-bg);
-    transition: background-color 0.3s ease;
-}
-
-/* 确保内容显示正常 */
-.VPNav,
-.VPContent,
-.VPDoc {
-    position: relative;
-    z-index: 1;
-}
-
-/* 平滑过渡动画 - 仅应用于需要的元素 */
-.VPNavBar,
-.VPButton,
-.j-card,
-.j-tag,
-.VPTeamMembersItem,
-body {
-    transition: background-color 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* ========================================
-   导航栏 - Navigation Bar
+   VitePress 组件覆盖
    ======================================== */
-.VPNavBar {
-    backdrop-filter: blur(16px) saturate(180%);
-    background: color-mix(in srgb, var(--vp-c-bg) 85%, transparent);
-    border-bottom: 1px solid var(--vp-c-divider);
-    box-shadow: var(--jp-shadow-sm);
+
+/* 导航栏优化 */
+.VPNav {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-bottom: 1px solid var(--vp-c-divider);
 }
 
-/* 导航栏标题颜色 */
-.VPNavBarTitle .title {
-    color: var(--vp-c-brand-1);
-    font-weight: 600;
-    transition: color 0.3s ease;
+:root.dark .VPNav {
+  background: rgba(0, 0, 0, 0.8) !important;
 }
 
-.VPNavBarTitle .title:hover {
-    color: var(--vp-c-brand-2);
+/* 确保移动端菜单按钮可点击 */
+.VPNavBarHamburger,
+.VPNavBarMenuButton {
+  position: relative;
+  z-index: var(--z-index-nav-button);
+  pointer-events: auto;
 }
 
-/* ========================================
-   文档内容 - Document Content
-   ======================================== */
-.VPDoc .vp-doc {
-    line-height: 1.7;
-    font-size: 15px;
-    letter-spacing: 0.02em;
+/*
+ * VitePress v2.0.0-alpha.15 移动端菜单修复
+ * 依赖: .screen-open 类和 .VPNavScreen 元素
+ * TODO: 监控 VitePress 更新以防类名变化
+ */
+.VPNavBar.screen-open + .VPNavScreen,
+.VPNavScreen.open {
+  height: calc(100vh - var(--vp-nav-height, 64px)) !important;
+  overflow-y: auto;
 }
 
-/* 移除留言板页面顶部默认间距 */
-.VPDoc:has(.j-grid) {
-    padding-top: 0 !important;
+/* 支持新的 dvh 单位（动态视口高度） */
+@supports (height: 100dvh) {
+  .VPNavBar.screen-open + .VPNavScreen,
+  .VPNavScreen.open {
+    height: calc(100dvh - var(--vp-nav-height, 64px)) !important;
+  }
 }
 
-.VPDoc .vp-doc:has(.j-grid) {
-    padding-top: 0 !important;
+
+/* 减少 home layout 底部空白 */
+.VPDoc.has-sidebar .content-container,
+.VPDoc .content-container {
+  padding-bottom: 0 !important;
 }
 
-/* 标题优化 - 调整为更合适的大小 */
-.vp-doc h1 {
-    font-size: 1.6em;
-    font-weight: 700;
-    color: var(--vp-c-text-1);
-    padding-bottom: 0.3em;
-    border-bottom: 2px solid var(--vp-c-divider);
+/* 链接样式优化 - 添加现代下划线动画 */
+a {
+  text-decoration: none !important;
 }
 
-.vp-doc h2 {
-    font-size: 1.35em;
-    font-weight: 600;
-    color: var(--vp-c-brand-1);
-    padding-top: 1.2em;
-    margin-bottom: 0.8em;
-    margin-top: 2em;
+a:hover {
+  text-decoration: none !important;
 }
 
-.vp-doc h3 {
-    font-size: 1.15em;
-    font-weight: 600;
-    color: var(--vp-c-text-1);
-    margin-top: 1.5em;
-}
-
-.vp-doc h4 {
-    font-size: 1.05em;
-    font-weight: 600;
-    color: var(--vp-c-text-1);
-    margin-top: 1.2em;
-}
-
-.vp-doc h5,
-.vp-doc h6 {
-    font-size: 1em;
-    font-weight: 600;
-    color: var(--vp-c-text-2);
-    margin-top: 1em;
-}
-
-/* 链接样式优化 */
 .vp-doc a {
-    text-decoration: none;
-    border-bottom: 0;
-    cursor: pointer;
-    color: var(--vp-c-brand-1);
-    font-weight: 500;
-    position: relative;
-    transition: color 0.3s ease;
+  color: var(--theme-primary-600);
+  text-decoration: none !important;
+  position: relative;
+  transition: color var(--theme-transition-fast);
 }
 
 .vp-doc a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background: var(--jp-gradient-button);
-    transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--theme-primary-500);
+  transition: width var(--theme-transition-base);
 }
 
 .vp-doc a:hover {
-    color: var(--vp-c-brand-2);
+  color: var(--theme-primary-500);
+  text-decoration: none !important;
 }
 
 .vp-doc a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
-/* 隐藏外部链接图标 */
-.vp-doc a .vp-external-link-icon,
-.vp-doc a[target="_blank"]::after {
-    display: none !important;
-}
-
-/* 段落优化 */
-.vp-doc p {
-    margin: 0.5em 0;
-    text-align: justify;
-}
-
-/* 列表优化 */
-.vp-doc ul, .vp-doc ol {
-    padding-left: 1.8em;
-    margin: 1em 0;
-}
-
-.vp-doc li {
-    margin: 0.5em 0;
-    position: relative;
-}
-
-.vp-doc ul > li::marker {
-    color: var(--vp-c-brand-1);
-    font-weight: 600;
-}
-
-.vp-doc ol > li::marker {
-    color: var(--vp-c-brand-1);
-    font-weight: 600;
-}
-
-/* 引用块优化 */
-.vp-doc blockquote {
-    border-left: 0;
-    background: var(--vp-c-bg-soft);
-    padding: 20px 24px;
-    border-radius: 16px;
-    box-shadow: var(--jp-shadow-sm);
-    margin: 24px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.vp-doc blockquote::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 5px;
-    background: var(--jp-gradient-button);
-}
-
-.vp-doc blockquote::after {
-    content: '"';
-    position: absolute;
-    right: 16px;
-    top: 8px;
-    font-size: 60px;
-    font-weight: 700;
-    color: var(--vp-c-brand-1);
-    opacity: 0.1;
-    line-height: 1;
-}
-
-.vp-doc blockquote p {
-    margin: 0.5em 0;
-    font-style: italic;
-    color: var(--vp-c-text-1);
+/* 卡片内按钮不需要横线动画 */
+.action-button::after {
+  display: none !important;
 }
 
 /* 代码块优化 */
 .vp-doc div[class*='language-'] {
-    border-radius: 12px;
-    box-shadow: var(--jp-shadow-md);
-    border-left: 3px solid var(--jp-accent);
-    margin: 24px 0;
-    overflow: hidden;
+  border-radius: var(--theme-radius-md);
+  margin: var(--theme-space-6) 0;
 }
 
-/* 亮色模式 */
-:root:not(.dark) .vp-doc div[class*='language-'] {
-    background-color: var(--vp-c-bg-soft);
+/* 引用块优化 */
+.vp-doc blockquote {
+  border-left: 4px solid var(--theme-primary-500);
+  background: var(--vp-c-bg-soft);
+  border-radius: 0 var(--theme-radius-sm) var(--theme-radius-sm) 0;
+  padding: var(--theme-space-4) var(--theme-space-6);
+  margin: var(--theme-space-6) 0;
 }
 
-/* 暗色模式 */
-:root.dark .vp-doc div[class*='language-'] {
-    background-color: var(--vp-c-bg-alt);
+/* 表格优化 */
+.vp-doc table {
+  border-radius: var(--theme-radius-md);
+  overflow: hidden;
 }
 
-/* 行内代码优化 */
-.vp-doc code {
-    background: var(--vp-c-bg-soft);
-    color: var(--vp-c-brand-1);
-    padding: 4px 10px;
-    border-radius: 8px;
-    font-size: 0.9em;
-    font-weight: 500;
-    border: 1px solid var(--vp-c-divider);
-}
-
-.vp-doc a code {
-    color: inherit;
-}
-
-/* ========================================
-   按钮 - Buttons
-   ======================================== */
-.VPButton {
-    border-radius: 12px;
-    padding: 10px 20px;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    cursor: pointer;
-    border: none;
-    box-shadow: var(--jp-shadow-sm);
-}
-
-.VPButton.brand {
-    background: var(--jp-gradient-button);
-    color: white;
-}
-
-.VPButton:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--jp-shadow-md);
-}
-
-/* ========================================
-   Team Members 组件
-   ======================================== */
-.vp-doc .VPTeamMembersItem {
-    border-radius: 20px;
-    box-shadow: var(--jp-shadow-md);
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    border: 1px solid var(--vp-c-divider);
-    overflow: hidden;
-}
-
-.vp-doc .VPTeamMembersItem:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--jp-shadow-hover);
-}
-
-/* ========================================
-   暗色模式特殊处理
-   ======================================== */
-
-/* 暗色模式发光效果 - 移除 hover 效果 */
-:root.dark .VPTeamMembersItem:hover {
-    box-shadow: var(--jp-shadow-hover);
-}
-
-/* 暗色模式代码块发光边框 */
-:root.dark .vp-doc div[class*='language-'] {
-    border-left-color: var(--jp-accent);
-    box-shadow: -2px 0 12px rgba(168, 240, 230, 0.2);
-}
-
-/* 暗色模式导航栏 */
-:root.dark .VPNavBar {
-    background: color-mix(in srgb, var(--vp-c-bg) 90%, transparent);
-    border-bottom-color: rgba(255, 179, 199, 0.15);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5),
-                0 0 8px rgba(255, 179, 199, 0.1);
-}
-
-/* ========================================
-   工具类 - Utility Classes
-   ======================================== */
-.hover-pointer {
-    cursor: pointer !important;
-}
-
-.VPNavBarMenuLink,
-.VPNavBarMenuLink.active,
-.VPNavBarMenuLink:hover {
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-/* ========================================
-   滚动条美化 - Scrollbar
-   ======================================== */
-/* Chrome, Edge, Safari */
+/* 滚动条样式 */
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--vp-c-bg-soft);
-    border-radius: 10px;
+  background: var(--vp-c-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--vp-c-brand-1);
-    border-radius: 10px;
-    transition: background 0.3s ease;
+  background: var(--vp-c-divider);
+  border-radius: var(--theme-radius-full);
+  border: 2px solid var(--vp-c-bg);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--vp-c-brand-2);
-}
-
-/* Firefox */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--vp-c-brand-1) var(--vp-c-bg-soft);
+  background: var(--theme-gray-400);
 }
 
 /* ========================================
-   响应式设计 - Responsive Design
+   响应式调整
    ======================================== */
-@media (max-width: 960px) {
-    .j-card,
-    .n-list {
-        border-radius: 16px;
-        margin: 0;
-    }
 
-    .VPDoc .vp-doc {
-        font-size: 16px;
-        line-height: 1.85;
-    }
-
-    .vp-doc blockquote {
-        border-radius: 10px;
-        padding: 12px 16px;
-    }
-}
-
-/* ========================================
-   表格样式 - Table Styles
-   ======================================== */
-.vp-doc table {
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 100%;
-    margin: 24px 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--jp-shadow-md);
-}
-
-.vp-doc thead {
-    background: var(--jp-gradient-button);
-}
-
-.vp-doc thead th {
-    color: white;
-    font-weight: 600;
-    padding: 16px;
-    text-align: left;
-    border: none;
-}
-
-.vp-doc tbody tr {
-    background: var(--jp-card);
-    transition: background-color 0.3s ease;
-}
-
-.vp-doc tbody tr:nth-child(even) {
-    background: var(--vp-c-bg-soft);
-}
-
-.vp-doc tbody tr:hover {
-    background: var(--vp-c-bg-alt);
-}
-
-.vp-doc tbody td {
-    padding: 14px 16px;
-    border-bottom: 1px solid var(--vp-c-divider);
-}
-
-.vp-doc tbody tr:last-child td {
-    border-bottom: none;
-}
-
-/* ========================================
-   图片优化 - Image Optimization
-   ======================================== */
-.vp-doc img {
-    border-radius: 12px;
-    box-shadow: var(--jp-shadow-md);
-    margin: 12px 8px;
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: zoom-in;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.vp-doc img:hover {
-    transform: scale(1.02);
-    box-shadow: var(--jp-shadow-lg);
-}
-
-/* 单独一行的图片居中 */
-.vp-doc p:has(img:only-child) {
-    text-align: center;
-}
-
-/* ========================================
-   选中文本样式 - Text Selection
-   ======================================== */
-::selection {
-    background: var(--vp-c-brand-1);
-    color: white;
-}
-
-::-moz-selection {
-    background: var(--vp-c-brand-1);
-    color: white;
-}
-
-/* ========================================
-   动画关键帧 - Animations
-   ======================================== */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* 页面加载动画 */
-.n-card,
-.VPTeamMembersItem {
-    animation: fadeIn 0.6s ease-out;
+@media (max-width: 768px) {
+  :root {
+    --theme-space-6: 16px;
+    --theme-space-8: 24px;
+    --theme-space-12: 32px;
+  }
 }

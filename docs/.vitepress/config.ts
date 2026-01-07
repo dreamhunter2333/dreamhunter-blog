@@ -94,10 +94,10 @@ export default withPwa(withMermaid(defineConfig<CustomThemeConfig>({
         },
         nav: [
             { text: '首页', link: '/' },
-            { text: '分类', link: '/pages/category' },
-            { text: '标签', link: '/pages/tags' },
-            { text: '归档', link: '/pages/archives' },
-            { text: '留言', link: '/pages/about' }
+            { text: '博客', link: '/pages/posts' },
+            { text: '项目', link: '/pages/projects' },
+            { text: '工坊', link: '/pages/workshop' },
+            { text: '关于', link: '/pages/about' }
         ],
         search: {
             provider: 'local',

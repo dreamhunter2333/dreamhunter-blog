@@ -2,7 +2,7 @@ import path from 'node:path'
 import fs from 'node:fs/promises'
 import matter from 'gray-matter'
 import { Feed, FeedOptions } from 'feed'
-import { Post } from './type'
+import { Post, Project, Workshop } from './type'
 
 interface SidebarLink {
     text: string
@@ -43,7 +43,10 @@ export const getCustomConfig = async (
 ): Promise<{
     sidebar?: Record<string, SidebarGroup>,
     posts: Post[]
+    projects: Project[]
+    workshops: Workshop[]
 }> => {
+    // 获取博客文章
     const paths: string[] = []
     for await (const file of fs.glob('**/posts/**/*.md', { exclude: (p) => p.includes('node_modules') })) {
         if (!file.includes('README.md')) {
@@ -66,8 +69,15 @@ export const getCustomConfig = async (
     posts.sort(_compareDate);
     console.log(`\x1b[32m✓\x1b[0m Total ${posts.length} posts found`);
 
+    // 获取项目和工坊
+    const projects = await getContentByType('projects') as Project[]
+    const workshops = await getContentByType('workshop') as Workshop[]
+
+    console.log(`\x1b[32m✓\x1b[0m Total ${projects.length} projects found`);
+    console.log(`\x1b[32m✓\x1b[0m Total ${workshops.length} workshop items found`);
+
     if (!autoSidebar) {
-        return { posts }
+        return { posts, projects, workshops }
     }
 
     const sidebar = posts.reduce<Record<string, SidebarGroup>>((acc, cur) => {
@@ -90,7 +100,56 @@ export const getCustomConfig = async (
     }, {})
     console.log(`\x1b[32m✓\x1b[0m Auto sidebar generated`);
 
-    return { sidebar, posts };
+    return { sidebar, posts, projects, workshops };
+}
+
+// 获取指定类型的内容
+export const getContentByType = async (
+    type: 'posts' | 'projects' | 'workshop'
+): Promise<Post[] | Project[] | Workshop[]> => {
+    const paths: string[] = []
+    const pattern = `**/${type}/**/*.md`
+
+    for await (const file of fs.glob(pattern, {
+        exclude: (p) => p.includes('node_modules')
+    })) {
+        if (!file.includes('README.md')) {
+            paths.push(file)
+        }
+    }
+
+    const items = await Promise.all(
+        paths.map(async (item) => {
+            const content = await fs.readFile(item, 'utf-8')
+            const { data } = matter(content)
+
+            // 为博客添加 group 信息（兼容现有结构）
+            if (type === 'posts') {
+                const groupKey = `/posts/${item.replace("docs/", "").split('/')[1]}/`
+                return {
+                    frontMatter: data,
+                    groupKey,
+                    group: item.replace("docs/", "").split('/')[1],
+                    regularPath: `/${item.replace("docs/", "").replace('.md', '.html')}`
+                } as Post
+            }
+
+            // 项目和工坊
+            return {
+                frontMatter: data,
+                regularPath: `/${item.replace("docs/", "").replace('.md', '.html')}`
+            } as Project | Workshop
+        })
+    )
+
+    // 按日期排序
+    items.sort((a, b) => {
+        const d1 = new Date(a.frontMatter.date || 0)
+        const d2 = new Date(b.frontMatter.date || 0)
+        return d2.getTime() - d1.getTime()
+    })
+
+    return items
 }
 
 

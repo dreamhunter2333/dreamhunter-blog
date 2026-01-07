@@ -4,6 +4,8 @@
 - Site content: `docs/`
 - VitePress config/theme: `docs/.vitepress/`
 - Posts: `docs/posts/<category>/<slug>.md`
+- Projects: `docs/projects/<slug>.md` (frontmatter only, no content)
+- Workshop: `docs/workshop/<slug>.md` (frontmatter only, no content)
 - Pages: `docs/pages/`
 - Assets: `docs/public/`
 - Scripts: `scripts/`
@@ -30,3 +32,5 @@
 ## Notes
 - RSS generated at build time from frontmatter.
 - `date` should be `YYYY-MM-DD` or `YYYY-MM-DD HH:mm:ss`.
+- Projects and workshop items are metadata-only files (frontmatter only, no markdown content).
+- Projects and workshop items are not clickable detail pages, they link directly to external demos/repos.
