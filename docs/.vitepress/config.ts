@@ -18,6 +18,8 @@ export default withPwa(withMermaid(defineConfig<CustomThemeConfig>({
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
         ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }],
         ['link', { rel: 'apple-touch-icon', href: '/imgs/avatar.png' }],
+        ['meta', { name: 'theme-color', content: '#F8F8F8', media: '(prefers-color-scheme: light)' }],
+        ['meta', { name: 'theme-color', content: '#1A1A1A', media: '(prefers-color-scheme: dark)' }],
         // 防止页面刷新白屏闪烁 - 立即设置背景色和主题
         ['script', {}, `
             (function() {
@@ -51,7 +53,7 @@ export default withPwa(withMermaid(defineConfig<CustomThemeConfig>({
             name: 'Dreamhunter Blog',
             short_name: 'DH Blog',
             description: '你指尖跃动的电光，是我此生不变的信仰',
-            theme_color: '#FB7299',
+            theme_color: '#F8F8F8',
             background_color: '#F8F8F8',
             display: 'standalone',
             icons: [
