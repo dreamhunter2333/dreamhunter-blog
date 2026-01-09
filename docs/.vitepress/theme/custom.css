@@ -287,6 +287,35 @@ a:hover {
   overflow: hidden;
 }
 
+/* ========================================
+   文章图片样式
+   ======================================== */
+
+/* 文章内容区图片基础样式 */
+.vp-doc img {
+  border-radius: var(--theme-radius-md);
+  margin: var(--theme-space-3) var(--theme-space-2);
+  box-shadow: var(--theme-shadow-sm);
+  transition: transform var(--theme-transition-fast),
+              box-shadow var(--theme-transition-fast);
+  display: inline-block;
+  vertical-align: top;
+  cursor: zoom-in;
+}
+
+.vp-doc img:hover {
+  box-shadow: var(--theme-shadow-md);
+}
+
+/* 确保 medium-zoom 正常工作 */
+.vp-doc img.medium-zoom-image {
+  cursor: zoom-in;
+}
+
+.vp-doc img.medium-zoom-image--opened {
+  cursor: zoom-out;
+}
+
 /* 滚动条样式 */
 ::-webkit-scrollbar {
   width: 10px;

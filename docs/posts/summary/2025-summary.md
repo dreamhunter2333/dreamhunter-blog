@@ -32,7 +32,7 @@ tags:
 
 硬件也升级了一次：从 `Intel I3-N305` 换成了 `AMD Ryzen 7 8745H`，目前性能绰绰有余。
 
-<img src="/imgs/summary/2025/pve.png" alt="pve" width="640" />
+<img src="/imgs/summary/2025/pve.png" alt="pve" />
 
 ## 掌机/平板
 
