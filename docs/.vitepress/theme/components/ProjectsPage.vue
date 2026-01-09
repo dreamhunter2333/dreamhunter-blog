@@ -221,7 +221,7 @@ if (typeof window !== 'undefined') {
           v-for="project in filteredProjects"
           :key="project.regularPath"
           :title="project.frontMatter.title"
-          :description="project.frontMatter.description"
+          :description="project.frontMatter.description ?? ''"
           :date="project.frontMatter.date"
           :tags="project.frontMatter.tags"
           :github-url="project.frontMatter.github"

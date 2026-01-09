@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
   title: string
-  description: string
+  description?: string
   date?: string
   tags?: string[]
   href?: string
@@ -12,6 +12,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
+  description: '',
   tags: () => []
 })
 

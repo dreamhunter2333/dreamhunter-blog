@@ -14,8 +14,9 @@ export default withPwa(withMermaid(defineConfig<CustomThemeConfig>({
         optimizeDeps: { include: ['mermaid', 'dayjs'] }
     },
     head: [
-        ['link', { rel: 'icon', href: '/imgs/favicon.ico' }],
+        ['link', { rel: 'icon', href: '/favicon.ico' }],
         ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+        ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
         ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }],
         ['link', { rel: 'apple-touch-icon', href: '/imgs/avatar.png' }],
         ['meta', { name: 'theme-color', content: '#F8F8F8', media: '(prefers-color-scheme: light)' }],

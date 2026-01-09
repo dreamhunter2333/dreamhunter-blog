@@ -221,7 +221,7 @@ if (typeof window !== 'undefined') {
           v-for="workshop in filteredWorkshops"
           :key="workshop.regularPath"
           :title="workshop.frontMatter.title"
-          :description="workshop.frontMatter.description"
+          :description="workshop.frontMatter.description ?? ''"
           :date="workshop.frontMatter.date"
           :tags="workshop.frontMatter.tags"
           :github-url="workshop.frontMatter.github"

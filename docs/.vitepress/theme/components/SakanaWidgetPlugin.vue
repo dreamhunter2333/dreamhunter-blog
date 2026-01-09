@@ -6,9 +6,15 @@
   </ClientOnly>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, onMounted } from "vue";
 
+declare global {
+  interface Window {
+    Sakana?: { init: (config: Record<string, unknown>) => void }
+    __sakanaInitialized?: boolean
+  }
+}
 
 const options = computed(() => {
     return {
@@ -33,12 +39,28 @@ const styleObject = computed(() => {
 
 
 onMounted(() => {
-    const script = document.createElement("script");
-    script.async = true;
-    script.onload = () => {
-        // @ts-ignore
-        Sakana.init(options.value.config);
+    const initSakana = () => {
+        if (window.__sakanaInitialized) return;
+        if (!window.Sakana) return;
+        window.__sakanaInitialized = true;
+        window.Sakana.init(options.value.config);
+    };
+
+    if (window.Sakana) {
+        initSakana();
+        return;
     }
+
+    const existing = document.getElementById("sakana-script");
+    if (existing) {
+        existing.addEventListener("load", initSakana, { once: true });
+        return;
+    }
+
+    const script = document.createElement("script");
+    script.id = "sakana-script";
+    script.async = true;
+    script.onload = initSakana;
     script.src = "https://cdn.jsdelivr.net/npm/sakana";
     document.body.appendChild(script);
 });
