@@ -82,8 +82,9 @@
   --z-index-base: 1;
   --z-index-nav: 50;
   --z-index-medium-zoom: 100;
-  --z-index-nav-menu: 100;
-  --z-index-nav-button: 200;
+  /* 调整为 150/160 以修复移动端菜单层叠问题 */
+  --z-index-nav-menu: 150;
+  --z-index-nav-button: 160;
 
   /* 📐 间距系统 - Spacing Scale */
   --theme-space-1: 4px;
@@ -191,6 +192,13 @@ body {
   background: rgba(0, 0, 0, 0.8) !important;
 }
 
+/*
+ * 移动端菜单修复
+ * VitePress 版本: v2.0.0-alpha.15+
+ * 依赖: .screen-open 类和 .VPNavScreen 元素
+ * TODO: 监控 VitePress 更新以防类名变化
+ */
+
 /* 确保移动端菜单按钮可点击 */
 .VPNavBarHamburger,
 .VPNavBarMenuButton {
@@ -199,11 +207,12 @@ body {
   pointer-events: auto;
 }
 
-/*
- * VitePress v2.0.0-alpha.15 移动端菜单修复
- * 依赖: .screen-open 类和 .VPNavScreen 元素
- * TODO: 监控 VitePress 更新以防类名变化
- */
+/* 导航栏在菜单打开时的样式 */
+.VPNavBar.screen-open {
+  z-index: var(--z-index-nav-menu);
+}
+
+/* 修复移动端菜单显示问题 */
 .VPNavBar.screen-open + .VPNavScreen,
 .VPNavScreen.open {
   height: calc(100vh - var(--vp-nav-height, 64px)) !important;
