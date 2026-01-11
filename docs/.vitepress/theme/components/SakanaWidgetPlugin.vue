@@ -9,12 +9,9 @@
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
 
-declare global {
-  interface Window {
-    Sakana?: { init: (config: Record<string, unknown>) => void }
-    __sakanaInitialized?: boolean
-  }
-}
+declare const Sakana: { init: (config: Record<string, unknown>) => void } | undefined;
+
+let sakanaInitialized = false;
 
 const options = computed(() => {
     return {
@@ -40,13 +37,13 @@ const styleObject = computed(() => {
 
 onMounted(() => {
     const initSakana = () => {
-        if (window.__sakanaInitialized) return;
-        if (!window.Sakana) return;
-        window.__sakanaInitialized = true;
-        window.Sakana.init(options.value.config);
+        if (sakanaInitialized) return;
+        if (typeof Sakana === 'undefined') return;
+        sakanaInitialized = true;
+        Sakana.init(options.value.config);
     };
 
-    if (window.Sakana) {
+    if (typeof Sakana !== 'undefined') {
         initSakana();
         return;
     }

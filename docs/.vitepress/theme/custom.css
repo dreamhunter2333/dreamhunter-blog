@@ -177,6 +177,22 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* 键盘可见焦点样式 */
+.action-button:focus-visible {
+  outline: 2px solid var(--theme-primary-500);
+  outline-offset: 2px;
+}
+
+.modern-card:focus-visible {
+  outline: 2px solid var(--theme-primary-500);
+  outline-offset: 4px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--theme-primary-500);
+  outline-offset: 2px;
+}
+
 /* ========================================
    VitePress 组件覆盖
    ======================================== */
@@ -234,18 +250,16 @@ body {
   padding-bottom: 0 !important;
 }
 
-/* 链接样式优化 - 添加现代下划线动画 */
-a {
-  text-decoration: none !important;
-}
-
-a:hover {
+/* 链接样式优化 */
+a,
+a:hover,
+.vp-doc a,
+.vp-doc a:hover {
   text-decoration: none !important;
 }
 
 .vp-doc a {
   color: var(--theme-primary-600);
-  text-decoration: none !important;
   position: relative;
   transition: color var(--theme-transition-fast);
 }
@@ -263,7 +277,6 @@ a:hover {
 
 .vp-doc a:hover {
   color: var(--theme-primary-500);
-  text-decoration: none !important;
 }
 
 .vp-doc a:hover::after {

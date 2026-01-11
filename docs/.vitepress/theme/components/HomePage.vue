@@ -54,7 +54,7 @@
 import { computed } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { useIsMobile } from '../utils/composables'
-import { CustomThemeConfig, Post, Project, Workshop } from '../type'
+import { CustomThemeConfig, Post } from '../type'
 import SakanaWidgetPlugin from './SakanaWidgetPlugin.vue'
 import ModernCard from './ModernCard.vue'
 
@@ -62,21 +62,7 @@ const isMobile = useIsMobile()
 const { theme } = useData<CustomThemeConfig>()
 
 const posts = theme.value.posts
-const projects = theme.value.projects || []
-const workshops = theme.value.workshops || []
-
-// 获取最新的项目和工坊（按日期排序，总共3个）
-const recentWorks = computed(() => {
-  const allWorks = [
-    ...projects.map((p: Project) => ({ ...p, type: 'project' as const })),
-    ...workshops.map((w: Workshop) => ({ ...w, type: 'workshop' as const }))
-  ].sort((a, b) => {
-    const dateA = new Date(a.frontMatter.date || 0).getTime()
-    const dateB = new Date(b.frontMatter.date || 0).getTime()
-    return dateB - dateA
-  })
-  return allWorks.slice(0, 3)
-})
+const recentWorks = theme.value.recentWorks || []
 
 // 主页只显示最新的6篇文章
 const recentPosts = computed(() => posts.slice(0, 6))
@@ -117,15 +103,15 @@ const recentPosts = computed(() => posts.slice(0, 6))
 }
 
 .view-all-link {
-  color: #00A1D6;
+  color: var(--theme-primary-500);
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: color var(--theme-transition-fast);
 }
 
 .view-all-link:hover {
-  color: #0088B8;
+  color: var(--theme-primary-600);
 }
 
 .content-grid {

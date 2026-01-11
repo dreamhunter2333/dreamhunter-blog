@@ -2,7 +2,7 @@ import path from 'node:path'
 import fs from 'node:fs/promises'
 import matter from 'gray-matter'
 import { Feed, FeedOptions } from 'feed'
-import { Post, Project, Workshop } from './type'
+import { Post, Project, RecentWork, Workshop } from './type'
 
 interface SidebarLink {
     text: string
@@ -45,6 +45,7 @@ export const getCustomConfig = async (
     posts: Post[]
     projects: Project[]
     workshops: Workshop[]
+    recentWorks: RecentWork[]
 }> => {
     // 获取博客文章
     const paths: string[] = []
@@ -72,12 +73,13 @@ export const getCustomConfig = async (
     // 获取项目和工坊
     const projects = await getContentByType('projects') as Project[]
     const workshops = await getContentByType('workshop') as Workshop[]
+    const recentWorksList = recentWorks(projects, workshops)
 
     console.log(`\x1b[32m✓\x1b[0m Total ${projects.length} projects found`);
     console.log(`\x1b[32m✓\x1b[0m Total ${workshops.length} workshop items found`);
 
     if (!autoSidebar) {
-        return { posts, projects, workshops }
+        return { posts, projects, workshops, recentWorks: recentWorksList }
     }
 
     const sidebar = posts.reduce<Record<string, SidebarGroup>>((acc, cur) => {
@@ -100,7 +102,7 @@ export const getCustomConfig = async (
     }, {})
     console.log(`\x1b[32m✓\x1b[0m Auto sidebar generated`);
 
-    return { sidebar, posts, projects, workshops };
+    return { sidebar, posts, projects, workshops, recentWorks: recentWorksList };
 }
 
 // 获取指定类型的内容
@@ -152,6 +154,20 @@ export const getContentByType = async (
     return items
 }
 
+export const recentWorks = (projects: Project[], workshops: Workshop[]): RecentWork[] => {
+    const allWorks: RecentWork[] = [
+        ...projects.map((project) => ({ ...project, type: 'project' as const })),
+        ...workshops.map((workshop) => ({ ...workshop, type: 'workshop' as const }))
+    ]
+
+    allWorks.sort((a, b) => {
+        const dateA = new Date(a.frontMatter.date || 0).getTime()
+        const dateB = new Date(b.frontMatter.date || 0).getTime()
+        return dateB - dateA
+    })
+
+    return allWorks.slice(0, 3)
+}
 
 export const generateRSS = async (hostname: string, posts: Post[], feedOptions: FeedOptions, outDir: string) => {
     if (outDir && feedOptions) {

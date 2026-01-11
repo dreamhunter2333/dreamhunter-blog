@@ -68,9 +68,13 @@ export type Workshop = {
     regularPath: string
 }
 
+// 主页最新作品（项目 + 工坊）
+export type RecentWork = (Project & { type: 'project' }) | (Workshop & { type: 'workshop' })
+
 export interface CustomThemeConfig extends DefaultTheme.Config {
     posts: Post[]
     projects: Project[]
     workshops: Workshop[]
+    recentWorks: RecentWork[]
     about?: DefaultTheme.TeamMember
 }
