@@ -5,12 +5,8 @@ import { onMounted, watch, nextTick } from 'vue'
 import { useRoute, useData } from 'vitepress'
 
 import NewLayout from './components/NewLayout.vue'
-import Archives from './components/Archives.vue'
-import Category from './components/Category.vue'
-import Tags from './components/Tags.vue'
 import HomePage from './components/HomePage.vue'
 import PostsPage from './components/PostsPage.vue'
-import About from './components/About.vue'
 import AboutPage from './components/AboutPage.vue'
 import ProjectsPage from './components/ProjectsPage.vue'
 import WorkshopPage from './components/WorkshopPage.vue'
@@ -22,12 +18,8 @@ export default {
     Layout: NewLayout,
     enhanceApp({ app }: { app: App }) {
         // register global components
-        app.component('Tags', Tags)
-        app.component('Category', Category)
-        app.component('Archives', Archives)
         app.component('HomePage', HomePage)
         app.component('PostsPage', PostsPage)
-        app.component('About', About)
         app.component('AboutPage', AboutPage)
         app.component('ProjectsPage', ProjectsPage)
         app.component('WorkshopPage', WorkshopPage)
