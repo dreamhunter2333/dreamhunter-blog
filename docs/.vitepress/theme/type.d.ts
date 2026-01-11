@@ -1,28 +1,7 @@
 import matter from "gray-matter";
 import { DefaultTheme } from "vitepress";
 
-// 标签颜色类型
-export type TagColorType = 'info' | 'success' | 'warning' | 'error'
-
-// 内容类型
-export type ContentType = 'post' | 'project' | 'workshop'
-
-// 项目状态
-export type ProjectStatus = 'active' | 'wip' | 'archived'
-
-// 工坊状态
-export type WorkshopStatus = 'ongoing' | 'completed' | 'archived'
-
-// 难度等级
-export type Difficulty = 'easy' | 'medium' | 'hard'
-
-// 项目分类
-export type ProjectCategory = 'web' | 'mobile' | 'backend' | 'tools' | 'ai' | 'library' | 'other'
-
-// 工坊分类
-export type WorkshopCategory = 'frontend' | 'fullstack' | 'design' | 'tool'
-
-// 博客文章（保持原有结构）
+// 博客文章
 export type Post = {
     frontMatter: matter.GrayMatterFile<string> & {
         date: string
