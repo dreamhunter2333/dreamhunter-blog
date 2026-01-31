@@ -228,6 +228,16 @@ a:focus-visible {
   z-index: var(--z-index-nav-menu);
 }
 
+/* 菜单打开时，让 VPNav 背景完全不透明，避免 Safari 渲染问题 */
+.VPNav:has(.VPNavBar.screen-open) {
+  background: rgb(255, 255, 255) !important;
+  backdrop-filter: none;
+}
+
+:root.dark .VPNav:has(.VPNavBar.screen-open) {
+  background: rgb(0, 0, 0) !important;
+}
+
 /* 修复移动端菜单显示问题 */
 .VPNavBar.screen-open + .VPNavScreen,
 .VPNavScreen.open {
@@ -241,6 +251,37 @@ a:focus-visible {
   .VPNavScreen.open {
     height: calc(100dvh - var(--vp-nav-height, 64px)) !important;
   }
+}
+
+/*
+ * 修复移动端菜单点击后瞬间透明的问题
+ * 问题: VitePress scoped 样式特异性高，Safari 渲染时序问题
+ * 方案: 使用重复类名提高特异性，彻底禁用 opacity 动画
+ */
+
+/* 强制 VPNavScreen 始终不透明 */
+.VPNavScreen.VPNavScreen.VPNavScreen,
+.VPNavScreen.VPNavScreen.VPNavScreen.fade-enter-from,
+.VPNavScreen.VPNavScreen.VPNavScreen.fade-enter-active,
+.VPNavScreen.VPNavScreen.VPNavScreen.fade-enter-to,
+.VPNavScreen.VPNavScreen.VPNavScreen.fade-leave-from,
+.VPNavScreen.VPNavScreen.VPNavScreen.fade-leave-active {
+  opacity: 1 !important;
+}
+
+/* 仅在离场最后一刻隐藏 */
+.VPNavScreen.VPNavScreen.VPNavScreen.fade-leave-to {
+  opacity: 0 !important;
+}
+
+/* 内容区域执行淡入动画 */
+.VPNavScreen .container {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.VPNavScreen.fade-enter-from .container {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 
 
