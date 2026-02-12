@@ -157,10 +157,4 @@ opkg install /tmp/luci-app-openclash_0.47.055_all.ipk
 scp -O mihomo-linux-arm64-v1.19.20 root@192.168.2.150:/etc/openclash/core/clash_meta
 ```
 
-OpenWrt 上创建软链接，OpenClash 启动时同时需要 `clash` 和 `clash_meta` 两个路径
-
-```bash
-ln -s /etc/openclash/core/clash_meta /etc/openclash/core/clash
-```
-
 最后在 LuCI `Services > OpenClash` 中上传订阅配置文件，启动即可。客户端将网关和 DNS 指向 `192.168.2.150` 就能走透明代理了
