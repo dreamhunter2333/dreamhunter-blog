@@ -11,7 +11,7 @@ tags:
 
 # macOS UTM 跑 OpenWrt 旁路由 + OpenClash 透明代理实战
 
-春节回家没有软路由可用，家里只有一台光猫拨号的普通路由器。折腾了一下在 macOS 上用 UTM 虚拟机跑 OpenWrt 做旁路由，搭配 OpenClash + mihomo 内核实现透明代理，记录一下完整过程。
+春节回家没有软路由可用，家里只有一台光猫拨号的普通路由器，Clash 客户端的 TUN 模式又和某些监控软件冲突用不了，于是折腾了一下在 macOS 上用 UTM 虚拟机跑 OpenWrt 做旁路由，搭配 OpenClash + mihomo 内核实现透明代理，记录一下完整过程。
 
 ## 环境
 
