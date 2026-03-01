@@ -8,6 +8,6 @@ tags:
   - Cloudflare
   - Video
 github: https://github.com/awsl-project/awsl-video
-demo: https://middle-age-man-test.awsl.icu/
+demo: https://v.awsl.icu/
 featured: true
 ---
