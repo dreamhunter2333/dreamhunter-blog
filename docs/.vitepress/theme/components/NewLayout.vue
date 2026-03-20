@@ -3,9 +3,9 @@
     <template #doc-before>
       <ClientOnly>
         <div v-if="!$frontmatter.page" class="article-meta">
-          <button @click="goBack" class="back-button" title="返回">
+          <button class="back-button" title="返回" @click="goBack">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M10 14L4 8l6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 14L4 8l6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             返回
           </button>

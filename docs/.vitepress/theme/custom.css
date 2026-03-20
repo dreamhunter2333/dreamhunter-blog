@@ -410,3 +410,19 @@ a:hover,
     --theme-space-12: 32px;
   }
 }
+
+/* ========================================
+   修复 VitePress 原生 Home 布局的巨大留白问题
+   VitePress 官方默认会给 .VPHome 塞入高达 128px 的距离，在此干掉
+   ======================================== */
+.VPHome {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .VPHome {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}

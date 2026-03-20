@@ -111,10 +111,18 @@ const getIcon = (icon: string) => {
 
 .about-card {
   background: var(--vp-c-bg-soft);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
-  transition: all 0.2s ease;
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: var(--theme-shadow-md);
+}
+
+:deep(html.dark) .about-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(24, 24, 27, 0.6);
 }
 
 .about-avatar-section {
@@ -126,20 +134,22 @@ const getIcon = (icon: string) => {
 
 .avatar-wrapper {
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .avatar {
-  width: 80px;
-  height: 80px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--vp-c-divider);
-  transition: all 0.2s ease;
+  border: 3px solid rgba(0, 161, 214, 0.2);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .avatar:hover {
+  transform: scale(1.05) rotate(5deg);
   border-color: var(--vp-c-brand-1);
+  box-shadow: 0 8px 24px rgba(0, 161, 214, 0.25);
 }
 
 .about-name {

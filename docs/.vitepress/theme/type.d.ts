@@ -56,4 +56,5 @@ export interface CustomThemeConfig extends DefaultTheme.Config {
     workshops: Workshop[]
     recentWorks: RecentWork[]
     about?: DefaultTheme.TeamMember
+    description?: string
 }

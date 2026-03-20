@@ -151,58 +151,46 @@ if (typeof window !== 'undefined') {
       <div class="section-header">
         <h2 class="section-title">博客</h2>
 
-        <!-- 过滤器 -->
+        <!-- 现代化下拉过滤器 -->
         <div class="header-filters">
-          <!-- 分类多选框 -->
           <div v-if="allCategories.length > 0" class="multi-select multi-select-category">
             <button
               class="multi-select-trigger"
+              :class="{ 'is-active': categoryDropdownOpen }"
               @click="categoryDropdownOpen = !categoryDropdownOpen"
             >
               <span>{{ selectedCategories.length > 0 ? `分类 (${selectedCategories.length})` : '分类过滤' }}</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M6 9L1 4h10z"/>
-              </svg>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 9L1 4h10z" /></svg>
             </button>
             <div v-if="categoryDropdownOpen" class="multi-select-dropdown">
-              <label
-                v-for="category in allCategories"
-                :key="category"
-                class="multi-select-option"
-              >
+              <label v-for="category in allCategories" :key="category" class="multi-select-option">
                 <input
                   type="checkbox"
                   :checked="selectedCategories.includes(category)"
-                  @change="toggleCategory(category)"
                   class="multi-select-checkbox"
+                  @change="toggleCategory(category)"
                 />
                 <span class="multi-select-label">{{ category }}</span>
               </label>
             </div>
           </div>
 
-          <!-- 标签多选框 -->
           <div v-if="allTags.length > 0" class="multi-select multi-select-tag">
             <button
               class="multi-select-trigger"
+              :class="{ 'is-active': tagDropdownOpen }"
               @click="tagDropdownOpen = !tagDropdownOpen"
             >
               <span>{{ selectedTags.length > 0 ? `标签 (${selectedTags.length})` : '标签过滤' }}</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M6 9L1 4h10z"/>
-              </svg>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 9L1 4h10z" /></svg>
             </button>
             <div v-if="tagDropdownOpen" class="multi-select-dropdown">
-              <label
-                v-for="tag in allTags"
-                :key="tag"
-                class="multi-select-option"
-              >
+              <label v-for="tag in allTags" :key="tag" class="multi-select-option">
                 <input
                   type="checkbox"
                   :checked="selectedTags.includes(tag)"
-                  @change="toggleTag(tag)"
                   class="multi-select-checkbox"
+                  @change="toggleTag(tag)"
                 />
                 <span class="multi-select-label">{{ tag }}</span>
               </label>
@@ -213,27 +201,17 @@ if (typeof window !== 'undefined') {
         </div>
       </div>
 
-      <!-- 已选择的标签显示 -->
+      <!-- 已选择的标签行 -->
       <div v-if="selectedCategories.length > 0 || selectedTags.length > 0" class="selected-filters">
-        <span
-          v-for="category in selectedCategories"
-          :key="'cat-' + category"
-          class="selected-tag"
-        >
+        <span v-for="category in selectedCategories" :key="'cat-' + category" class="selected-tag">
           {{ category }}
           <button class="remove-tag" @click="toggleCategory(category)">×</button>
         </span>
-        <span
-          v-for="tag in selectedTags"
-          :key="'tag-' + tag"
-          class="selected-tag selected-tag--tag"
-        >
+        <span v-for="tag in selectedTags" :key="'tag-' + tag" class="selected-tag selected-tag--tag">
           {{ tag }}
           <button class="remove-tag" @click="toggleTag(tag)">×</button>
         </span>
-        <button class="clear-filters-inline" @click="clearFilters">
-          清除全部
-        </button>
+        <button class="clear-filters-inline" @click="clearFilters">清除全部</button>
       </div>
 
       <div class="posts-list">
@@ -280,14 +258,15 @@ if (typeof window !== 'undefined') {
   align-items: center;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .section-title {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.75rem;
+  font-weight: 800;
   color: var(--vp-c-text-1);
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .header-filters {
@@ -298,11 +277,13 @@ if (typeof window !== 'undefined') {
 }
 
 .page-stats {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--vp-c-text-3);
+  margin-left: 0.5rem;
 }
 
-/* 自定义多选框样式 */
+/* ================= 玻璃拟态下拉框 ================= */
 .multi-select {
   position: relative;
 }
@@ -310,73 +291,82 @@ if (typeof window !== 'undefined') {
 .multi-select-trigger {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.5rem;
-  min-width: 110px;
-  padding: 0.25rem 0.625rem;
-  font-size: 0.8125rem;
+  min-width: 120px;
+  padding: 0.4rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--vp-c-text-1);
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.multi-select-trigger:hover {
+.multi-select-trigger:hover, .multi-select-trigger.is-active {
+  background: var(--vp-c-bg);
   border-color: var(--vp-c-brand-1);
+  box-shadow: 0 4px 12px rgba(0, 161, 214, 0.08);
 }
 
 .multi-select-trigger svg {
   opacity: 0.5;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
-.multi-select-trigger:hover svg {
-  opacity: 0.8;
+.multi-select-trigger.is-active svg {
+  transform: rotate(180deg);
+  opacity: 1;
 }
 
 .multi-select-dropdown {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + 8px);
   left: 0;
-  min-width: 180px;
+  min-width: 220px;
   max-height: 300px;
   overflow-y: auto;
-  background: var(--vp-c-bg);
+  background: var(--vp-c-bg-elv);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  z-index: 50;
-  padding: 0.25rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04);
+  z-index: 100;
+  padding: 0.375rem;
 }
 
 .multi-select-option {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   padding: 0.5rem 0.75rem;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: background 0.2s ease;
   user-select: none;
 }
 
 .multi-select-option:hover {
-  background: var(--vp-c-bg-soft);
+  background: var(--vp-c-default-soft);
 }
 
 .multi-select-checkbox {
   width: 16px;
   height: 16px;
   border: 1px solid var(--vp-c-divider);
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
   appearance: none;
-  background: var(--vp-c-bg);
+  background: var(--vp-c-bg-soft);
   transition: all 0.2s ease;
   position: relative;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .multi-select-checkbox:checked {
@@ -386,18 +376,11 @@ if (typeof window !== 'undefined') {
 
 .multi-select-checkbox:checked::after {
   content: '';
-  position: absolute;
-  left: 5px;
-  top: 2px;
   width: 4px;
   height: 8px;
   border: solid white;
   border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-
-.multi-select-checkbox:hover {
-  border-color: var(--vp-c-brand-1);
+  transform: rotate(45deg) translateY(-1px);
 }
 
 .multi-select-label {
@@ -406,13 +389,17 @@ if (typeof window !== 'undefined') {
   flex: 1;
 }
 
-/* 已选择的标签显示 */
+/* ================= 选中状态药丸行 ================= */
 .selected-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--vp-c-bg-soft);
+  border-radius: 12px;
+  border: 1px dashed var(--vp-c-divider);
 }
 
 .selected-tag {
@@ -420,16 +407,16 @@ if (typeof window !== 'undefined') {
   align-items: center;
   gap: 0.25rem;
   font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  padding: 0.25rem 0.625rem;
+  border-radius: 99px;
   background: rgba(0, 161, 214, 0.1);
-  color: #00A1D6;
-  font-weight: 500;
+  color: var(--theme-primary-500);
+  font-weight: 600;
 }
 
 .selected-tag--tag {
   background: rgba(251, 114, 153, 0.1);
-  color: #FB7299;
+  color: var(--theme-pink-500);
 }
 
 .remove-tag {
@@ -442,29 +429,31 @@ if (typeof window !== 'undefined') {
   padding: 0;
   margin-left: 0.125rem;
   opacity: 0.6;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .remove-tag:hover {
   opacity: 1;
+  transform: scale(1.1);
 }
 
 .clear-filters-inline {
   font-size: 0.75rem;
-  padding: 0.25rem 0.625rem;
-  border-radius: 4px;
-  border: 1px solid #FB7299;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  border: 1px solid var(--theme-pink-500);
   background: transparent;
-  color: #FB7299;
+  color: var(--theme-pink-500);
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
-  font-weight: 500;
+  font-weight: 600;
+  margin-left: 0.5rem;
 }
 
 .clear-filters-inline:hover {
-  background: #FB7299;
+  background: var(--theme-pink-500);
   color: #fff;
+  box-shadow: 0 2px 8px rgba(251, 114, 153, 0.3);
 }
 
 .posts-list {

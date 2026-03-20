@@ -137,11 +137,12 @@ if (typeof window !== 'undefined') {
           <div v-if="allCategories.length > 0" class="multi-select multi-select-category">
             <button
               class="multi-select-trigger"
+              :class="{ 'is-active': categoryDropdownOpen }"
               @click="categoryDropdownOpen = !categoryDropdownOpen"
             >
               <span>{{ selectedCategories.length > 0 ? `分类 (${selectedCategories.length})` : '分类过滤' }}</span>
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M6 9L1 4h10z"/>
+                <path d="M6 9L1 4h10z" />
               </svg>
             </button>
             <div v-if="categoryDropdownOpen" class="multi-select-dropdown">
@@ -153,8 +154,8 @@ if (typeof window !== 'undefined') {
                 <input
                   type="checkbox"
                   :checked="selectedCategories.includes(category)"
-                  @change="toggleCategory(category)"
                   class="multi-select-checkbox"
+                  @change="toggleCategory(category)"
                 />
                 <span class="multi-select-label">{{ category }}</span>
               </label>
@@ -165,11 +166,12 @@ if (typeof window !== 'undefined') {
           <div v-if="allTags.length > 0" class="multi-select multi-select-tag">
             <button
               class="multi-select-trigger"
+              :class="{ 'is-active': tagDropdownOpen }"
               @click="tagDropdownOpen = !tagDropdownOpen"
             >
               <span>{{ selectedTags.length > 0 ? `标签 (${selectedTags.length})` : '标签过滤' }}</span>
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M6 9L1 4h10z"/>
+                <path d="M6 9L1 4h10z" />
               </svg>
             </button>
             <div v-if="tagDropdownOpen" class="multi-select-dropdown">
@@ -181,8 +183,8 @@ if (typeof window !== 'undefined') {
                 <input
                   type="checkbox"
                   :checked="selectedTags.includes(tag)"
-                  @change="toggleTag(tag)"
                   class="multi-select-checkbox"
+                  @change="toggleTag(tag)"
                 />
                 <span class="multi-select-label">{{ tag }}</span>
               </label>
@@ -280,45 +282,51 @@ if (typeof window !== 'undefined') {
 .multi-select-trigger {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.5rem;
-  min-width: 110px;
-  padding: 0.25rem 0.625rem;
-  font-size: 0.8125rem;
+  min-width: 120px;
+  padding: 0.4rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--vp-c-text-1);
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.multi-select-trigger:hover {
+.multi-select-trigger:hover, .multi-select-trigger.is-active {
+  background: var(--vp-c-bg);
   border-color: var(--vp-c-brand-1);
+  box-shadow: 0 4px 12px rgba(0, 161, 214, 0.08);
 }
 
 .multi-select-trigger svg {
   opacity: 0.5;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
-.multi-select-trigger:hover svg {
-  opacity: 0.8;
+.multi-select-trigger.is-active svg {
+  transform: rotate(180deg);
+  opacity: 1;
 }
 
 .multi-select-dropdown {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + 8px);
   left: 0;
-  min-width: 180px;
+  min-width: 220px;
   max-height: 300px;
   overflow-y: auto;
-  background: var(--vp-c-bg);
+  background: var(--vp-c-bg-elv);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  z-index: 50;
-  padding: 0.25rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04);
+  z-index: 100;
+  padding: 0.375rem;
 }
 
 .multi-select-option {

@@ -1,6 +1,18 @@
 <template>
   <ClientOnly>
     <div class="home-container">
+      <!-- 极简个人展示栏 -->
+      <section class="compact-hero">
+        <div class="hero-main">
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Dream Hunter</span>
+          </h1>
+          <p class="hero-tagline">
+            {{ theme.description || '你指尖跃动的电光，是我此生不变的信仰' }}
+          </p>
+        </div>
+      </section>
+
       <!-- 最新文章区域 -->
       <section class="posts-section">
         <div class="section-header">
@@ -72,20 +84,62 @@ const recentPosts = computed(() => posts.slice(0, 6))
 .home-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem 1.5rem 0;
+  padding: 0 1.5rem 2rem;
 }
 
+/* ================= Compact Hero Section ================= */
+.compact-hero {
+  padding: 1.25rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px dotted var(--vp-c-divider);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.hero-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--vp-c-text-1);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.gradient-text {
+  background: var(--theme-primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-tagline {
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+  margin: 0;
+}
+
+
+/* ================= Content Sections ================= */
 .featured-section {
   margin-bottom: 2rem;
   margin-top: 0;
 }
 
 .posts-section {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .section-title {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--vp-c-text-1);
   margin: 0 0 1.5rem 0;
@@ -105,8 +159,8 @@ const recentPosts = computed(() => posts.slice(0, 6))
 .view-all-link {
   color: var(--theme-primary-500);
   text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   transition: color var(--theme-transition-fast);
 }
 
@@ -121,6 +175,11 @@ const recentPosts = computed(() => posts.slice(0, 6))
 }
 
 @media (max-width: 768px) {
+  .compact-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
   .home-container {
     padding: 0 1rem 1.5rem;
   }

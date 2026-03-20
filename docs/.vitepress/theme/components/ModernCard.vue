@@ -87,9 +87,9 @@ function isValidUrl(url: string): boolean {
 .modern-card {
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
-  border-radius: var(--theme-radius-md);
-  padding: 1rem;
-  transition: all var(--theme-transition-base);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -105,7 +105,7 @@ function isValidUrl(url: string): boolean {
   left: 0;
   bottom: 0;
   width: 0;
-  height: 2px;
+  height: 3px;
   transition: width 0.3s ease;
 }
 
@@ -120,11 +120,11 @@ function isValidUrl(url: string): boolean {
 
 /* 默认样式 - 文章 */
 .modern-card--default {
-  padding: 0.75rem;
+  padding: 1rem;
 }
 
 .modern-card--default:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.1);
 }
 
 /* 项目样式 */
@@ -133,7 +133,7 @@ function isValidUrl(url: string): boolean {
 }
 
 .modern-card--project:hover {
-  box-shadow: 0 12px 24px rgba(0, 161, 214, 0.12);
+  box-shadow: 0 12px 24px -12px rgba(0, 161, 214, 0.15);
 }
 
 /* 工坊样式 */
@@ -142,14 +142,14 @@ function isValidUrl(url: string): boolean {
 }
 
 .modern-card--workshop:hover {
-  box-shadow: 0 12px 24px rgba(251, 114, 153, 0.12);
+  box-shadow: 0 12px 24px -12px rgba(251, 114, 153, 0.15);
 }
 
 .modern-card-title {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: 700;
   color: var(--vp-c-text-1);
-  margin: 0 0 0.375rem 0;
+  margin: 0 0 0.5rem 0;
   line-height: 1.4;
 }
 
@@ -162,11 +162,11 @@ function isValidUrl(url: string): boolean {
   background: var(--theme-pink-500);
 }
 
-/* 默认样式 - 文章卡片描述更简洁 */
+/* 测试文章卡片描述更简洁 */
 .modern-card--default .modern-card-description {
-  -webkit-line-clamp: 1;
-  margin-bottom: 0.375rem;
-  font-size: 0.8125rem;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  margin-bottom: 0.5rem;
 }
 
 /* 项目样式 - 蓝色底部下划线 */
@@ -182,8 +182,8 @@ function isValidUrl(url: string): boolean {
 .modern-card-description {
   font-size: 0.875rem;
   color: var(--vp-c-text-2);
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
   flex: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -215,9 +215,9 @@ function isValidUrl(url: string): boolean {
 }
 
 .modern-card-tag {
-  font-size: 0.6875rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
   font-weight: 500;
 }
 
@@ -259,9 +259,9 @@ function isValidUrl(url: string): boolean {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.2s ease;
