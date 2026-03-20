@@ -4,10 +4,10 @@ import path from 'node:path'
 import { input, select } from '@inquirer/prompts'
 
 const usage = () => {
-  console.log('用法: pnpm new -- <category> <title> [slug]')
-  console.log('可选交互: pnpm new -- --select <title> [slug]')
-  console.log('直接运行: pnpm new')
-  console.log('示例: pnpm new -- 编程 "一次 VitePress 优化"')
+  console.log('用法: bun run new -- <category> <title> [slug]')
+  console.log('可选交互: bun run new -- --select <title> [slug]')
+  console.log('直接运行: bun run new')
+  console.log('示例: bun run new -- 分类 "一次 VitePress 优化"')
 }
 
 const args = process.argv.slice(2)

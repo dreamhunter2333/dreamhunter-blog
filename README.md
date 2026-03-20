@@ -17,11 +17,11 @@
 
 ## 开发与构建
 ```bash
-pnpm dev        # 本地开发
-pnpm build      # 构建产物
-pnpm preview    # 预览构建产物
-pnpm lint       # 主题代码格式检查
-pnpm new -- ... # 创建新文章（交互式或指定参数）
+bun run dev        # 本地开发
+bun run build      # 构建产物
+bun run preview    # 预览构建产物
+bun run lint       # 主题代码格式检查
+bun run new -- ... # 创建新文章（交互式或指定参数）
 ```
 
 ## 目录结构
@@ -36,7 +36,7 @@ scripts/              # 工具脚本（如新建文章）
 
 ## 新建文章
 ```
-pnpm new
+bun run new
 # 或
-pnpm new -- 分类 "标题" [slug]
+bun run new -- 分类 "标题" [slug]
 ```
