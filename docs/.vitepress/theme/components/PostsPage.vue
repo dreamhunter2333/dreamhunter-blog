@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { CustomThemeConfig } from '../type'
 import JPagination from './base/JPagination.vue'
@@ -124,25 +124,21 @@ function formatDate(date: string) {
 }
 
 // 关闭下拉框（点击外部）
-function handleClickOutside(event: MouseEvent, type: 'category' | 'tag') {
-  const target = event.target as HTMLElement
-  const dropdown = document.querySelector(`.multi-select-${type}`)
-  if (dropdown && !dropdown.contains(target)) {
-    if (type === 'category') {
-      categoryDropdownOpen.value = false
-    } else {
-      tagDropdownOpen.value = false
-    }
-  }
+function handleClickOutside(event: Event) {
+  const target = event.target as Node
+  const catEl = document.querySelector('.multi-select-category')
+  const tagEl = document.querySelector('.multi-select-tag')
+  if (catEl && !catEl.contains(target)) categoryDropdownOpen.value = false
+  if (tagEl && !tagEl.contains(target)) tagDropdownOpen.value = false
 }
 
-// 添加全局点击监听
-if (typeof window !== 'undefined') {
-  document.addEventListener('click', (e) => {
-    handleClickOutside(e, 'category')
-    handleClickOutside(e, 'tag')
-  })
-}
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
@@ -157,6 +153,8 @@ if (typeof window !== 'undefined') {
             <button
               class="multi-select-trigger"
               :class="{ 'is-active': categoryDropdownOpen }"
+              :aria-expanded="categoryDropdownOpen"
+              aria-haspopup="listbox"
               @click="categoryDropdownOpen = !categoryDropdownOpen"
             >
               <span>{{ selectedCategories.length > 0 ? `分类 (${selectedCategories.length})` : '分类过滤' }}</span>
@@ -179,6 +177,8 @@ if (typeof window !== 'undefined') {
             <button
               class="multi-select-trigger"
               :class="{ 'is-active': tagDropdownOpen }"
+              :aria-expanded="tagDropdownOpen"
+              aria-haspopup="listbox"
               @click="tagDropdownOpen = !tagDropdownOpen"
             >
               <span>{{ selectedTags.length > 0 ? `标签 (${selectedTags.length})` : '标签过滤' }}</span>
@@ -205,11 +205,11 @@ if (typeof window !== 'undefined') {
       <div v-if="selectedCategories.length > 0 || selectedTags.length > 0" class="selected-filters">
         <span v-for="category in selectedCategories" :key="'cat-' + category" class="selected-tag">
           {{ category }}
-          <button class="remove-tag" @click="toggleCategory(category)">×</button>
+          <button class="remove-tag" :aria-label="`移除分类 ${category}`" @click="toggleCategory(category)">×</button>
         </span>
         <span v-for="tag in selectedTags" :key="'tag-' + tag" class="selected-tag selected-tag--tag">
           {{ tag }}
-          <button class="remove-tag" @click="toggleTag(tag)">×</button>
+          <button class="remove-tag" :aria-label="`移除标签 ${tag}`" @click="toggleTag(tag)">×</button>
         </span>
         <button class="clear-filters-inline" @click="clearFilters">清除全部</button>
       </div>
@@ -308,7 +308,7 @@ if (typeof window !== 'undefined') {
 .multi-select-trigger:hover, .multi-select-trigger.is-active {
   background: var(--vp-c-bg);
   border-color: var(--vp-c-brand-1);
-  box-shadow: 0 4px 12px rgba(0, 161, 214, 0.08);
+  box-shadow: var(--theme-shadow-md);
 }
 
 .multi-select-trigger svg {
@@ -409,14 +409,14 @@ if (typeof window !== 'undefined') {
   font-size: 0.75rem;
   padding: 0.25rem 0.625rem;
   border-radius: 99px;
-  background: rgba(0, 161, 214, 0.1);
-  color: var(--theme-primary-500);
+  background: var(--theme-cream-alt);
+  color: var(--vp-c-text-2);
   font-weight: 600;
 }
 
 .selected-tag--tag {
-  background: rgba(251, 114, 153, 0.1);
-  color: var(--theme-pink-500);
+  background: var(--theme-tag-secondary-bg);
+  color: var(--theme-tag-secondary);
 }
 
 .remove-tag {
@@ -441,9 +441,9 @@ if (typeof window !== 'undefined') {
   font-size: 0.75rem;
   padding: 0.25rem 0.75rem;
   border-radius: 99px;
-  border: 1px solid var(--theme-pink-500);
+  border: 1px solid var(--vp-c-divider);
   background: transparent;
-  color: var(--theme-pink-500);
+  color: var(--vp-c-text-2);
   cursor: pointer;
   transition: all 0.2s ease;
   font-weight: 600;
@@ -451,9 +451,9 @@ if (typeof window !== 'undefined') {
 }
 
 .clear-filters-inline:hover {
-  background: var(--theme-pink-500);
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(251, 114, 153, 0.3);
+  background: var(--vp-c-text-1);
+  color: var(--vp-c-bg);
+  border-color: var(--vp-c-text-1);
 }
 
 .posts-list {
@@ -483,11 +483,11 @@ if (typeof window !== 'undefined') {
 }
 
 .post-item:nth-child(odd)::after {
-  background: #00A1D6;
+  background: var(--theme-tag-primary);
 }
 
 .post-item:nth-child(even)::after {
-  background: #FB7299;
+  background: var(--theme-tag-secondary);
 }
 
 .post-item:hover {
@@ -562,21 +562,21 @@ if (typeof window !== 'undefined') {
 }
 
 .post-tag:nth-child(odd) {
-  background: rgba(0, 161, 214, 0.1);
-  color: #00A1D6;
+  background: var(--theme-tag-primary-bg);
+  color: var(--theme-tag-primary);
 }
 
 .post-tag:nth-child(even) {
-  background: rgba(251, 114, 153, 0.1);
-  color: #FB7299;
+  background: var(--theme-tag-secondary-bg);
+  color: var(--theme-tag-secondary);
 }
 
 .post-item:hover .post-tag:nth-child(odd) {
-  background: rgba(0, 161, 214, 0.15);
+  background: var(--theme-tag-primary-bg-hover);
 }
 
 .post-item:hover .post-tag:nth-child(even) {
-  background: rgba(251, 114, 153, 0.15);
+  background: var(--theme-tag-secondary-bg-hover);
 }
 
 .pagination-wrapper {

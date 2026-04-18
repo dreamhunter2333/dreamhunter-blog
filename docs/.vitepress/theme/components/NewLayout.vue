@@ -139,20 +139,20 @@ function goBack() {
 }
 
 .article-tag--primary {
-  background: rgba(0, 161, 214, 0.1);
-  color: #00A1D6;
+  background: var(--theme-tag-primary-bg);
+  color: var(--theme-tag-primary);
 }
 
 .article-tag--primary:hover {
-  background: rgba(0, 161, 214, 0.15);
+  background: var(--theme-tag-primary-bg-hover);
 }
 
 .article-tag--pink {
-  background: rgba(251, 114, 153, 0.1);
-  color: #FB7299;
+  background: var(--theme-tag-secondary-bg);
+  color: var(--theme-tag-secondary);
 }
 
 .article-tag--pink:hover {
-  background: rgba(251, 114, 153, 0.15);
+  background: var(--theme-tag-secondary-bg-hover);
 }
 </style>

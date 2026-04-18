@@ -17,7 +17,6 @@ const props = withDefaults(defineProps<Props>(), {
   tags: () => []
 })
 
-// 日期格式化器（只创建一次）
 const dateFormatter = new Intl.DateTimeFormat('zh-CN', {
   year: 'numeric',
   month: 'long',
@@ -28,7 +27,6 @@ function formatDate(date: string) {
   return dateFormatter.format(new Date(date))
 }
 
-// URL 验证
 function isValidUrl(url: string): boolean {
   try {
     const parsed = new URL(url)
@@ -41,9 +39,10 @@ function isValidUrl(url: string): boolean {
 
 <template>
   <component
-    :is="variant === 'default' ? 'a' : 'div'"
+    :is="variant === 'default' ? 'a' : 'article'"
     :href="variant === 'default' ? href : undefined"
     :aria-label="variant === 'default' ? `Read article: ${title}` : undefined"
+    :tabindex="undefined"
     :class="['modern-card', `modern-card--${variant}`]"
   >
     <h3 class="modern-card-title">{{ title }}</h3>
@@ -62,7 +61,7 @@ function isValidUrl(url: string): boolean {
         :href="githubUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="action-button action-button--github"
+        class="action-button"
         aria-label="View source on GitHub"
       >
         <GitHubIcon />
@@ -73,7 +72,7 @@ function isValidUrl(url: string): boolean {
         :href="demoUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="action-button action-button--demo"
+        class="action-button"
         aria-label="View live demo"
       >
         <ExternalLinkIcon />
@@ -87,108 +86,64 @@ function isValidUrl(url: string): boolean {
 .modern-card {
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 1.25rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  transition: border-color var(--theme-transition-fast),
+              background var(--theme-transition-fast),
+              box-shadow var(--theme-transition-fast),
+              transform var(--theme-transition-fast);
   display: flex;
   flex-direction: column;
   text-decoration: none;
   height: 100%;
-  position: relative;
-  overflow: hidden;
+  color: inherit;
+  box-shadow: var(--theme-shadow-sm);
 }
 
-.modern-card::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 3px;
-  transition: width 0.3s ease;
-}
-
-.modern-card:hover {
-  transform: translateY(-4px);
-  text-decoration: none;
-}
-
-.modern-card:hover::after {
-  width: 100%;
-}
-
-/* 默认样式 - 文章 */
 .modern-card--default {
-  padding: 1rem;
+  cursor: pointer;
 }
 
 .modern-card--default:hover {
-  box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.1);
+  border-color: var(--vp-c-border);
+  background: var(--vp-c-bg);
+  box-shadow: var(--theme-shadow-lg);
+  transform: translateY(-4px);
 }
 
-/* 项目样式 */
-.modern-card--project {
-  cursor: default;
-}
-
-.modern-card--project:hover {
-  box-shadow: 0 12px 24px -12px rgba(0, 161, 214, 0.15);
-}
-
-/* 工坊样式 */
+.modern-card--project,
 .modern-card--workshop {
   cursor: default;
-}
-
-.modern-card--workshop:hover {
-  box-shadow: 0 12px 24px -12px rgba(251, 114, 153, 0.15);
 }
 
 .modern-card-title {
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--vp-c-text-1);
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.625rem 0;
   line-height: 1.4;
+  transition: color var(--theme-transition-fast);
 }
 
-/* 默认样式 - 文章底部下划线（粉蓝间隔） */
-.modern-card--default:nth-child(odd)::after {
-  background: var(--theme-primary-500);
-}
-
-.modern-card--default:nth-child(even)::after {
-  background: var(--theme-pink-500);
-}
-
-/* 测试文章卡片描述更简洁 */
-.modern-card--default .modern-card-description {
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  margin-bottom: 0.5rem;
-}
-
-/* 项目样式 - 蓝色底部下划线 */
-.modern-card--project::after {
-  background: var(--theme-primary-500);
-}
-
-/* 工坊样式 - 粉色底部下划线 */
-.modern-card--workshop::after {
-  background: var(--theme-pink-500);
+.modern-card--default:hover .modern-card-title {
+  color: var(--theme-tag-primary);
 }
 
 .modern-card-description {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--vp-c-text-2);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  flex: 1;
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.modern-card--default .modern-card-description {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 .modern-card-footer {
@@ -210,46 +165,46 @@ function isValidUrl(url: string): boolean {
 .modern-card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.375rem;
   margin-left: auto;
 }
 
 .modern-card-tag {
-  font-size: 0.75rem;
-  padding: 0.25rem 0.625rem;
-  border-radius: 6px;
+  font-size: 12px;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
   font-weight: 500;
+  border: 1px solid transparent;
+  transition: all var(--theme-transition-fast);
 }
 
-/* 默认标签样式 - 粉蓝间隔 */
-.modern-card--default .modern-card-tag:nth-child(odd) {
-  background: rgba(0, 161, 214, 0.1);
-  color: var(--theme-primary-500);
+.modern-card-tag:nth-child(odd) {
+  background: var(--theme-tag-primary-bg);
+  color: var(--theme-tag-primary);
+  border-color: var(--theme-tag-primary-border);
 }
 
-.modern-card--default .modern-card-tag:nth-child(even) {
-  background: rgba(251, 114, 153, 0.1);
-  color: var(--theme-pink-500);
+.modern-card-tag:nth-child(even) {
+  background: var(--theme-tag-secondary-bg);
+  color: var(--theme-tag-secondary);
+  border-color: var(--theme-tag-secondary-border);
 }
 
-/* 项目标签样式 */
-.modern-card--project .modern-card-tag {
-  background: rgba(0, 161, 214, 0.1);
-  color: var(--theme-primary-500);
+.modern-card:hover .modern-card-tag:nth-child(odd) {
+  background: var(--theme-tag-primary-bg-hover);
+  border-color: var(--theme-tag-primary-border-hover);
 }
 
-/* 工坊标签样式 */
-.modern-card--workshop .modern-card-tag {
-  background: rgba(251, 114, 153, 0.1);
-  color: var(--theme-pink-500);
+.modern-card:hover .modern-card-tag:nth-child(even) {
+  background: var(--theme-tag-secondary-bg-hover);
+  border-color: var(--theme-tag-secondary-border-hover);
 }
 
-/* 操作按钮区域 */
 .modern-card-actions {
   display: flex;
   gap: 0.75rem;
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
   border-top: 1px solid var(--vp-c-divider);
 }
 
@@ -262,41 +217,23 @@ function isValidUrl(url: string): boolean {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 6px;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: background var(--theme-transition-fast),
+              border-color var(--theme-transition-fast),
+              color var(--theme-transition-fast);
   background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-divider);
   color: var(--vp-c-text-2);
 }
 
+.action-button:hover {
+  border-color: var(--theme-text-strong);
+  color: var(--theme-text-strong);
+  background: var(--vp-c-bg-soft);
+}
+
 .action-button svg {
   flex-shrink: 0;
-}
-
-/* 项目卡片的按钮 - 粉色（与蓝色横线相对） */
-.modern-card--project .action-button--github:hover {
-  color: var(--theme-pink-500);
-  border-color: var(--theme-pink-500);
-  background: rgba(251, 114, 153, 0.05);
-}
-
-.modern-card--project .action-button--demo:hover {
-  color: var(--theme-pink-500);
-  border-color: var(--theme-pink-500);
-  background: rgba(251, 114, 153, 0.05);
-}
-
-/* 工坊卡片的按钮 - 蓝色（与粉色横线相对） */
-.modern-card--workshop .action-button--github:hover {
-  color: var(--theme-primary-500);
-  border-color: var(--theme-primary-500);
-  background: rgba(0, 161, 214, 0.05);
-}
-
-.modern-card--workshop .action-button--demo:hover {
-  color: var(--theme-primary-500);
-  border-color: var(--theme-primary-500);
-  background: rgba(0, 161, 214, 0.05);
 }
 </style>

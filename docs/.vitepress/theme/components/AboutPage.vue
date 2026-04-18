@@ -142,14 +142,14 @@ const getIcon = (icon: string) => {
   height: 96px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid rgba(0, 161, 214, 0.2);
+  border: 3px solid var(--vp-c-divider);
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .avatar:hover {
   transform: scale(1.05) rotate(5deg);
   border-color: var(--vp-c-brand-1);
-  box-shadow: 0 8px 24px rgba(0, 161, 214, 0.25);
+  box-shadow: var(--theme-shadow-lg);
 }
 
 .about-name {
